@@ -1,0 +1,5 @@
+Akkermansiaceae bacterium UBA7890   DLRK01.1.gbff
+Akkermansiaceae bacterium UBA7329   DKPR01.1.gbff
+Akkermansiaceae bacterium UBA7331  DKPP01.1.gbff
+Akkermansiaceae bacterium UBA5688  DIHU01.1.gbff
+Akkermansiaceae bacterium UBA4589  DGJT01.1.gbff

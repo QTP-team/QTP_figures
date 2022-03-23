@@ -1,0 +1,100 @@
+---
+title: "genus_tree"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r cars}
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# 
+# BiocManager::install("ggtree")
+# install.packages("ggtree")
+#install.packages("phytools")
+#install.packages("treeio")
+library(treeio)
+library(tidyverse)
+library(readr)
+library(ggtree)
+library(cowplot)
+library(RColorBrewer)
+library(aplot)
+library(ggplot2)
+library(phytools)
+```
+
+## 1.T1900044928_TS20190394_bin.235
+
+```{r pressure, echo=FALSE}
+data.235 <- read.table("0.data/01.txt/T1900044928_TS20190394_bin.235.txt", header = T)
+
+for( i in 1:dim(data.235)[1]){
+  if(data.235[i,2] == "Tibetan_Antelope"){
+    data.235[i,3] = "#0000CD"
+  }
+  if(data.235[i,2] == "Tibetan_Ass"){
+    data.235[i,3] = "#DC143B"
+  }
+  if(data.235[i,2] == "Tibetan_Cattle"){
+    data.235[i,3] = "#00FF00"
+  }
+  if(data.235[i,2] == "Tibetan_Horse"){
+    data.235[i,3] = "#FF99FF"
+  }
+  if(data.235[i,2] == "Tibetan_Sheep"){
+    data.235[i,3] = "#33FFCC"
+  }
+  if(data.235[i,2] == "Tibetan_Yak"){
+    data.235[i,3] = "#336600"
+  }
+}
+data.235[,4] <- c("clade")
+data.235[,5] <- c("normal")
+data.235[,6] <- c("1")
+data.235[,7] <- c("label")
+# clade <- data.235[,c(1,4,3,5,6)]
+# write.table(clade, file = "0.data/03.itol/235_clade.txt")
+label <- data.235[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/235_label.txt")
+```
+
+
+## 2.T1900044928_TS20190394_bin.278
+
+```{r pressure, echo=FALSE}
+data.278 <- read.table("0.data/01.txt/T1900045314_YK20190003_bin.278.txt", header = T)
+
+for( i in 1:dim(data.278)[1]){
+  if(data.278[i,2] == "Tibetan_Antelope"){
+    data.278[i,3] = "#0000CD"
+  }
+  if(data.278[i,2] == "Tibetan_Ass"){
+    data.278[i,3] = "#DC143B"
+  }
+  if(data.278[i,2] == "Tibetan_Cattle"){
+    data.278[i,3] = "#00FF00"
+  }
+  if(data.278[i,2] == "Tibetan_Horse"){
+    data.278[i,3] = "#FF99FF"
+  }
+  if(data.278[i,2] == "Tibetan_Sheep"){
+    data.278[i,3] = "#33FFCC"
+  }
+  if(data.278[i,2] == "Tibetan_Yak"){
+    data.278[i,3] = "#336600"
+  }
+}
+data.278[,4] <- c("clade")
+data.278[,5] <- c("normal")
+data.278[,6] <- c("1")
+data.278[,7] <- c("label")
+# clade <- data.278[,c(1,4,3,5,6)]
+# write.table(clade, file = "0.data/03.itol/278_clade.txt")
+label <- data.278[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/278_label.txt")
+```

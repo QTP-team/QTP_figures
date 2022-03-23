@@ -1,0 +1,7 @@
+OTU_ID	phylum	detail
+TA	N1	TA
+TH	N1	TH
+TAN	N2	TAN
+TS	N2	TS
+Yak	N3	Yak
+TC	N3	TC

@@ -1,0 +1,17 @@
+SGB	Host
+SGB_15385	Tibetanass
+SGB_15391	Tibetanass
+SGB_15387	Tibetanhorse
+SGB_15382	Tibetanhorse
+SGB_15405	Tibetansheep
+SGB_15370	Tibetansheep
+SGB_15398	Tibetansheep
+SGB_15375	Tibetansheep
+SGB_15401	Tibetansheep
+SGB_15368	Tibetansheep
+SGB_15376	Tibetansheep
+SGB_15406	Tibetansheep
+SGB_15374	Tibetansheep
+SGB_15403	Tibetansheep
+SGB_15397	Tibetansheep
+SGB_15402	Tibetancattle

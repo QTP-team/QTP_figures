@@ -1,0 +1,128 @@
+---
+title: "tree"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r cars}
+library(ggtree)
+library(tidyverse)
+#install.packages("vegan")
+library(vegan)
+
+merge_profile <- function(profile.dir, file.suffix){
+  RA.file.lst = list()
+  n <-  1
+  for (RA.file in dir(profile.dir)) {
+  if (endsWith(RA.file, file.suffix)) {
+    RA.file.lst[n] <- RA.file
+    n = n + 1
+  }
+  }
+  
+  RA.file.lst = unlist(RA.file.lst)
+  
+  all.merge.RA <- read_csv(paste0(profile.dir, RA.file.lst[1]))
+  
+  for (RA.file in RA.file.lst[-1]){
+  tmp.RA <- read_csv(paste0(profile.dir, RA.file))
+  all.merge.RA <- full_join(all.merge.RA, tmp.RA)
+  }
+  
+  all.merge.RA[is.na(all.merge.RA)] <- 0 
+  
+  return(all.merge.RA)
+}
+```
+
+## 1.all_ggtree
+
+```{r pressure, echo=FALSE}
+### all
+p.merge.dset <- merge_profile("0.data/02.profile/species/", "profile.csv")
+all.profile.mat <- t(as.matrix(p.merge.dset[-1]))
+colnames(all.profile.mat) <- p.merge.dset[[1]]
+all.bc <- vegdist(all.profile.mat, method="bray")
+
+all.hc <- hclust(all.bc, method="complete")
+
+### anno
+meta.dset <- read_csv("0.data/01.summary/TableS0_samples_info.csv")
+
+hc.anno <- tibble(Sample_ID = all.hc$labels, order = all.hc$order) %>%
+  arrange(order) %>%
+  left_join(meta.dset, by = "Sample_ID")
+  
+hc.anno.otu <- list(Antelope = hc.anno %>% filter(Host == "Tibetan_Antelope") %>% .$Sample_ID,
+                     Ass = hc.anno %>% filter(Host == "Tibetan_Ass") %>% .$Sample_ID,
+                     Cattle = hc.anno %>% filter(Host == "Tibetan_Cattle") %>% .$Sample_ID,
+                     Horse = hc.anno %>% filter(Host == "Tibetan_Horse") %>% .$Sample_ID,
+                     Sheep = hc.anno %>% filter(Host == "Tibetan_Sheep") %>% .$Sample_ID,
+                     Yak = hc.anno %>% filter(Host == "Tibetan_Yak") %>% .$Sample_ID)
+
+p.hc <- ggtree(all.hc, branch.length='none') + geom_rootedge(rootedge = 0.5)
+p.hc.anno <- groupOTU(p.hc, hc.anno.otu, 'Host') + aes(color = Host) + scale_color_manual("Host", values = c("#0000CD", "#DC143B", "#00FF00", "#FF99FF", "#33FFCC", "#336600"))# + geom_label(aes(label=node))
+p.hc.anno.done <- rotate(p.hc.anno, 1441) %>% rotate(1436) %>% rotate(1434) %>% rotate(1417) %>% rotate(1414)
+
+# p <- collapse(p.hc.anno.done, 1426, 'mixed', fill='#FFD92F', alpha=.4) %>%
+#   collapse(1423, 'mixed', fill='#A6D854', alpha=.4) %>%
+#   collapse(1442, 'mixed', fill='#8DA0CB', alpha=.4) %>%
+#   collapse(1487, 'mixed', fill='#E78AC3', alpha=.4) %>%
+#   collapse(1433, 'mixed', fill='#E78AC3', alpha=.4) %>%
+#   collapse(1451, 'mixed', fill='#66C2A5', alpha=.4) %>%
+#   collapse(1443, 'mixed', fill='#66C2A5', alpha=.4) %>%
+#   collapse(1452, 'mixed', fill='#FC8D62', alpha=.4)
+
+ggsave("1.result/all.pdf", p.hc.anno.done, width = 6, height = 10)
+```
+
+
+## 2.core_50_ggtree
+
+```{r pressure, echo=FALSE}
+p.merge.dset <- merge_profile("0.data/02.profile/species/", "profile.csv")
+data1 <- read.table("0.data/core_50_sgb.txt")
+colnames(data1) <- c("SGB_ID")
+p.merge.dset1 <- merge(p.merge.dset, data1)
+all.profile.mat1 <- t(as.matrix(p.merge.dset1[-1]))
+colnames(all.profile.mat1) <- p.merge.dset1[[1]]
+all.bc1 <- vegdist(all.profile.mat1, method="bray")
+
+all.hc1 <- hclust(all.bc1, method="complete")
+
+### anno
+meta.dset1 <- read_csv("0.data/01.summary/TableS0_samples_info.csv")
+
+hc.anno1 <- tibble(Sample_ID = all.hc1$labels, order = all.hc1$order) %>%
+  arrange(order) %>%
+  left_join(meta.dset1, by = "Sample_ID")
+  
+hc.anno.otu1 <- list(Antelope = hc.anno1 %>% filter(Host == "Tibetan_Antelope") %>% .$Sample_ID,
+                     Ass = hc.anno1 %>% filter(Host == "Tibetan_Ass") %>% .$Sample_ID,
+                     Cattle = hc.anno1 %>% filter(Host == "Tibetan_Cattle") %>% .$Sample_ID,
+                     Horse = hc.anno1 %>% filter(Host == "Tibetan_Horse") %>% .$Sample_ID,
+                     Sheep = hc.anno1 %>% filter(Host == "Tibetan_Sheep") %>% .$Sample_ID,
+                     Yak = hc.anno1 %>% filter(Host == "Tibetan_Yak") %>% .$Sample_ID)
+
+p.hc1 <- ggtree(all.hc1, branch.length='none') + geom_rootedge(rootedge = 0.5)
+p.hc.anno1 <- groupOTU(p.hc1, hc.anno.otu1, 'Host') + aes(color = Host) + scale_color_manual("Host", values = c("#0000CD", "#DC143B", "#00FF00", "#FF99FF", "#33FFCC", "#336600")) #+ geom_label(aes(label=node))
+#p.hc.anno.done1 <- rotate(p.hc.anno1, 1430) %>% rotate(1444) %>% rotate(1436) %>% rotate(1413) %>% rotate(1415) %>% rotate(1420) %>% rotate(1419)
+p.hc.anno.done1 <- rotate(p.hc.anno1, 1430) %>% rotate(1444) %>% rotate(1436) %>% rotate(1414) %>% rotate(1415) 
+
+# p <- collapse(p.hc.anno.done, 1426, 'mixed', fill='#FFD92F', alpha=.4) %>%
+#   collapse(1423, 'mixed', fill='#A6D854', alpha=.4) %>%
+#   collapse(1442, 'mixed', fill='#8DA0CB', alpha=.4) %>%
+#   collapse(1487, 'mixed', fill='#E78AC3', alpha=.4) %>%
+#   collapse(1433, 'mixed', fill='#E78AC3', alpha=.4) %>%
+#   collapse(1451, 'mixed', fill='#66C2A5', alpha=.4) %>%
+#   collapse(1443, 'mixed', fill='#66C2A5', alpha=.4) %>%
+#   collapse(1452, 'mixed', fill='#FC8D62', alpha=.4)
+
+#ggsave("core_50_test.pdf", p.hc.anno1, width = 6, height = 20)
+ggsave("1.result/core_50.pdf", p.hc.anno.done1, width = 6, height = 10)
+```

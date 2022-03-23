@@ -1,0 +1,725 @@
+---
+title: "work"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readr)
+library(ggtree)
+library(cowplot)
+library(RColorBrewer)
+library(aplot)
+```
+
+## R Markdown
+
+```{r cars}
+data <- read.table("0.data/data.txt", header = T, sep = "\t")
+data1 <- read.table("0.data/data1.txt", header = T, sep = "\t")
+present <- merge(data, data1)
+#write.table(present[,5], file = "core_50_sgb.txt")
+present <- present[,-1]
+
+present[,5] <- present[,1]
+present[,6] <- present[,1]
+present[,7] <- present[,1]
+present[,8] <- present[,1]
+present[,9] <- present[,1]
+present[,10] <- present[,1]
+present[,11] <- present[,1]
+present[,12] <- present[,1]
+present[,13] <- present[,1]
+present[,14] <- present[,1]
+present[,15] <- present[,1]
+
+
+for (i in 1:6927) { if (present[i,5] == "N5") { present[i,5] <- "N5" } 
+  else { present[i,5] <- "NA" } }
+for (i in 1:6927) { if (present[i,6] == "N4") { present[i,6] <- "N4" } 
+  else { present[i,6] <- "NA" } }
+for (i in 1:6927) { if (present[i,7] == "N3") { present[i,7] <- "N3" } 
+  else { present[i,7] <- "NA" } }
+for (i in 1:6927) { if (present[i,8] == "N2") { present[i,8] <- "N2" } 
+  else { present[i,8] <- "NA" } }
+for (i in 1:6927) { if (present[i,9] == "N1") { present[i,9] <- "N1" } 
+  else { present[i,9] <- "NA" } }
+for (i in 1:6927) { if (present[i,10] == "Tibetanass") { present[i,10] <- "Tibetanass" } 
+  else { present[i,10] <- "NA" } }
+for (i in 1:6927) { if (present[i,11] == "Tibetanhorse") { present[i,11] <- "Tibetanhorse" } 
+  else { present[i,11] <- "NA" } }
+for (i in 1:6927) { if (present[i,12] == "Tibetanantelope") { present[i,12] <- "Tibetanantelope" } 
+  else { present[i,12] <- "NA" } }
+for (i in 1:6927) { if (present[i,13] == "Tibetansheep") { present[i,13] <- "Tibetansheep" } 
+  else { present[i,13] <- "NA" } }
+for (i in 1:6927) { if (present[i,14] == "Yak") { present[i,14] <- "Yak" } 
+  else { present[i,14] <- "NA" } }
+for (i in 1:6927) { if (present[i,15] == "Tibetancattle") { present[i,15] <- "Tibetancattle" } 
+  else { present[i,15] <- "NA" } }
+
+host.order.present <- present[,c(4,5,6,7,8,9,10,11,12,13,14,15,2,3)]
+colnames(host.order.present) <- c("SGB", "N5", "N4", "N3", "N2", "N1",
+                                  "Tibetanass", "Tibetanhorse",
+                                  "Tibetanantelope", "Tibetansheep", 
+                                  "Yak", "Tibetancattle",
+                                  "GTDB_phylum", "GTDB_genus")
+
+
+host.order.present.dset <- tibble(SGB = present[,4], SGB_N5 = host.order.present$N5, 
+                                  SGB_N4 = host.order.present$N4,
+                                  SGB_N3 = host.order.present$N3, 
+                                  SGB_N2 = host.order.present$N2, 
+                                  SGB_N1 = host.order.present$N1,
+                                  Yak = host.order.present$Yak,
+                                  Sheep = host.order.present$Tibetansheep,
+                                  Antelope = host.order.present$Tibetanantelope,
+                                  Cattle = host.order.present$Tibetancattle,
+                                  Horse = host.order.present$Tibetanhorse,
+                                  Ass = host.order.present$Tibetanass,
+                                  GTDB_phylum = host.order.present$GTDB_phylum,
+                                  GTDB_genus = host.order.present$GTDB_genus) %>%
+  mutate(SGB = paste0(str_remove(SGB, ".fa"), "_protein"),
+         SGB_N5 = as_factor(SGB_N5), SGB_N4 = as_factor(SGB_N4),
+         SGB_N3 = as_factor(SGB_N3), SGB_N2 = as_factor(SGB_N2),
+         SGB_N1 = as_factor(SGB_N1),
+         Yak = as_factor(Yak), Sheep = as_factor(Sheep),
+         Cattle = as_factor(Cattle), Antelope = as_factor(Antelope),
+         Horse = as_factor(Horse), Ass = as_factor(Ass),
+         GTDB_phylum = as_factor(GTDB_phylum), GTDB_genus = as_factor(GTDB_genus))
+
+new.host.order.present.dset <- host.order.present.dset
+
+```
+
+## 1.Firmicutes_A
+
+```{r pressure, echo=FALSE}
+###data
+present.tree <- treeio::read.newick("0.data/01.tree/core_50_present_p_Firmicutes_A_figtree")
+
+anno.present <- tibble(SGB = present.tree$tip.label) %>%
+  mutate(node = row_number()) %>%
+  left_join(new.host.order.present.dset, by = "SGB")
+genus.top20 <- anno.present %>% count(GTDB_genus) %>% slice_max(order_by = n, n = 20)
+anno.otu.present <- list("g__" = anno.present %>% filter(GTDB_genus == "g__") %>% .$SGB,
+                         "g__CAG-110" = anno.present %>% filter(GTDB_genus == "g__CAG-110") %>% .$SGB,
+                         "g__UMGS1696" = anno.present %>% filter(GTDB_genus == "g__UMGS1696") %>% .$SGB,
+                         "g__Acetatifactor" = anno.present %>% filter(GTDB_genus == "g__Acetatifactor") %>% .$SGB,
+                         "g__CAG-448" = anno.present %>% filter(GTDB_genus == "g__CAG-448") %>% .$SGB,
+                         "g__UBA1740" = anno.present %>% filter(GTDB_genus == "g__UBA1740") %>% .$SGB,
+                         "g__DTU089_A" = anno.present %>% filter(GTDB_genus == "g__DTU089_A") %>% .$SGB,
+                         "g__UBA2868" = anno.present %>% filter(GTDB_genus == "g__UBA2868") %>% .$SGB,
+                         "g__UMGS1002" = anno.present %>% filter(GTDB_genus == "g__UMGS1002") %>% .$SGB,
+                         "g__Faecalimonas" = anno.present %>% filter(GTDB_genus == "g__Faecalimonas") %>% .$SGB,
+                         "g__Agathobacter" = anno.present %>% filter(GTDB_genus == "g__Agathobacter") %>% .$SGB,
+                         "g__Ruminococcus" = anno.present %>% filter(GTDB_genus == "g__Ruminococcus") %>% .$SGB)
+tree <- ggtree(present.tree, size=0.1) + geom_rootedge(rootedge = 0.05)
+
+tree_plot <- groupOTU(tree,anno.otu.present,'GTDB_genus') +
+  aes(color = GTDB_genus) + 
+  scale_color_manual(values =c("#000000", "#377EB8", "#4DAF4A" ,"#984EA3" ,
+                               "#FF7F00" ,"#DA70D6" ,"#A65628", "#F781BF","#FFD700", "#6495ED","#5BC9E1","#5F9EA0","#EE1289"))
+
+###taxo
+
+N5.taxon <- anno.present %>% 
+  mutate(SGB_N5,
+         xlab = "N5")
+N5.plot <- ggplot(N5.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N5))  +
+  scale_fill_manual(values = c("NA" = "#FFFFFF", "N5"  = "#BEBEBE")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none") 
+   
+
+ N4.taxon <- anno.present %>%
+   mutate(SGB_N4,
+          xlab = "N4")
+ N4.taxon$SGB_N4 <- factor(N4.taxon$SGB_N4, levels = c("NA", "N4"))
+ N4.plot <- ggplot(N4.taxon, aes(x = xlab, y = SGB)) +
+   geom_tile(aes(fill = SGB_N4)) +
+   scale_fill_manual(values=c("NA" = "#FFFFFF", "N4" = "#228B22")) +
+   labs(x = "", y = "") +
+   theme(axis.text.y = element_blank(),
+         axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+         axis.ticks.y = element_blank(),
+         panel.border = element_blank(),
+         panel.grid =element_blank(),
+         axis.ticks = element_blank(),
+        legend.position="none")
+
+N1.taxon <- anno.present %>% 
+  mutate(SGB_N1,
+         xlab = "N1")
+N1.taxon$SGB_N1 <- factor(N1.taxon$SGB_N1, levels = c("NA", "N1"))
+N1.plot <- ggplot(N1.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N1)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF","N1" = "#F08080")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+N2.taxon <- anno.present %>% 
+  mutate(SGB_N2,
+         xlab = "N2")
+N2.taxon$SGB_N2 <- factor(N2.taxon$SGB_N2, levels = c("NA", "N2"))
+N2.plot <- ggplot(N2.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N2)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF","N2" = "#E066FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+N3.taxon <- anno.present %>% 
+  mutate(SGB_N3,
+         xlab = "N3")
+N3.taxon$SGB_N3 <- factor(N3.taxon$SGB_N3, levels = c("NA", "N3"))
+N3.plot <- ggplot(N3.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N3)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "N3" = "#8470FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+Yak.taxon <- anno.present %>% 
+  mutate(Yak,
+         xlab = "Yak")
+Yak.taxon$Yak <- factor(Yak.taxon$Yak, levels = c("NA", "Yak"))
+Yak.plot <- ggplot(Yak.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Yak)) +
+  scale_fill_manual(values=c("NA"="#FFFFFF", "Yak"="#336600")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+Sheep.taxon <- anno.present %>% 
+  mutate(Sheep,
+         xlab = "Tibetan sheep")
+Sheep.taxon$Sheep <- factor(Sheep.taxon$Sheep, levels = c("NA", "Tibetansheep"))
+Sheep.plot <- ggplot(Sheep.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Sheep)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetansheep"="#8A2BE2")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Ass.taxon <- anno.present %>% 
+  mutate(Ass,
+         xlab = "Tibetan ass")
+Ass.taxon$Ass <- factor(Ass.taxon$Ass, levels = c("NA", "Tibetanass"))
+Ass.plot <- ggplot(Ass.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Ass)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanass"="#DC143B")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+Antelope.taxon <- anno.present %>% 
+  mutate(Antelope,
+         xlab = "Tibetan antelope")
+Antelope.taxon$Antelope <- factor(Antelope.taxon$Antelope, levels = c("NA", "Tibetanantelope"))
+Antelope.plot <- ggplot(Antelope.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Antelope)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanantelope"="#0000CD")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Horse.taxon <- anno.present %>% 
+  mutate(Horse,
+         xlab = "Tibetan horse")
+Horse.taxon$Horse <- factor(Horse.taxon$Horse, levels = c("NA", "Tibetanhorse"))
+Horse.plot <- ggplot(Horse.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Horse)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanhorse"="#FF99FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Cattle.taxon <- anno.present %>% 
+  mutate(Cattle,
+         xlab = "Tibetan cattle")
+Cattle.taxon$Cattle <- factor(Cattle.taxon$Cattle, levels = c("NA", "Tibetancattle"))
+Cattle.plot <- ggplot(Cattle.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Cattle)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetancattle"="#00FF00")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+p.merge <-  N5.plot  %>% 
+  insert_left(tree_plot, width = 5) %>%
+  insert_right(Ass.plot, width = 0.2) %>%
+  insert_right(N1.plot, width = 0.2) %>%
+  insert_right(Horse.plot, width = 0.2) %>%
+  insert_right(Antelope.plot, width = 0.2) %>%
+  insert_right(Sheep.plot, width = 0.2) %>%
+  insert_right(N3.plot, width = 0.2) %>%
+  insert_right(N4.plot, width = 0.2) %>%
+  insert_right(N2.plot, width = 0.2) %>%
+  insert_right(Yak.plot, width = 0.2) %>%
+  insert_right(Cattle.plot, width = 0.2)
+ggsave("1.result/Firmicutes_A.pdf", p.merge,width = 20,height = 50, limitsize = FALSE)
+```
+
+## 2.Bacteroidota
+
+```{r pressure, echo=FALSE}
+present.tree <- treeio::read.newick("0.data/01.tree/core_50_present_p_Bacteroidota_figtree")
+
+anno.present <- tibble(SGB = present.tree$tip.label) %>%
+  mutate(node = row_number()) %>%
+  left_join(new.host.order.present.dset, by = "SGB")
+genus.top20 <- anno.present %>% count(GTDB_genus) %>% slice_max(order_by = n, n = 20)
+anno.otu.present <- list("g__RC9" = anno.present %>% filter(GTDB_genus == "g__RC9") %>% .$SGB,
+                         "g__" = anno.present %>% filter(GTDB_genus == "g__") %>% .$SGB,
+                         "g__Alistipes" = anno.present %>% filter(GTDB_genus == "g__Alistipes") %>% .$SGB,
+                         "g__RF16" = anno.present %>% filter(GTDB_genus == "g__RF16") %>% .$SGB,
+                         "g__Phocaeicola" = anno.present %>% filter(GTDB_genus == "g__Phocaeicola") %>% .$SGB,
+                         "g__F082" = anno.present %>% filter(GTDB_genus == "g__F082") %>% .$SGB,
+                         "g__UBA1189" = anno.present %>% filter(GTDB_genus == "g__UBA1189") %>% .$SGB,
+                         "g__UBA3663" = anno.present %>% filter(GTDB_genus == "g__UBA3663") %>% .$SGB,
+                         "g__UBA1232" = anno.present %>% filter(GTDB_genus == "g__UBA1232") %>% .$SGB,
+                         "g__UBA4372" = anno.present %>% filter(GTDB_genus == "g__UBA4372") %>% .$SGB)
+tree <- ggtree(present.tree,size=0.5)  + geom_rootedge(rootedge = 0.05)
+
+tree_plot <- groupOTU(tree,anno.otu.present,'GTDB_genus') +
+  aes(color = GTDB_genus) + 
+  scale_color_manual(values =c("#000000", "#377EB8", "#4DAF4A" ,"#984EA3" ,
+                               "#FF7F00" ,"#DA70D6" ,"#A65628", "#F781BF",
+                               "#6495ED","#5BC9E1","#5F9EA0"))
+N5.taxon <- anno.present %>% 
+  mutate(SGB_N5,
+         xlab = "N5")
+N5.plot <- ggplot(N5.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N5))  +
+  scale_fill_manual(values = c("NA" = "#FFFFFF", "N5"  = "#BEBEBE")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none") 
+   
+
+ N4.taxon <- anno.present %>%
+   mutate(SGB_N4,
+          xlab = "N4")
+ N4.taxon$SGB_N4 <- factor(N4.taxon$SGB_N4, levels = c("NA", "N4"))
+ N4.plot <- ggplot(N4.taxon, aes(x = xlab, y = SGB)) +
+   geom_tile(aes(fill = SGB_N4)) +
+   scale_fill_manual(values=c("NA" = "#FFFFFF", "N4" = "#228B22")) +
+   labs(x = "", y = "") +
+   theme(axis.text.y = element_blank(),
+         axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+         axis.ticks.y = element_blank(),
+         panel.border = element_blank(),
+         panel.grid =element_blank(),
+         axis.ticks = element_blank(),
+        legend.position="none")
+
+N1.taxon <- anno.present %>% 
+  mutate(SGB_N1,
+         xlab = "N1")
+N1.taxon$SGB_N1 <- factor(N1.taxon$SGB_N1, levels = c("NA", "N1"))
+N1.plot <- ggplot(N1.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N1)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF","N1" = "#F08080")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+N2.taxon <- anno.present %>% 
+  mutate(SGB_N2,
+         xlab = "N2")
+N2.taxon$SGB_N2 <- factor(N2.taxon$SGB_N2, levels = c("NA", "N2"))
+N2.plot <- ggplot(N2.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N2)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF","N2" = "#E066FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+N3.taxon <- anno.present %>% 
+  mutate(SGB_N3,
+         xlab = "N3")
+N3.taxon$SGB_N3 <- factor(N3.taxon$SGB_N3, levels = c("NA", "N3"))
+N3.plot <- ggplot(N3.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N3)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "N3" = "#8470FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+Yak.taxon <- anno.present %>% 
+  mutate(Yak,
+         xlab = "Yak")
+Yak.taxon$Yak <- factor(Yak.taxon$Yak, levels = c("NA", "Yak"))
+Yak.plot <- ggplot(Yak.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Yak)) +
+  scale_fill_manual(values=c("NA"="#FFFFFF", "Yak"="#336600")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+Sheep.taxon <- anno.present %>% 
+  mutate(Sheep,
+         xlab = "Tibetan sheep")
+Sheep.taxon$Sheep <- factor(Sheep.taxon$Sheep, levels = c("NA", "Tibetansheep"))
+Sheep.plot <- ggplot(Sheep.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Sheep)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetansheep"="#8A2BE2")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Ass.taxon <- anno.present %>% 
+  mutate(Ass,
+         xlab = "Tibetan ass")
+Ass.taxon$Ass <- factor(Ass.taxon$Ass, levels = c("NA", "Tibetanass"))
+Ass.plot <- ggplot(Ass.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Ass)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanass"="#DC143B")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+Antelope.taxon <- anno.present %>% 
+  mutate(Antelope,
+         xlab = "Tibetan antelope")
+Antelope.taxon$Antelope <- factor(Antelope.taxon$Antelope, levels = c("NA", "Tibetanantelope"))
+Antelope.plot <- ggplot(Antelope.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Antelope)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanantelope"="#0000CD")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Horse.taxon <- anno.present %>% 
+  mutate(Horse,
+         xlab = "Tibetan horse")
+Horse.taxon$Horse <- factor(Horse.taxon$Horse, levels = c("NA", "Tibetanhorse"))
+Horse.plot <- ggplot(Horse.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Horse)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanhorse"="#FF99FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Cattle.taxon <- anno.present %>% 
+  mutate(Cattle,
+         xlab = "Tibetan cattle")
+Cattle.taxon$Cattle <- factor(Cattle.taxon$Cattle, levels = c("NA", "Tibetancattle"))
+Cattle.plot <- ggplot(Cattle.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Cattle)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetancattle"="#00FF00")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+p.merge <-  N5.plot  %>% 
+  insert_left(tree_plot, width = 5) %>%
+  insert_right(Ass.plot, width = 0.2) %>%
+  insert_right(N1.plot, width = 0.2) %>%
+  insert_right(Horse.plot, width = 0.2) %>%
+  insert_right(Antelope.plot, width = 0.2) %>%
+  insert_right(Sheep.plot, width = 0.2) %>%
+  insert_right(N3.plot, width = 0.2) %>%
+  insert_right(N4.plot, width = 0.2) %>%
+  insert_right(N2.plot, width = 0.2) %>%
+  insert_right(Yak.plot, width = 0.2) %>%
+  insert_right(Cattle.plot, width = 0.2)
+ggsave("1.result/Bacteroidota.pdf", p.merge,width = 20,height = 40)
+```
+
+## 3.Verrucomicrobiota
+
+```{r pressure, echo=FALSE}
+present.tree <- treeio::read.newick("0.data/01.tree/core_50_present_p_Verrucomicrobiota_figtree")
+
+anno.present <- tibble(SGB = present.tree$tip.label) %>%
+  mutate(node = row_number()) %>%
+  left_join(new.host.order.present.dset, by = "SGB")
+genus.top20 <- anno.present %>% count(GTDB_genus) %>% slice_max(order_by = n, n = 20)
+anno.otu.present <- list("g__Akkermansia" = anno.present %>% filter(GTDB_genus == "g__Akkermansia") %>% .$SGB,
+                         "g__UBA1067" = anno.present %>% filter(GTDB_genus == "g__UBA1067") %>% .$SGB,
+                         "g__" = anno.present %>% filter(GTDB_genus == "g__") %>% .$SGB,
+                         "g__UBA1784" = anno.present %>% filter(GTDB_genus == "g__UBA1784") %>% .$SGB,
+                         "g__UBA1731" = anno.present %>% filter(GTDB_genus == "g__UBA1731") %>% .$SGB,
+                         "g__RUG572" = anno.present %>% filter(GTDB_genus == "g__RUG572") %>% .$SGB,
+                         "g__UBA11452" = anno.present %>% filter(GTDB_genus == "g__UBA11452") %>% .$SGB,
+                         "g__UBA1776" = anno.present %>% filter(GTDB_genus == "g__UBA1776") %>% .$SGB,
+                         "g__CAG-312" = anno.present %>% filter(GTDB_genus == "g__CAG-312") %>% .$SGB,
+                         "g__UBA1724" = anno.present %>% filter(GTDB_genus == "g__UBA1724") %>% .$SGB)
+tree <- ggtree(present.tree,size=0.5) + geom_rootedge(rootedge = 0.05)
+tree_plot <- groupOTU(tree,anno.otu.present,'GTDB_genus') +
+  aes(color = GTDB_genus) + 
+  scale_color_manual(values =c("#000000", "#377EB8", "#4DAF4A" ,"#984EA3" ,
+                               "#FF7F00" ,"#DA70D6" ,"#A65628", "#F781BF",
+                               "#6495ED","#5BC9E1","#5F9EA0"))
+
+###taxo
+
+N5.taxon <- anno.present %>% 
+  mutate(SGB_N5,
+         xlab = "N5")
+N5.plot <- ggplot(N5.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N5))  +
+  scale_fill_manual(values = c("NA" = "#FFFFFF", "N5"  = "#BEBEBE")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none") 
+   
+
+N4.taxon <- anno.present %>%
+  mutate(SGB_N4,
+         xlab = "N4")
+N4.taxon$SGB_N4 <- factor(N4.taxon$SGB_N4, levels = c("NA", "N4"))
+N4.plot <- ggplot(N4.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N4)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "N4" = "#228B22")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+       legend.position="none")
+
+N1.taxon <- anno.present %>% 
+  mutate(SGB_N1,
+         xlab = "N1")
+N1.taxon$SGB_N1 <- factor(N1.taxon$SGB_N1, levels = c("NA", "N1"))
+N1.plot <- ggplot(N1.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N1)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF","N1" = "#F08080")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+N2.taxon <- anno.present %>% 
+  mutate(SGB_N2,
+         xlab = "N2")
+N2.taxon$SGB_N2 <- factor(N2.taxon$SGB_N2, levels = c("NA", "N2"))
+N2.plot <- ggplot(N2.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N2)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF","N2" = "#E066FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+N3.taxon <- anno.present %>% 
+  mutate(SGB_N3,
+         xlab = "N3")
+N3.taxon$SGB_N3 <- factor(N3.taxon$SGB_N3, levels = c("NA", "N3"))
+N3.plot <- ggplot(N3.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = SGB_N3)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "N3" = "#8470FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank(),
+        legend.position="none")
+
+Yak.taxon <- anno.present %>% 
+  mutate(Yak,
+         xlab = "Yak")
+Yak.taxon$Yak <- factor(Yak.taxon$Yak, levels = c("NA", "Yak"))
+Yak.plot <- ggplot(Yak.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Yak)) +
+  scale_fill_manual(values=c("NA"="#FFFFFF", "Yak"="#336600")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+Sheep.taxon <- anno.present %>% 
+  mutate(Sheep,
+         xlab = "Tibetan sheep")
+Sheep.taxon$Sheep <- factor(Sheep.taxon$Sheep, levels = c("NA", "Tibetansheep"))
+Sheep.plot <- ggplot(Sheep.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Sheep)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetansheep"="#8A2BE2")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Ass.taxon <- anno.present %>% 
+  mutate(Ass,
+         xlab = "Tibetan ass")
+Ass.taxon$Ass <- factor(Ass.taxon$Ass, levels = c("NA", "Tibetanass"))
+Ass.plot <- ggplot(Ass.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Ass)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanass"="#DC143B")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+Antelope.taxon <- anno.present %>% 
+  mutate(Antelope,
+         xlab = "Tibetan antelope")
+Antelope.taxon$Antelope <- factor(Antelope.taxon$Antelope, levels = c("NA", "Tibetanantelope"))
+Antelope.plot <- ggplot(Antelope.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Antelope)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanantelope"="#0000CD")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Horse.taxon <- anno.present %>% 
+  mutate(Horse,
+         xlab = "Tibetan horse")
+Horse.taxon$Horse <- factor(Horse.taxon$Horse, levels = c("NA", "Tibetanhorse"))
+Horse.plot <- ggplot(Horse.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Horse)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetanhorse"="#FF99FF")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+Cattle.taxon <- anno.present %>% 
+  mutate(Cattle,
+         xlab = "Tibetan cattle")
+Cattle.taxon$Cattle <- factor(Cattle.taxon$Cattle, levels = c("NA", "Tibetancattle"))
+Cattle.plot <- ggplot(Cattle.taxon, aes(x = xlab, y = SGB)) +
+  geom_tile(aes(fill = Cattle)) +
+  scale_fill_manual(values=c("NA" = "#FFFFFF", "Tibetancattle"="#00FF00")) +
+  labs(x = "", y = "") +
+  theme(axis.text.y = element_blank(), 
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = .5),
+        axis.ticks.y = element_blank(),
+        panel.border = element_blank(),
+        panel.grid =element_blank(),
+        axis.ticks = element_blank())
+
+p.merge <-  N5.plot  %>% 
+  insert_left(tree_plot, width = 5) %>%
+  insert_right(Ass.plot, width = 0.2) %>%
+  insert_right(N1.plot, width = 0.2) %>%
+  insert_right(Horse.plot, width = 0.2) %>%
+  insert_right(Antelope.plot, width = 0.2) %>%
+  insert_right(Sheep.plot, width = 0.2) %>%
+  insert_right(N3.plot, width = 0.2) %>%
+  #insert_right(N4.plot, width = 0.2) %>%
+  insert_right(N2.plot, width = 0.2) %>%
+  insert_right(Yak.plot, width = 0.2) %>%
+  insert_right(Cattle.plot, width = 0.2)
+
+ggsave("1.result/Verrucomicrobiota.pdf", p.merge, width = 20,height = 10)
+```

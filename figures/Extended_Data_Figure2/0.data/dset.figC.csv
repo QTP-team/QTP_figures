@@ -1,0 +1,15 @@
+Sample_n,Type,num,label_ypos
+s1,HQ_SGBs_num,320,160
+s1,MQ_SGBs_num,698,669
+s4,HQ_SGBs_num,460,230
+s4,MQ_SGBs_num,819,869.5
+s6,HQ_SGBs_num,500,250
+s6,MQ_SGBs_num,874,937
+s8,HQ_SGBs_num,522,261
+s8,MQ_SGBs_num,885,964.5
+s10,HQ_SGBs_num,537,268.5
+s10,MQ_SGBs_num,936,1005
+s15,HQ_SGBs_num,554,277
+s15,MQ_SGBs_num,1009,1058.5
+s20,HQ_SGBs_num,587,293.5
+s20,MQ_SGBs_num,1043,1108.5

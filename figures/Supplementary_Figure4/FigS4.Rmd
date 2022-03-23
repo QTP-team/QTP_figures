@@ -1,0 +1,309 @@
+---
+title: "genus_tree"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r cars}
+# if (!requireNamespace("BiocManager", quietly = TRUE))
+#     install.packages("BiocManager")
+# 
+# BiocManager::install("ggtree")
+# install.packages("ggtree")
+#install.packages("phytools")
+#install.packages("treeio")
+library(treeio)
+library(tidyverse)
+library(readr)
+library(ggtree)
+library(cowplot)
+library(RColorBrewer)
+library(aplot)
+library(ggplot2)
+library(phytools)
+```
+
+## 1.RC9
+
+```{r pressure, echo=FALSE}
+data.RC9 <- read.table("0.data/01.txt/RC9.txt", header = T)
+
+for( i in 1:dim(data.RC9)[1]){
+  if(data.RC9[i,2] == "Tibetanantelope"){
+    data.RC9[i,3] = "#0000CD"
+  }
+  if(data.RC9[i,2] == "Tibetanass"){
+    data.RC9[i,3] = "#DC143B"
+  }
+  if(data.RC9[i,2] == "Tibetancattle"){
+    data.RC9[i,3] = "#00FF00"
+  }
+  if(data.RC9[i,2] == "Tibetanhorse"){
+    data.RC9[i,3] = "#FF99FF"
+  }
+  if(data.RC9[i,2] == "Tibetansheep"){
+    data.RC9[i,3] = "#33FFCC"
+  }
+  if(data.RC9[i,2] == "Yak"){
+    data.RC9[i,3] = "#336600"
+  }
+}
+data.RC9[,4] <- c("clade")
+data.RC9[,5] <- c("normal")
+data.RC9[,6] <- c("1")
+data.RC9[,7] <- c("label")
+clade <- data.RC9[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/RC9_clade.txt")
+label <- data.RC9[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/RC9_label.txt")
+```
+
+## 2.Acetatifactor
+
+```{r pressure, echo=FALSE}
+data.Acetatifactor <- read.table("0.data/01.txt/Acetatifactor.txt", header = T)
+
+for( i in 1:dim(data.Acetatifactor)[1]){
+  if(data.Acetatifactor[i,2] == "Tibetanantelope"){
+    data.Acetatifactor[i,3] = "#0000CD"
+  }
+  if(data.Acetatifactor[i,2] == "Tibetanass"){
+    data.Acetatifactor[i,3] = "#DC143B"
+  }
+  if(data.Acetatifactor[i,2] == "Tibetancattle"){
+    data.Acetatifactor[i,3] = "#00FF00"
+  }
+  if(data.Acetatifactor[i,2] == "Tibetanhorse"){
+    data.Acetatifactor[i,3] = "#FF99FF"
+  }
+  if(data.Acetatifactor[i,2] == "Tibetansheep"){
+    data.Acetatifactor[i,3] = "#33FFCC"
+  }
+  if(data.Acetatifactor[i,2] == "Yak"){
+    data.Acetatifactor[i,3] = "#336600"
+  }
+}
+data.Acetatifactor[,4] <- c("clade")
+data.Acetatifactor[,5] <- c("normal")
+data.Acetatifactor[,6] <- c("1")
+data.Acetatifactor[,7] <- c("label")
+clade <- data.Acetatifactor[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/Acetatifactor_clade.txt")
+label <- data.Acetatifactor[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/Acetatifactor_label.txt")
+```
+
+## 3.Agathobacter
+
+```{r pressure, echo=FALSE}
+data.Agathobacter <- read.table("0.data/01.txt/Agathobacter.txt", header = T)
+
+for( i in 1:dim(data.Agathobacter)[1]){
+  if(data.Agathobacter[i,2] == "Tibetanantelope"){
+    data.Agathobacter[i,3] = "#0000CD"
+  }
+  if(data.Agathobacter[i,2] == "Tibetanass"){
+    data.Agathobacter[i,3] = "#DC143B"
+  }
+  if(data.Agathobacter[i,2] == "Tibetancattle"){
+    data.Agathobacter[i,3] = "#00FF00"
+  }
+  if(data.Agathobacter[i,2] == "Tibetanhorse"){
+    data.Agathobacter[i,3] = "#FF99FF"
+  }
+  if(data.Agathobacter[i,2] == "Tibetansheep"){
+    data.Agathobacter[i,3] = "#33FFCC"
+  }
+  if(data.Agathobacter[i,2] == "Yak"){
+    data.Agathobacter[i,3] = "#336600"
+  }
+}
+data.Agathobacter[,4] <- c("clade")
+data.Agathobacter[,5] <- c("normal")
+data.Agathobacter[,6] <- c("1")
+data.Agathobacter[,7] <- c("label")
+clade <- data.Agathobacter[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/Agathobacter_clade.txt")
+label <- data.Agathobacter[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/Agathobacter_label.txt")
+```
+
+## 4.Akkermansia
+
+```{r pressure, echo=FALSE}
+data.Akkermansia <- read.table("0.data/01.txt/Akkermansia.txt", header = T)
+
+for( i in 1:dim(data.Akkermansia)[1]){
+  if(data.Akkermansia[i,2] == "Tibetanantelope"){
+    data.Akkermansia[i,3] = "#0000CD"
+  }
+  if(data.Akkermansia[i,2] == "Tibetanass"){
+    data.Akkermansia[i,3] = "#DC143B"
+  }
+  if(data.Akkermansia[i,2] == "Tibetancattle"){
+    data.Akkermansia[i,3] = "#00FF00"
+  }
+  if(data.Akkermansia[i,2] == "Tibetanhorse"){
+    data.Akkermansia[i,3] = "#FF99FF"
+  }
+  if(data.Akkermansia[i,2] == "Tibetansheep"){
+    data.Akkermansia[i,3] = "#33FFCC"
+  }
+  if(data.Akkermansia[i,2] == "Yak"){
+    data.Akkermansia[i,3] = "#336600"
+  }
+}
+data.Akkermansia[,4] <- c("clade")
+data.Akkermansia[,5] <- c("normal")
+data.Akkermansia[,6] <- c("1")
+data.Akkermansia[,7] <- c("label")
+clade <- data.Akkermansia[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/Akkermansia_clade.txt")
+label <- data.Akkermansia[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/Akkermansia_label.txt")
+```
+
+## 5.Alistipes
+
+```{r pressure, echo=FALSE}
+data.Alistipes <- read.table("0.data/01.txt/Alistipes.txt", header = T)
+
+for( i in 1:dim(data.Alistipes)[1]){
+  if(data.Alistipes[i,2] == "Tibetanantelope"){
+    data.Alistipes[i,3] = "#0000CD"
+  }
+  if(data.Alistipes[i,2] == "Tibetanass"){
+    data.Alistipes[i,3] = "#DC143B"
+  }
+  if(data.Alistipes[i,2] == "Tibetancattle"){
+    data.Alistipes[i,3] = "#00FF00"
+  }
+  if(data.Alistipes[i,2] == "Tibetanhorse"){
+    data.Alistipes[i,3] = "#FF99FF"
+  }
+  if(data.Alistipes[i,2] == "Tibetansheep"){
+    data.Alistipes[i,3] = "#33FFCC"
+  }
+  if(data.Alistipes[i,2] == "Yak"){
+    data.Alistipes[i,3] = "#336600"
+  }
+}
+data.Alistipes[,4] <- c("clade")
+data.Alistipes[,5] <- c("normal")
+data.Alistipes[,6] <- c("1")
+data.Alistipes[,7] <- c("label")
+clade <- data.Alistipes[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/Alistipes_clade.txt")
+label <- data.Alistipes[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/Alistipes_label.txt")
+```
+
+## 6.CAG110
+
+```{r pressure, echo=FALSE}
+data.CAG110 <- read.table("0.data/01.txt/CAG-110.txt", header = T)
+
+for( i in 1:dim(data.CAG110)[1]){
+  if(data.CAG110[i,2] == "Tibetanantelope"){
+    data.CAG110[i,3] = "#0000CD"
+  }
+  if(data.CAG110[i,2] == "Tibetanass"){
+    data.CAG110[i,3] = "#DC143B"
+  }
+  if(data.CAG110[i,2] == "Tibetancattle"){
+    data.CAG110[i,3] = "#00FF00"
+  }
+  if(data.CAG110[i,2] == "Tibetanhorse"){
+    data.CAG110[i,3] = "#FF99FF"
+  }
+  if(data.CAG110[i,2] == "Tibetansheep"){
+    data.CAG110[i,3] = "#33FFCC"
+  }
+  if(data.CAG110[i,2] == "Yak"){
+    data.CAG110[i,3] = "#336600"
+  }
+}
+data.CAG110[,4] <- c("clade")
+data.CAG110[,5] <- c("normal")
+data.CAG110[,6] <- c("1")
+data.CAG110[,7] <- c("label")
+clade <- data.CAG110[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/CAG110_clade.txt")
+label <- data.CAG110[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/CAG110_label.txt")
+```
+
+## 7.Ruminococcus
+
+```{r pressure, echo=FALSE}
+data.Ruminococcus <- read.table("0.data/01.txt/Ruminococcus.txt", header = T)
+
+for( i in 1:dim(data.Ruminococcus)[1]){
+  if(data.Ruminococcus[i,2] == "Tibetanantelope"){
+    data.Ruminococcus[i,3] = "#0000CD"
+  }
+  if(data.Ruminococcus[i,2] == "Tibetanass"){
+    data.Ruminococcus[i,3] = "#DC143B"
+  }
+  if(data.Ruminococcus[i,2] == "Tibetancattle"){
+    data.Ruminococcus[i,3] = "#00FF00"
+  }
+  if(data.Ruminococcus[i,2] == "Tibetanhorse"){
+    data.Ruminococcus[i,3] = "#FF99FF"
+  }
+  if(data.Ruminococcus[i,2] == "Tibetansheep"){
+    data.Ruminococcus[i,3] = "#33FFCC"
+  }
+  if(data.Ruminococcus[i,2] == "Yak"){
+    data.Ruminococcus[i,3] = "#336600"
+  }
+}
+data.Ruminococcus[,4] <- c("clade")
+data.Ruminococcus[,5] <- c("normal")
+data.Ruminococcus[,6] <- c("1")
+data.Ruminococcus[,7] <- c("label")
+clade <- data.Ruminococcus[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/Ruminococcus_clade.txt")
+label <- data.Ruminococcus[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/Ruminococcus_label.txt")
+```
+
+## 8.UBA1067
+
+```{r pressure, echo=FALSE}
+data.UBA1067 <- read.table("0.data/01.txt/UBA1067.txt", header = T)
+
+for( i in 1:dim(data.UBA1067)[1]){
+  if(data.UBA1067[i,2] == "Tibetanantelope"){
+    data.UBA1067[i,3] = "#0000CD"
+  }
+  if(data.UBA1067[i,2] == "Tibetanass"){
+    data.UBA1067[i,3] = "#DC143B"
+  }
+  if(data.UBA1067[i,2] == "Tibetancattle"){
+    data.UBA1067[i,3] = "#00FF00"
+  }
+  if(data.UBA1067[i,2] == "Tibetanhorse"){
+    data.UBA1067[i,3] = "#FF99FF"
+  }
+  if(data.UBA1067[i,2] == "Tibetansheep"){
+    data.UBA1067[i,3] = "#33FFCC"
+  }
+  if(data.UBA1067[i,2] == "Yak"){
+    data.UBA1067[i,3] = "#336600"
+  }
+}
+data.UBA1067[,4] <- c("clade")
+data.UBA1067[,5] <- c("normal")
+data.UBA1067[,6] <- c("1")
+data.UBA1067[,7] <- c("label")
+clade <- data.UBA1067[,c(1,4,3,5,6)]
+write.table(clade, file = "0.data/03.itol/UBA1067_clade.txt")
+label <- data.UBA1067[,c(1,7,3,5,6)]
+write.table(label, file = "0.data/03.itol/UBA1067_label.txt")
+```
