@@ -1,0 +1,1105 @@
+---
+title: "inStrain_merge"
+output: html_document
+date: "2023-01-04"
+---
+
+```{r environment}
+setwd("~/Desktop/BGI/高原项目/pN_pS/inStrain")
+library(tidyverse)
+library(ggpubr)
+library(ggplot2)
+library(ggsignif)
+library(cowplot)
+```
+
+## Sample_data
+
+```{r sample}
+sample_data <- read.table("sample.txt", header = T)
+sample_data$Group1 <- sample_data$Host
+sample_data$Group1[sample_data$Group1=="TA"] <- "Perissodactyla"
+sample_data$Group1[sample_data$Group1=="TH"] <- "Perissodactyla"
+sample_data$Group1[sample_data$Group1=="TAN"] <- "Artiodactyla"
+sample_data$Group1[sample_data$Group1=="TS"] <- "Artiodactyla"
+sample_data$Group1[sample_data$Group1=="Yak"] <- "Artiodactyla"
+sample_data$Group1[sample_data$Group1=="TC"] <- "Artiodactyla"
+sample_data$Group2 <- sample_data$Host
+sample_data$Group2[sample_data$Group2=="TAN"] <- "Caprinae"
+sample_data$Group2[sample_data$Group2=="TS"] <- "Caprinae"
+sample_data$Group2[sample_data$Group2=="Yak"] <- "Bovinae"
+sample_data$Group2[sample_data$Group2=="TC"] <- "Bovinae"
+
+#KEGG_function <- read.table("map_ko_annotation.txt", header = F, sep = "\t")
+#colnames(KEGG_function) <- c("Path", "KO", "Function")
+
+KO_pathway <- read.table("KO_Pathway.list", header = T, sep = "\t")
+pathway_function <- read.table("Pathway2levels.list", header = T, sep = "\t")
+KEGG_function <- merge(KO_pathway, pathway_function, by.x = "Pathway", by.y = "ID")
+
+KEGG_ko_function <- read.csv("ko_annotation.csv", header = F)
+colnames(KEGG_ko_function) <- c("KO", "ko_Function")
+```
+
+## HGM05376
+
+```{r data}
+HGM05376_data <- read.csv("HGM05376/HGM05376_instrain_result.tsv", header = F)
+colnames(HGM05376_data) <- c("Sample", "scaffold", "gene", "coverage",	"breadth", "pNpS_variants")
+HGM05376_data_merge <- merge(HGM05376_data, sample_data, by.x = "Sample", by.y = "Sample_ID")
+HGM05376_data_merge$Host <- factor(HGM05376_data_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+#write.csv(HGM05376_data_merge, file = "HGM05376_data_merge.csv")
+function_HGM05376 <- read.table("HGM05376/function_HGM05376_SGB.txt", sep = "\t")
+colnames(function_HGM05376) <- c("Gene", "evalue", "score", "COG_category", "GOs", "KEGG_ko", "KEGG_Pathway", "KEGG_Module", "CAZy")
+function_HGM05376_merge <- merge(HGM05376_data_merge, function_HGM05376,
+                                 by.x = "gene", by.y = "Gene", all.x = T)
+#write.csv(function_HGM05376_merge, file = "function_HGM05376_merge.csv")
+### Group2
+KEGG_ko_HGM05376 <- function_HGM05376_merge[, c(6, 9, 14)]
+KEGG_ko_HGM05376_1 <- KEGG_ko_HGM05376[which(KEGG_ko_HGM05376$KEGG_ko!="-"),]
+KEGG_ko_HGM05376_1 <- KEGG_ko_HGM05376_1[which(KEGG_ko_HGM05376_1$KEGG_ko!="NA"),]
+KEGG_ko_HGM05376_2 <- KEGG_ko_HGM05376_1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_HGM05376_2, file = "KEGG_ko_HGM05376.csv")
+### Hosts
+KEGG_ko_HGM05376 <- function_HGM05376_merge[, c(6, 7, 14)]
+KEGG_ko_HGM05376_1 <- KEGG_ko_HGM05376[which(KEGG_ko_HGM05376$KEGG_ko!="-"),]
+KEGG_ko_HGM05376_1 <- KEGG_ko_HGM05376_1[which(KEGG_ko_HGM05376_1$KEGG_ko!="NA"),]
+KEGG_ko_HGM05376_2 <- KEGG_ko_HGM05376_1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_HGM05376_2, file = "KEGG_ko_HGM05376_hosts.csv")
+```
+
+```{r data_all}
+HGM05376_data_all <- read.csv("HGM05376/HGM05376_instrain_result_all.tsv", header = F)
+colnames(HGM05376_data_all) <- c("Sample", "scaffold", "gene", "coverage",	"breadth", "pNpS_variants")
+HGM05376_data_all_merge <- merge(HGM05376_data_all, sample_data, by.x = "Sample", by.y = "Sample_ID")
+HGM05376_data_all_merge$Host <- factor(HGM05376_data_all_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+function_HGM05376 <- read.table("HGM05376/function_HGM05376_SGB.txt", sep = "\t")
+colnames(function_HGM05376) <- c("Gene", "evalue", "score", "COG_category", "GOs", "KEGG_ko", "KEGG_Pathway", "KEGG_Module", "CAZy")
+function_HGM05376_all_merge <- merge(HGM05376_data_all_merge, function_HGM05376,
+                                 by.x = "gene", by.y = "Gene", all.x = T)
+#write.csv(function_HGM05376_all_merge, file = "function_HGM05376_all_merge.csv")
+### Group2
+KEGG_ko_HGM05376_all <- function_HGM05376_all_merge[, c(6, 9, 14)]
+KEGG_ko_HGM05376_all1 <- KEGG_ko_HGM05376_all[which(KEGG_ko_HGM05376_all$KEGG_ko!="-"),]
+KEGG_ko_HGM05376_all1 <- KEGG_ko_HGM05376_all1[which(KEGG_ko_HGM05376_all1$KEGG_ko!="NA"),]
+KEGG_ko_HGM05376_all2 <- KEGG_ko_HGM05376_all1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_HGM05376_all2, file = "KEGG_ko_HGM05376_all.csv")
+### Hosts
+KEGG_ko_HGM05376_all <- function_HGM05376_all_merge[, c(6, 7, 14)]
+KEGG_ko_HGM05376_all1 <- KEGG_ko_HGM05376_all[which(KEGG_ko_HGM05376_all$KEGG_ko!="-"),]
+KEGG_ko_HGM05376_all1 <- KEGG_ko_HGM05376_all1[which(KEGG_ko_HGM05376_all1$KEGG_ko!="NA"),]
+KEGG_ko_HGM05376_all2 <- KEGG_ko_HGM05376_all1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_HGM05376_all2, file = "KEGG_ko_HGM05376_all_hosts.csv")
+```
+
+```{r Fisher test}
+### Group2
+KEGG_ko_HGM05376_all <- read.table("HGM05376/HGM05376_all_KEGG_ko.txt", header = T, sep = "\t")
+KEGG_ko_HGM05376_pN <- read.table("HGM05376/HGM05376_pN_KEGG_ko.txt", header = T)
+KEGG_ko_HGM05376_pS <- read.table("HGM05376/HGM05376_pS_KEGG_ko.txt", header = T)
+
+KEGG_ko_HGM05376_merge_pN <- merge(KEGG_ko_HGM05376_all, KEGG_ko_HGM05376_pN,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_HGM05376_merge_pN$Bovinae_pN_no <- KEGG_ko_HGM05376_merge_pN$Bovinae-KEGG_ko_HGM05376_merge_pN$Bovinae_pN
+KEGG_ko_HGM05376_merge_pN$Caprinae_pN_no <- KEGG_ko_HGM05376_merge_pN$Caprinae-KEGG_ko_HGM05376_merge_pN$Caprinae_pN
+HGM05376_fisher_pN <- data.frame()
+for (i in 1:nrow(KEGG_ko_HGM05376_merge_pN)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_HGM05376_merge_pN[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_HGM05376_merge_pN[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  HGM05376_fisher_pN <- rbind(HGM05376_fisher_pN, d)
+}
+write.csv(HGM05376_fisher_pN, file = "HGM05376_fisher_pN.csv")
+HGM05376_fisher_pN_merge <- merge(HGM05376_fisher_pN, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pN_merge, file = "HGM05376_fisher_pN_merge_ko.csv")
+HGM05376_fisher_pN_merge1 <- merge(HGM05376_fisher_pN, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pN_merge1, file = "HGM05376_fisher_pN_merge_pathway.csv")
+
+
+KEGG_ko_HGM05376_merge_pS <- merge(KEGG_ko_HGM05376_all, KEGG_ko_HGM05376_pS,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_HGM05376_merge_pS$Bovinae_pS_no <- KEGG_ko_HGM05376_merge_pS$Bovinae-KEGG_ko_HGM05376_merge_pS$Bovinae_pS
+KEGG_ko_HGM05376_merge_pS$Caprinae_pS_no <- KEGG_ko_HGM05376_merge_pS$Caprinae-KEGG_ko_HGM05376_merge_pS$Caprinae_pS
+HGM05376_fisher_pS <- data.frame()
+for (i in 1:nrow(KEGG_ko_HGM05376_merge_pS)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_HGM05376_merge_pS[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_HGM05376_merge_pS[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  HGM05376_fisher_pS <- rbind(HGM05376_fisher_pS, d)
+}
+write.csv(HGM05376_fisher_pS, file = "HGM05376_fisher_pS.csv")
+HGM05376_fisher_pS_merge <- merge(HGM05376_fisher_pS, KEGG_ko_function, 
+                                  by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pS_merge, file = "HGM05376_fisher_pS_merge_ko.csv")
+HGM05376_fisher_pS_merge1 <- merge(HGM05376_fisher_pS, KEGG_function, 
+                                  by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pS_merge1, file = "HGM05376_fisher_pS_merge_pathway.csv")
+
+### Hosts
+KEGG_ko_HGM05376_all <- read.table("HGM05376/HGM05376_all_KEGG_ko_Hosts.txt", header = T, sep = "\t")
+KEGG_ko_HGM05376_pN <- read.table("HGM05376/HGM05376_pN_KEGG_ko_Hosts.txt", header = T)
+KEGG_ko_HGM05376_pS <- read.table("HGM05376/HGM05376_pS_KEGG_ko_Hosts.txt", header = T)
+##pN
+KEGG_ko_HGM05376_merge_pN <- merge(KEGG_ko_HGM05376_all, KEGG_ko_HGM05376_pN,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_HGM05376_merge_pN$TAN_pN_no <- KEGG_ko_HGM05376_merge_pN$TAN-KEGG_ko_HGM05376_merge_pN$TAN_pN
+KEGG_ko_HGM05376_merge_pN$TC_pN_no <- KEGG_ko_HGM05376_merge_pN$TC-KEGG_ko_HGM05376_merge_pN$TC_pN
+KEGG_ko_HGM05376_merge_pN$TS_pN_no <- KEGG_ko_HGM05376_merge_pN$TS-KEGG_ko_HGM05376_merge_pN$TS_pN
+KEGG_ko_HGM05376_merge_pN$Yak_pN_no <- KEGG_ko_HGM05376_merge_pN$Yak-KEGG_ko_HGM05376_merge_pN$Yak_pN
+#Caprinae
+KEGG_ko_HGM05376_Caprinae_pN <- KEGG_ko_HGM05376_merge_pN[, c(1,2,4,6,8,10,12)]
+HGM05376_fisher_pN_Caprinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_HGM05376_Caprinae_pN)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_HGM05376_Caprinae_pN[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_HGM05376_Caprinae_pN[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  HGM05376_fisher_pN_Caprinae_hosts <- rbind(HGM05376_fisher_pN_Caprinae_hosts, d)
+}
+write.csv(HGM05376_fisher_pN_Caprinae_hosts, file = "HGM05376_fisher_pN_Caprinae_hosts.csv")
+HGM05376_fisher_pN_merge <- merge(HGM05376_fisher_pN_Caprinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pN_merge, file = "HGM05376_fisher_pN_Caprinae_hosts_ko.csv")
+HGM05376_fisher_pN_merge1 <- merge(HGM05376_fisher_pN_Caprinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pN_merge1, file = "HGM05376_fisher_pN_Caprinae_hosts_pathway.csv")
+#Bovinae
+KEGG_ko_HGM05376_Bovinae_pN <- KEGG_ko_HGM05376_merge_pN[, c(1,3,5,7,9,11,13)]
+HGM05376_fisher_pN_Bovinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_HGM05376_Bovinae_pN)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_HGM05376_Bovinae_pN[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_HGM05376_Bovinae_pN[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  HGM05376_fisher_pN_Bovinae_hosts <- rbind(HGM05376_fisher_pN_Bovinae_hosts, d)
+}
+write.csv(HGM05376_fisher_pN_Bovinae_hosts, file = "HGM05376_fisher_pN_Bovinae_hosts.csv")
+HGM05376_fisher_pN_merge <- merge(HGM05376_fisher_pN_Bovinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pN_merge, file = "HGM05376_fisher_pN_Bovinae_hosts_ko.csv")
+HGM05376_fisher_pN_merge1 <- merge(HGM05376_fisher_pN_Bovinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pN_merge1, file = "HGM05376_fisher_pN_Bovinae_hosts_pathway.csv")
+
+##pS
+KEGG_ko_HGM05376_merge_pS <- merge(KEGG_ko_HGM05376_all, KEGG_ko_HGM05376_pS,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_HGM05376_merge_pS$TAN_pS_no <- KEGG_ko_HGM05376_merge_pS$TAN-KEGG_ko_HGM05376_merge_pS$TAN_pS
+KEGG_ko_HGM05376_merge_pS$TC_pS_no <- KEGG_ko_HGM05376_merge_pS$TC-KEGG_ko_HGM05376_merge_pS$TC_pS
+KEGG_ko_HGM05376_merge_pS$TS_pS_no <- KEGG_ko_HGM05376_merge_pS$TS-KEGG_ko_HGM05376_merge_pS$TS_pS
+KEGG_ko_HGM05376_merge_pS$Yak_pS_no <- KEGG_ko_HGM05376_merge_pS$Yak-KEGG_ko_HGM05376_merge_pS$Yak_pS
+#Caprinae
+KEGG_ko_HGM05376_Caprinae_pS <- KEGG_ko_HGM05376_merge_pS[, c(1,2,4,6,8,10,12)]
+HGM05376_fisher_pS_Caprinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_HGM05376_Caprinae_pS)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_HGM05376_Caprinae_pS[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_HGM05376_Caprinae_pS[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  HGM05376_fisher_pS_Caprinae_hosts <- rbind(HGM05376_fisher_pS_Caprinae_hosts, d)
+}
+write.csv(HGM05376_fisher_pS_Caprinae_hosts, file = "HGM05376_fisher_pS_Caprinae_hosts.csv")
+HGM05376_fisher_pS_merge <- merge(HGM05376_fisher_pS_Caprinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pS_merge, file = "HGM05376_fisher_pS_Caprinae_hosts_ko.csv")
+HGM05376_fisher_pS_merge1 <- merge(HGM05376_fisher_pS_Caprinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pS_merge1, file = "HGM05376_fisher_pS_Caprinae_hosts_pathway.csv")
+#Bovinae
+KEGG_ko_HGM05376_Bovinae_pS <- KEGG_ko_HGM05376_merge_pS[, c(1,3,5,7,9,11,13)]
+HGM05376_fisher_pS_Bovinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_HGM05376_Bovinae_pS)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_HGM05376_Bovinae_pS[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_HGM05376_Bovinae_pS[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  HGM05376_fisher_pS_Bovinae_hosts <- rbind(HGM05376_fisher_pS_Bovinae_hosts, d)
+}
+write.csv(HGM05376_fisher_pS_Bovinae_hosts, file = "HGM05376_fisher_pS_Bovinae_hosts.csv")
+HGM05376_fisher_pS_merge <- merge(HGM05376_fisher_pS_Bovinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pS_merge, file = "HGM05376_fisher_pS_Bovinae_hosts_ko.csv")
+HGM05376_fisher_pS_merge1 <- merge(HGM05376_fisher_pS_Bovinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(HGM05376_fisher_pS_merge1, file = "HGM05376_fisher_pS_Bovinae_hosts_pathway.csv")
+```
+
+```{r boxplot}
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_HGM05376_all <- ggplot(HGM05376_data_merge, aes(Host, pNpS_variants)) +
+  geom_boxplot(aes(color = Host), outlier.size = 0.5) +
+  geom_signif(comparisons = my_comparisons, y_position = c(4, 4),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'HGM05376 (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+HGM05376_data_merge$Group2 <- factor(HGM05376_data_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_HGM05376_group2 <- ggplot(HGM05376_data_merge, aes(Group2, pNpS_variants)) +
+  geom_boxplot(aes(color = Group2), outlier.size = 0.5) +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'HGM05376 (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+p_HGM05376_merge <- plot_grid(p_HGM05376_all, p_HGM05376_group2, labels = c("A", "B"))
+ggsave(p_HGM05376_merge, filename = "HGM05376_all.pdf", width = 10, height = 6)
+```
+
+```{r violin pN/pS}
+HGM05376_data_merge_new1 <- HGM05376_data_merge[HGM05376_data_merge$pNpS_variants>1,]
+HGM05376_data_merge_new1 <- HGM05376_data_merge_new1[which(HGM05376_data_merge_new1$pNpS_variants!="1"),]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_HGM05376_all_pN <- ggviolin(HGM05376_data_merge_new1, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(4),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 (pNpS_variants > 1)")
+
+HGM05376_data_merge_new1$Group2 <- factor(HGM05376_data_merge_new1$Group2, levels = c("Caprinae", "Bovinae"))
+p_HGM05376_group2_pN <- ggviolin(HGM05376_data_merge_new1, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(4),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 (pNpS_variants > 1)")
+
+HGM05376_data_merge_new2 <- HGM05376_data_merge[HGM05376_data_merge$pNpS_variants<1,]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_HGM05376_all_pS <- ggviolin(HGM05376_data_merge_new2, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 (pNpS_variants < 1)")
+
+HGM05376_data_merge_new2$Group2 <- factor(HGM05376_data_merge_new2$Group2, levels = c("Caprinae", "Bovinae"))
+p_HGM05376_group2_pS <- ggviolin(HGM05376_data_merge_new2, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 (pNpS_variants < 1)")
+
+p_HGM05376_merge_new <- plot_grid(p_HGM05376_all_pN, p_HGM05376_group2_pN, 
+                                  p_HGM05376_all_pS, p_HGM05376_group2_pS, 
+                                  labels = c("A", "B", "C", "D"))
+
+ggsave(p_HGM05376_merge_new, filename = "HGM05376_all_pN_pS_value.pdf", width = 10, height = 8)
+```
+
+```{r violin gene_num}
+HGM05376_data_merge_new1 <- HGM05376_data_merge[which(HGM05376_data_merge$pNpS_variants>1),]
+HGM05376_data_merge_new1 <- HGM05376_data_merge_new1[HGM05376_data_merge_new1$pNpS_variants!="1",]
+HGM05376_data_gene_num <- as.data.frame(table(HGM05376_data_merge_new1$Sample))
+colnames(HGM05376_data_gene_num) <- c("Sample", "Gene_num")
+HGM05376_data_gene_num_merge <- merge(sample_data, HGM05376_data_gene_num,
+                                      by.x = "Sample_ID", by.y = "Sample")
+HGM05376_data_gene_num_merge$Host <- factor(HGM05376_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_HGM05376_all_gene_num_pN <- ggviolin(HGM05376_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_boxplot(aes(fill = Host),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = my_comparisons, y_position = c(log10(200)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 gene number (pN/pS > 1)")
+
+HGM05376_data_gene_num_merge$Group2 <- factor(HGM05376_data_gene_num_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_HGM05376_group2_gene_num_pN <- ggviolin(HGM05376_data_gene_num_merge, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_boxplot(aes(fill = Group2),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(log10(200)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 gene number (pN/pS > 1)")
+
+HGM05376_data_merge_new1 <- HGM05376_data_merge[HGM05376_data_merge$pNpS_variants<1,]
+HGM05376_data_gene_num <- as.data.frame(table(HGM05376_data_merge_new1$Sample))
+colnames(HGM05376_data_gene_num) <- c("Sample", "Gene_num")
+HGM05376_data_gene_num_merge <- merge(sample_data, HGM05376_data_gene_num,
+                                      by.x = "Sample_ID", by.y = "Sample")
+HGM05376_data_gene_num_merge$Host <- factor(HGM05376_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_HGM05376_all_gene_num_pS <- ggviolin(HGM05376_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_boxplot(aes(fill = Host),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = my_comparisons, y_position = c(log10(5000)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 gene number(pN/pS < 1)") 
+
+
+HGM05376_data_gene_num_merge$Group2 <- factor(HGM05376_data_gene_num_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_HGM05376_group2_gene_num_pS <- ggviolin(HGM05376_data_gene_num_merge, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_boxplot(aes(fill = Group2),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(log10(5000)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("HGM05376 gene number (pN/pS < 1)")
+
+p_HGM05376_gene_num_merge <- plot_grid(p_HGM05376_all_gene_num_pN, p_HGM05376_group2_gene_num_pN, 
+                                  p_HGM05376_all_gene_num_pS, p_HGM05376_group2_gene_num_pS, 
+                                  labels = c("A", "B", "C", "D"))
+
+ggsave(p_HGM05376_gene_num_merge, filename = "HGM05376_gene_num.pdf", width = 10, height = 8)
+```
+
+## RGIG4079
+
+```{r data}
+RGIG4079_data <- read.csv("RGIG4079/RGIG4079_instrain_result.tsv", header = F)
+colnames(RGIG4079_data) <- c("Sample", "scaffold", "gene", "coverage",	"breadth", "pNpS_variants")
+RGIG4079_data_merge <- merge(RGIG4079_data, sample_data, by.x = "Sample", by.y = "Sample_ID")
+RGIG4079_data_merge$Host <- factor(RGIG4079_data_merge$Host, levels = c("TAN", "TS","Yak", "TC"))
+#write.csv(RGIG4079_data_merge, file = "RGIG4079_data_merge.csv")
+function_RGIG4079 <- read.table("RGIG4079/function_RGIG4079_SGB.txt", sep = "\t")
+colnames(function_RGIG4079) <- c("Gene", "evalue", "score", "COG_category", "GOs", "KEGG_ko", "KEGG_Pathway", "KEGG_Module", "CAZy")
+function_RGIG4079_merge <- merge(RGIG4079_data_merge, function_RGIG4079,
+                                    by.x = "gene", by.y = "Gene", all.x = T)
+#write.csv(function_RGIG4079_merge, file = "function_RGIG4079_merge.csv")
+### Group2
+KEGG_ko_RGIG4079 <- function_RGIG4079_merge[, c(6, 9, 14)]
+KEGG_ko_RGIG4079_1 <- KEGG_ko_RGIG4079[which(KEGG_ko_RGIG4079$KEGG_ko!="-"),]
+KEGG_ko_RGIG4079_1 <- KEGG_ko_RGIG4079_1[which(KEGG_ko_RGIG4079_1$KEGG_ko!="NA"),]
+KEGG_ko_RGIG4079_2 <- KEGG_ko_RGIG4079_1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_RGIG4079_2, file = "KEGG_ko_RGIG4079.csv")
+### Hosts
+KEGG_ko_RGIG4079 <- function_RGIG4079_merge[, c(6, 7, 14)]
+KEGG_ko_RGIG4079_1 <- KEGG_ko_RGIG4079[which(KEGG_ko_RGIG4079$KEGG_ko!="-"),]
+KEGG_ko_RGIG4079_1 <- KEGG_ko_RGIG4079_1[which(KEGG_ko_RGIG4079_1$KEGG_ko!="NA"),]
+KEGG_ko_RGIG4079_2 <- KEGG_ko_RGIG4079_1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_RGIG4079_2, file = "KEGG_ko_RGIG4079_hosts.csv")
+```
+
+```{r data_all}
+RGIG4079_data_all <- read.csv("RGIG4079/RGIG4079_instrain_result_all.tsv", header = F)
+colnames(RGIG4079_data_all) <- c("Sample", "scaffold", "gene", "coverage",	"breadth", "pNpS_variants")
+RGIG4079_data_all_merge <- merge(RGIG4079_data_all, sample_data, by.x = "Sample", by.y = "Sample_ID")
+RGIG4079_data_all_merge$Host <- factor(RGIG4079_data_all_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+function_RGIG4079 <- read.table("RGIG4079/function_RGIG4079_SGB.txt", sep = "\t")
+colnames(function_RGIG4079) <- c("Gene", "evalue", "score", "COG_category", "GOs", "KEGG_ko", "KEGG_Pathway", "KEGG_Module", "CAZy")
+function_RGIG4079_all_merge <- merge(RGIG4079_data_all_merge, function_RGIG4079,
+                                 by.x = "gene", by.y = "Gene", all.x = T)
+#write.csv(function_RGIG4079_all_merge, file = "function_RGIG4079_all_merge.csv")
+### Group2
+KEGG_ko_RGIG4079_all <- function_RGIG4079_all_merge[, c(6, 9, 14)]
+KEGG_ko_RGIG4079_all1 <- KEGG_ko_RGIG4079_all[which(KEGG_ko_RGIG4079_all$KEGG_ko!="-"),]
+KEGG_ko_RGIG4079_all1 <- KEGG_ko_RGIG4079_all1[which(KEGG_ko_RGIG4079_all1$KEGG_ko!="NA"),]
+KEGG_ko_RGIG4079_all2 <- KEGG_ko_RGIG4079_all1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_RGIG4079_all2, file = "KEGG_ko_RGIG4079_all.csv")
+### Hosts
+KEGG_ko_RGIG4079_all <- function_RGIG4079_all_merge[, c(6, 7, 14)]
+KEGG_ko_RGIG4079_all1 <- KEGG_ko_RGIG4079_all[which(KEGG_ko_RGIG4079_all$KEGG_ko!="-"),]
+KEGG_ko_RGIG4079_all1 <- KEGG_ko_RGIG4079_all1[which(KEGG_ko_RGIG4079_all1$KEGG_ko!="NA"),]
+KEGG_ko_RGIG4079_all2 <- KEGG_ko_RGIG4079_all1 %>% as_tibble() %>% 
+  separate_rows(KEGG_ko, sep = ",")
+write.csv(KEGG_ko_RGIG4079_all2, file = "KEGG_ko_RGIG4079_all_hosts.csv")
+```
+
+```{r Fisher test}
+### Group2
+KEGG_ko_RGIG4079_all <- read.table("RGIG4079/RGIG4079_all_KEGG_ko.txt", header = T, sep = "\t")
+KEGG_ko_RGIG4079_pN <- read.table("RGIG4079/RGIG4079_pN_KEGG_ko.txt", header = T)
+KEGG_ko_RGIG4079_pS <- read.table("RGIG4079/RGIG4079_pS_KEGG_ko.txt", header = T)
+
+KEGG_ko_RGIG4079_merge_pN <- merge(KEGG_ko_RGIG4079_all, KEGG_ko_RGIG4079_pN,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_RGIG4079_merge_pN$Bovinae_pN_no <- KEGG_ko_RGIG4079_merge_pN$Bovinae-KEGG_ko_RGIG4079_merge_pN$Bovinae_pN
+KEGG_ko_RGIG4079_merge_pN$Caprinae_pN_no <- KEGG_ko_RGIG4079_merge_pN$Caprinae-KEGG_ko_RGIG4079_merge_pN$Caprinae_pN
+RGIG4079_fisher_pN <- data.frame()
+for (i in 1:nrow(KEGG_ko_RGIG4079_merge_pN)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_RGIG4079_merge_pN[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_RGIG4079_merge_pN[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  RGIG4079_fisher_pN <- rbind(RGIG4079_fisher_pN, d)
+}
+write.csv(RGIG4079_fisher_pN, file = "RGIG4079_fisher_pN.csv")
+RGIG4079_fisher_pN <- read.csv("RGIG4079/RGIG4079_fisher_pN.csv",row.names = 1)
+RGIG4079_fisher_pN_merge <- merge(RGIG4079_fisher_pN, KEGG_ko_function, 
+                                  by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pN_merge, file = "RGIG4079_fisher_pN_merge_ko.csv")
+RGIG4079_fisher_pN_merge1 <- merge(RGIG4079_fisher_pN, KEGG_function, 
+                                  by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pN_merge1, file = "RGIG4079_fisher_pN_merge_pathway.csv")
+
+KEGG_ko_RGIG4079_merge_pS <- merge(KEGG_ko_RGIG4079_all, KEGG_ko_RGIG4079_pS,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_RGIG4079_merge_pS$Bovinae_pS_no <- KEGG_ko_RGIG4079_merge_pS$Bovinae-KEGG_ko_RGIG4079_merge_pS$Bovinae_pS
+KEGG_ko_RGIG4079_merge_pS$Caprinae_pS_no <- KEGG_ko_RGIG4079_merge_pS$Caprinae-KEGG_ko_RGIG4079_merge_pS$Caprinae_pS
+RGIG4079_fisher_pS <- data.frame()
+for (i in 1:nrow(KEGG_ko_RGIG4079_merge_pS)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_RGIG4079_merge_pS[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_RGIG4079_merge_pS[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  RGIG4079_fisher_pS <- rbind(RGIG4079_fisher_pS, d)
+}
+write.csv(RGIG4079_fisher_pS, file = "RGIG4079_fisher_pS.csv")
+RGIG4079_fisher_pS <- read.csv("RGIG4079/RGIG4079_fisher_pS.csv",row.names = 1)
+RGIG4079_fisher_pS_merge <- merge(RGIG4079_fisher_pS, KEGG_ko_function, 
+                                  by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pS_merge, file = "RGIG4079_fisher_pS_merge_ko.csv")
+RGIG4079_fisher_pS_merge1 <- merge(RGIG4079_fisher_pS, KEGG_function, 
+                                  by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pS_merge1, file = "RGIG4079_fisher_pS_merge_pathway.csv")
+
+### Hosts
+KEGG_ko_RGIG4079_all <- read.table("RGIG4079/RGIG4079_all_KEGG_ko_Hosts.txt", header = T, sep = "\t")
+KEGG_ko_RGIG4079_pN <- read.table("RGIG4079/RGIG4079_pN_KEGG_ko_Hosts.txt", header = T)
+KEGG_ko_RGIG4079_pS <- read.table("RGIG4079/RGIG4079_pS_KEGG_ko_Hosts.txt", header = T)
+##pN
+KEGG_ko_RGIG4079_merge_pN <- merge(KEGG_ko_RGIG4079_all, KEGG_ko_RGIG4079_pN,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_RGIG4079_merge_pN$TAN_pN_no <- KEGG_ko_RGIG4079_merge_pN$TAN-KEGG_ko_RGIG4079_merge_pN$TAN_pN
+KEGG_ko_RGIG4079_merge_pN$TC_pN_no <- KEGG_ko_RGIG4079_merge_pN$TC-KEGG_ko_RGIG4079_merge_pN$TC_pN
+KEGG_ko_RGIG4079_merge_pN$TS_pN_no <- KEGG_ko_RGIG4079_merge_pN$TS-KEGG_ko_RGIG4079_merge_pN$TS_pN
+KEGG_ko_RGIG4079_merge_pN$Yak_pN_no <- KEGG_ko_RGIG4079_merge_pN$Yak-KEGG_ko_RGIG4079_merge_pN$Yak_pN
+#Caprinae
+KEGG_ko_RGIG4079_Caprinae_pN <- KEGG_ko_RGIG4079_merge_pN[, c(1,2,4,6,8,10,12)]
+RGIG4079_fisher_pN_Caprinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_RGIG4079_Caprinae_pN)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_RGIG4079_Caprinae_pN[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_RGIG4079_Caprinae_pN[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  RGIG4079_fisher_pN_Caprinae_hosts <- rbind(RGIG4079_fisher_pN_Caprinae_hosts, d)
+}
+write.csv(RGIG4079_fisher_pN_Caprinae_hosts, file = "RGIG4079_fisher_pN_Caprinae_hosts.csv")
+RGIG4079_fisher_pN_Caprinae_hosts <- read.csv("RGIG4079/RGIG4079_fisher_pN_Caprinae_hosts.csv", row.names = 1)
+RGIG4079_fisher_pN_merge <- merge(RGIG4079_fisher_pN_Caprinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pN_merge, file = "RGIG4079_fisher_pN_Caprinae_hosts_ko.csv")
+RGIG4079_fisher_pN_merge1 <- merge(RGIG4079_fisher_pN_Caprinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pN_merge1, file = "RGIG4079_fisher_pN_Caprinae_hosts_pathway.csv")
+#Bovinae
+KEGG_ko_RGIG4079_Bovinae_pN <- KEGG_ko_RGIG4079_merge_pN[, c(1,3,5,7,9,11,13)]
+RGIG4079_fisher_pN_Bovinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_RGIG4079_Bovinae_pN)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_RGIG4079_Bovinae_pN[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_RGIG4079_Bovinae_pN[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  RGIG4079_fisher_pN_Bovinae_hosts <- rbind(RGIG4079_fisher_pN_Bovinae_hosts, d)
+}
+write.csv(RGIG4079_fisher_pN_Bovinae_hosts, file = "RGIG4079_fisher_pN_Bovinae_hosts.csv")
+RGIG4079_fisher_pN_Bovinae_hosts <- read.csv("RGIG4079/RGIG4079_fisher_pN_Bovinae_hosts.csv", row.names = 1)
+RGIG4079_fisher_pN_merge <- merge(RGIG4079_fisher_pN_Bovinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pN_merge, file = "RGIG4079_fisher_pN_Bovinae_hosts_ko.csv")
+RGIG4079_fisher_pN_merge1 <- merge(RGIG4079_fisher_pN_Bovinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pN_merge1, file = "RGIG4079_fisher_pN_Bovinae_hosts_pathway.csv")
+
+##pS
+KEGG_ko_RGIG4079_merge_pS <- merge(KEGG_ko_RGIG4079_all, KEGG_ko_RGIG4079_pS,
+                                   by.x = "KO", by.y = "KO")
+KEGG_ko_RGIG4079_merge_pS$TAN_pS_no <- KEGG_ko_RGIG4079_merge_pS$TAN-KEGG_ko_RGIG4079_merge_pS$TAN_pS
+KEGG_ko_RGIG4079_merge_pS$TC_pS_no <- KEGG_ko_RGIG4079_merge_pS$TC-KEGG_ko_RGIG4079_merge_pS$TC_pS
+KEGG_ko_RGIG4079_merge_pS$TS_pS_no <- KEGG_ko_RGIG4079_merge_pS$TS-KEGG_ko_RGIG4079_merge_pS$TS_pS
+KEGG_ko_RGIG4079_merge_pS$Yak_pS_no <- KEGG_ko_RGIG4079_merge_pS$Yak-KEGG_ko_RGIG4079_merge_pS$Yak_pS
+#Caprinae
+KEGG_ko_RGIG4079_Caprinae_pS <- KEGG_ko_RGIG4079_merge_pS[, c(1,2,4,6,8,10,12)]
+RGIG4079_fisher_pS_Caprinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_RGIG4079_Caprinae_pS)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_RGIG4079_Caprinae_pS[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_RGIG4079_Caprinae_pS[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  RGIG4079_fisher_pS_Caprinae_hosts <- rbind(RGIG4079_fisher_pS_Caprinae_hosts, d)
+}
+write.csv(RGIG4079_fisher_pS_Caprinae_hosts, file = "RGIG4079_fisher_pS_Caprinae_hosts.csv")
+RGIG4079_fisher_pS_Caprinae_hosts <- read.csv("RGIG4079/RGIG4079_fisher_pS_Caprinae_hosts.csv", row.names = 1)
+RGIG4079_fisher_pS_merge <- merge(RGIG4079_fisher_pS_Caprinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pS_merge, file = "RGIG4079_fisher_pS_Caprinae_hosts_ko.csv")
+RGIG4079_fisher_pS_merge1 <- merge(RGIG4079_fisher_pS_Caprinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pS_merge1, file = "RGIG4079_fisher_pS_Caprinae_hosts_pathway.csv")
+#Bovinae
+KEGG_ko_RGIG4079_Bovinae_pS <- KEGG_ko_RGIG4079_merge_pS[, c(1,3,5,7,9,11,13)]
+RGIG4079_fisher_pS_Bovinae_hosts <- data.frame()
+for (i in 1:nrow(KEGG_ko_RGIG4079_Bovinae_pS)){
+  t <- fisher.test(matrix(as.vector(t(KEGG_ko_RGIG4079_Bovinae_pS[i, c(4,6,5,7)])), ncol=2))
+  d <- KEGG_ko_RGIG4079_Bovinae_pS[i, ]
+  d$p.value <- t$p.value
+  d$OR <- t$estimate[[1]]
+  d$OR.lower95 <- t$conf.int[1]
+  d$OR.upper95 <- t$conf.int[2]
+  RGIG4079_fisher_pS_Bovinae_hosts <- rbind(RGIG4079_fisher_pS_Bovinae_hosts, d)
+}
+write.csv(RGIG4079_fisher_pS_Bovinae_hosts, file = "RGIG4079_fisher_pS_Bovinae_hosts.csv")
+RGIG4079_fisher_pS_Bovinae_hosts <- read.csv("RGIG4079/RGIG4079_fisher_pS_Bovinae_hosts.csv", row.names = 1)
+RGIG4079_fisher_pS_merge <- merge(RGIG4079_fisher_pS_Bovinae_hosts, KEGG_ko_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pS_merge, file = "RGIG4079_fisher_pS_Bovinae_hosts_ko.csv")
+RGIG4079_fisher_pS_merge1 <- merge(RGIG4079_fisher_pS_Bovinae_hosts, KEGG_function,
+                               by.x = "KO", by.y = "KO")
+write.csv(RGIG4079_fisher_pS_merge1, file = "RGIG4079_fisher_pS_Bovinae_hosts_pathway.csv")
+```
+
+```{r boxplot}
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all <- ggplot(RGIG4079_data_merge, aes(Host, pNpS_variants)) +
+  geom_boxplot(aes(color = Host), outlier.size = 0.5) +
+  geom_signif(comparisons = my_comparisons, y_position = c(10, 10, 10),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'RGIG4079 (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+RGIG4079_data_merge$Group2 <- factor(RGIG4079_data_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2 <- ggplot(RGIG4079_data_merge, aes(Group2, pNpS_variants)) +
+  geom_boxplot(aes(color = Group2), outlier.size = 0.5) +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(10),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'RGIG4079 (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+
+p_RGIG4079_merge <- plot_grid(p_RGIG4079_all, p_RGIG4079_group2, labels = c("A", "B"),
+                              nrow = 1)
+
+ggsave(p_RGIG4079_merge, filename = "RGIG4079_all.pdf", width = 10, height = 6)
+```
+
+```{r violin pN/pS}
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants>1,]
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge_new1[which(RGIG4079_data_merge_new1$pNpS_variants!="1"),]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_pN <- ggviolin(RGIG4079_data_merge_new1, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(11),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants > 1)")
+
+RGIG4079_data_merge_new1$Group2 <- factor(RGIG4079_data_merge_new1$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_pN <- ggviolin(RGIG4079_data_merge_new1, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(11),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants > 1)")
+
+RGIG4079_data_merge_new2 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants<1,]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_pS <- ggviolin(RGIG4079_data_merge_new2, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants < 1)")
+
+RGIG4079_data_merge_new2$Group2 <- factor(RGIG4079_data_merge_new2$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_pS <- ggviolin(RGIG4079_data_merge_new2, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants < 1)")
+
+p_RGIG4079_merge_new <- plot_grid(p_RGIG4079_all_pN, p_RGIG4079_group2_pN, 
+                                  p_RGIG4079_all_pS, p_RGIG4079_group2_pS, 
+                                  labels = c("A", "B", "C", "D"))
+
+ggsave(p_RGIG4079_merge_new, filename = "RGIG4079_all_pN_pS_value.pdf", width = 10, height = 8)
+```
+
+```{r violin gene_num}
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants>1,]
+RGIG4079_data_gene_num <- as.data.frame(table(RGIG4079_data_merge_new1$Sample))
+colnames(RGIG4079_data_gene_num) <- c("Sample", "Gene_num")
+RGIG4079_data_gene_num_merge <- merge(sample_data, RGIG4079_data_gene_num,
+                                         by.x = "Sample_ID", by.y = "Sample")
+RGIG4079_data_gene_num_merge$Host <- factor(RGIG4079_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_gene_num_pN <- ggviolin(RGIG4079_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_boxplot(aes(fill = Host),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = my_comparisons, y_position = c(log10(300)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS > 1)")
+
+RGIG4079_data_gene_num_merge$Group2 <- factor(RGIG4079_data_gene_num_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_gene_num_pN <- ggviolin(RGIG4079_data_gene_num_merge, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_boxplot(aes(fill = Group2),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(log10(100)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS > 1)")
+
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants<1,]
+RGIG4079_data_gene_num <- as.data.frame(table(RGIG4079_data_merge_new1$Sample))
+colnames(RGIG4079_data_gene_num) <- c("Sample", "Gene_num")
+RGIG4079_data_gene_num_merge <- merge(sample_data, RGIG4079_data_gene_num,
+                                      by.x = "Sample_ID", by.y = "Sample")
+RGIG4079_data_gene_num_merge$Host <- factor(RGIG4079_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_gene_num_pS <- ggviolin(RGIG4079_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_boxplot(aes(fill = Host),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = my_comparisons, y_position = c(log10(1000)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS < 1)")
+
+RGIG4079_data_gene_num_merge$Group2 <- factor(RGIG4079_data_gene_num_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_gene_num_pS <- ggviolin(RGIG4079_data_gene_num_merge, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_boxplot(aes(fill = Group2),width=0.1, outlier.size = 0.5) +
+  scale_y_continuous(trans='log10') +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(log10(1000)),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS < 1)")
+
+p_RGIG4079_gene_num_merge <- plot_grid(p_RGIG4079_all_gene_num_pN, p_RGIG4079_group2_gene_num_pN, 
+                                  p_RGIG4079_all_gene_num_pS, p_RGIG4079_group2_gene_num_pS, 
+                                  labels = c("A", "B", "C", "D"))
+
+ggsave(p_RGIG4079_gene_num_merge, filename = "RGIG4079_gene_num.pdf", width = 10, height = 8)
+```
+
+### merge plot
+
+```{r data}
+gene_num_merge_hosts <- plot_grid(p_HGM05376_all_gene_num_pN, p_HGM05376_all_gene_num_pS,
+                                  p_RGIG4079_all_gene_num_pN, p_RGIG4079_all_gene_num_pS,
+                                  labels = c("A", "B", "C", "D"))
+ggsave(gene_num_merge_hosts, filename = "gene_num_merge_hosts.pdf", width = 10, height = 8)
+
+gene_num_merge_two_group <- plot_grid(p_HGM05376_group2_gene_num_pN, p_HGM05376_group2_gene_num_pS, 
+                                      p_RGIG4079_group2_gene_num_pN, p_RGIG4079_group2_gene_num_pS, 
+                                  labels = c("A", "B", "C", "D"))
+ggsave(gene_num_merge_two_group, filename = "gene_num_merge_two_group.pdf", width = 10, height = 8)
+```
+
+## Escherichia
+
+```{r data}
+Escherichia_data <- read.csv("Escherichia_instrain_result.tsv", header = F)
+colnames(Escherichia_data) <- c("Sample", "scaffold", "gene", "coverage",	"breadth", "pNpS_variants")
+Escherichia_data_merge <- merge(Escherichia_data, sample_data, by.x = "Sample", by.y = "Sample_ID")
+Escherichia_data_merge$Host <- factor(Escherichia_data_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+write.csv(Escherichia_data_merge, file = "Escherichia_data_merge.csv")
+function_Escherichia <- read.table("function_Escherichia_SGB.txt", sep = "\t")
+colnames(function_Escherichia) <- c("Gene", "evalue", "score", "COG_category", "GOs", "KEGG_ko", "KEGG_Pathway", "KEGG_Module", "CAZy")
+function_Escherichia_merge <- merge(Escherichia_data_merge, function_Escherichia,
+                                 by.x = "gene", by.y = "Gene", all.x = T)
+write.csv(function_Escherichia_merge, file = "function_Escherichia_merge.csv")
+```
+
+```{r boxplot}
+my_comparisons <- list(c("TA", "TH"), c("TAN", "TS"), c("Yak", "TC"))
+p_Escherichia_all <- ggplot(Escherichia_data_merge, aes(Host, pNpS_variants)) +
+  geom_boxplot(aes(color = Host), outlier.size = 0.5) +
+  geom_signif(comparisons = my_comparisons, y_position = c(6, 6, 6),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'Escherichia (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+Escherichia_data_merge_new <- Escherichia_data_merge[Escherichia_data_merge$Group2!="TA",]
+Escherichia_data_merge_new <- Escherichia_data_merge_new[Escherichia_data_merge_new$Group2!="TH",]
+Escherichia_data_merge_new$Group2 <- factor(Escherichia_data_merge_new$Group2, levels = c("Caprinae", "Bovinae"))
+p_Escherichia_group2 <- ggplot(Escherichia_data_merge_new, aes(Group2, pNpS_variants)) +
+  geom_boxplot(aes(color = Group2), outlier.size = 0.5) +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(6),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'Escherichia (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+Escherichia_data_merge$Group1 <- factor(Escherichia_data_merge$Group1, levels = c("Perissodactyla", "Artiodactyla"))
+p_Escherichia_group1 <- ggplot(Escherichia_data_merge, aes(Group1, pNpS_variants)) +
+  geom_boxplot(aes(color = Group1), outlier.size = 0.5) +
+  geom_signif(comparisons = list(c("Perissodactyla", "Artiodactyla")), y_position = c(6),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'Escherichia (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+p_Escherichia_merge <- plot_grid(p_Escherichia_all, p_Escherichia_group2, p_Escherichia_group1, labels = c("A", "B", "C"),
+                                 nrow = 1)
+ggsave(p_Escherichia_merge, filename = "Escherichia_all.pdf", width = 15, height = 6)
+```
+
+```{r violin pN/pS}
+Escherichia_data_merge_new1 <- Escherichia_data_merge[Escherichia_data_merge$pNpS_variants>=1,]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_Escherichia_all_pN <- ggviolin(Escherichia_data_merge_new1, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(7),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia (pNpS_variants >= 1)")
+
+Escherichia_data_merge_new11 <- Escherichia_data_merge_new1[Escherichia_data_merge_new1$Group2!="TA",]
+Escherichia_data_merge_new11 <- Escherichia_data_merge_new11[Escherichia_data_merge_new11$Group2!="TH",]
+Escherichia_data_merge_new11$Group2 <- factor(Escherichia_data_merge_new11$Group2, levels = c("Caprinae", "Bovinae"))
+p_Escherichia_group2_pN <- ggviolin(Escherichia_data_merge_new11, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(7),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia (pNpS_variants >= 1)")
+
+Escherichia_data_merge_new1$Group1 <- factor(Escherichia_data_merge_new1$Group1, levels = c("Perissodactyla", "Artiodactyla"))
+p_Escherichia_group1_pN <- ggviolin(Escherichia_data_merge_new1, x = "Group1", y = "pNpS_variants", fill = "Group1") +
+  geom_signif(comparisons = list(c("Perissodactyla", "Artiodactyla")), y_position = c(7),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia (pNpS_variants >= 1)")
+
+
+Escherichia_data_merge_new2 <- Escherichia_data_merge[Escherichia_data_merge$pNpS_variants<1,]
+my_comparisons <- list(c("TA", "TH"), c("TAN", "TS"), c("Yak", "TC"))
+p_Escherichia_all_pS <- ggviolin(Escherichia_data_merge_new2, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia (pNpS_variants < 1)")
+
+Escherichia_data_merge_new22 <- Escherichia_data_merge_new2[Escherichia_data_merge_new2$Group2!="TA",]
+Escherichia_data_merge_new22 <- Escherichia_data_merge_new22[Escherichia_data_merge_new22$Group2!="TH",]
+Escherichia_data_merge_new22$Group2 <- factor(Escherichia_data_merge_new22$Group2, levels = c("Caprinae", "Bovinae"))
+p_Escherichia_group2_pS <- ggviolin(Escherichia_data_merge_new22, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia (pNpS_variants < 1)")
+
+Escherichia_data_merge_new2$Group1 <- factor(Escherichia_data_merge_new2$Group1, levels = c("Perissodactyla", "Artiodactyla"))
+p_Escherichia_group1_pS <- ggviolin(Escherichia_data_merge_new2, x = "Group1", y = "pNpS_variants", fill = "Group1") +
+  geom_signif(comparisons = list(c("Perissodactyla", "Artiodactyla")), y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia (pNpS_variants < 1)")
+
+p_Escherichia_merge_new <- plot_grid(p_Escherichia_all_pN, p_Escherichia_group2_pN, p_Escherichia_group1_pN,
+                                  p_Escherichia_all_pS, p_Escherichia_group2_pS, p_Escherichia_group1_pS,
+                                  nrow = 2,
+                                  labels = c("A", "B", "C", "D", "E", "F"))
+
+ggsave(p_Escherichia_merge_new, filename = "Escherichia_all_new.pdf", width = 15, height = 8)
+```
+
+```{r violin gene_num}
+Escherichia_data_merge_new1 <- Escherichia_data_merge[Escherichia_data_merge$pNpS_variants>=1,]
+Escherichia_data_gene_num <- as.data.frame(table(Escherichia_data_merge_new1$Sample))
+colnames(Escherichia_data_gene_num) <- c("Sample", "Gene_num")
+Escherichia_data_gene_num_merge <- merge(sample_data, Escherichia_data_gene_num,
+                                      by.x = "Sample_ID", by.y = "Sample")
+Escherichia_data_gene_num_merge$Host <- factor(Escherichia_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_Escherichia_all_gene_num_pN <- ggviolin(Escherichia_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(60),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia gene number (pN/pS >= 1)")
+
+Escherichia_data_gene_num_merge_new1 <- Escherichia_data_gene_num_merge[Escherichia_data_gene_num_merge$Group2!="TA",]
+Escherichia_data_gene_num_merge_new1 <- Escherichia_data_gene_num_merge_new1[Escherichia_data_gene_num_merge_new1$Group2!="TH",]
+Escherichia_data_gene_num_merge_new1$Group2 <- factor(Escherichia_data_gene_num_merge_new1$Group2, levels = c("Caprinae", "Bovinae"))
+p_Escherichia_group2_gene_num_pN <- ggviolin(Escherichia_data_gene_num_merge_new1, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(60),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia gene number (pN/pS >= 1)")
+
+Escherichia_data_gene_num_merge$Group1 <- factor(Escherichia_data_gene_num_merge$Group1, levels = c("Perissodactyla", "Artiodactyla"))
+p_Escherichia_group1_gene_num_pN <- ggviolin(Escherichia_data_gene_num_merge, x = "Group1", y = "Gene_num", fill = "Group1") +
+  geom_signif(comparisons = list(c("Perissodactyla", "Artiodactyla")), y_position = c(60),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia gene number (pN/pS >= 1)")
+
+Escherichia_data_merge_new1 <- Escherichia_data_merge[Escherichia_data_merge$pNpS_variants<1,]
+Escherichia_data_gene_num <- as.data.frame(table(Escherichia_data_merge_new1$Sample))
+colnames(Escherichia_data_gene_num) <- c("Sample", "Gene_num")
+Escherichia_data_gene_num_merge <- merge(sample_data, Escherichia_data_gene_num,
+                                         by.x = "Sample_ID", by.y = "Sample")
+Escherichia_data_gene_num_merge$Host <- factor(Escherichia_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TA", "TH"), c("TAN", "TS"), c("Yak", "TC"))
+p_Escherichia_all_gene_num_pS <- ggviolin(Escherichia_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(4000),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia gene number (pN/pS < 1)")
+
+Escherichia_data_gene_num_merge_new1 <- Escherichia_data_gene_num_merge[Escherichia_data_gene_num_merge$Group2!="TA",]
+Escherichia_data_gene_num_merge_new1 <- Escherichia_data_gene_num_merge_new1[Escherichia_data_gene_num_merge_new1$Group2!="TH",]
+Escherichia_data_gene_num_merge_new1$Group2 <- factor(Escherichia_data_gene_num_merge_new1$Group2, levels = c("Caprinae", "Bovinae"))
+p_Escherichia_group2_gene_num_pS <- ggviolin(Escherichia_data_gene_num_merge_new1, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(4000),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia gene number (pN/pS < 1)")
+
+Escherichia_data_gene_num_merge$Group1 <- factor(Escherichia_data_gene_num_merge$Group1, levels = c("Perissodactyla", "Artiodactyla"))
+p_Escherichia_group1_gene_num_pS <- ggviolin(Escherichia_data_gene_num_merge, x = "Group1", y = "Gene_num", fill = "Group1") +
+  geom_signif(comparisons = list(c("Perissodactyla", "Artiodactyla")), y_position = c(4000),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("Escherichia gene number (pN/pS < 1)")
+
+p_Escherichia_gene_num_merge <- plot_grid(p_Escherichia_all_gene_num_pN, p_Escherichia_group2_gene_num_pN, p_Escherichia_group1_gene_num_pN,
+                                     p_Escherichia_all_gene_num_pS, p_Escherichia_group2_gene_num_pS, p_Escherichia_group1_gene_num_pS,
+                                     nrow = 2,
+                                     labels = c("A", "B", "C", "D", "E", "F"))
+
+ggsave(p_Escherichia_gene_num_merge, filename = "Escherichia_all_gene_num.pdf", width = 15, height = 8)
+
+### RGIG4079
+RGIG4079_data <- read.csv("RGIG4079_instrain_result.tsv", header = F)
+colnames(RGIG4079_data) <- c("Sample", "scaffold", "gene", "coverage",	"breadth", "pNpS_variants")
+RGIG4079_data_merge <- merge(RGIG4079_data, sample_data, by.x = "Sample", by.y = "Sample_ID")
+RGIG4079_data_merge$Host <- factor(RGIG4079_data_merge$Host, levels = c("TAN", "TS","Yak", "TC"))
+write.csv(RGIG4079_data_merge, file = "RGIG4079_data_merge.csv")
+function_RGIG4079 <- read.table("function_RGIG4079_SGB.txt", sep = "\t")
+colnames(function_RGIG4079) <- c("Gene", "evalue", "score", "COG_category", "GOs", "KEGG_ko", "KEGG_Pathway", "KEGG_Module", "CAZy")
+function_RGIG4079_merge <- merge(RGIG4079_data_merge, function_RGIG4079,
+                                    by.x = "gene", by.y = "Gene", all.x = T)
+write.csv(function_RGIG4079_merge, file = "function_RGIG4079_merge.csv")
+
+### boxplot
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all <- ggplot(RGIG4079_data_merge, aes(Host, pNpS_variants)) +
+  geom_boxplot(aes(color = Host), outlier.size = 0.5) +
+  geom_signif(comparisons = my_comparisons, y_position = c(10, 10, 10),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'RGIG4079 (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+RGIG4079_data_merge$Group2 <- factor(RGIG4079_data_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2 <- ggplot(RGIG4079_data_merge, aes(Group2, pNpS_variants)) +
+  geom_boxplot(aes(color = Group2), outlier.size = 0.5) +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(10),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  labs(x = '', y = 'RGIG4079 (pNpS_variants)') +
+  theme_classic(base_family = "Helvetica")
+
+
+p_RGIG4079_merge <- plot_grid(p_RGIG4079_all, p_RGIG4079_group2, labels = c("A", "B"),
+                              nrow = 1)
+
+ggsave(p_RGIG4079_merge, filename = "RGIG4079_all.pdf", width = 10, height = 6)
+
+
+### violin
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants>=1,]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_pN <- ggviolin(RGIG4079_data_merge_new1, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(11),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants >= 1)")
+
+RGIG4079_data_merge_new1$Group2 <- factor(RGIG4079_data_merge_new1$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_pN <- ggviolin(RGIG4079_data_merge_new1, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(11),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants >= 1)")
+
+RGIG4079_data_merge_new2 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants<1,]
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_pS <- ggviolin(RGIG4079_data_merge_new2, x = "Host", y = "pNpS_variants", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants < 1)")
+
+RGIG4079_data_merge_new2$Group2 <- factor(RGIG4079_data_merge_new2$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_pS <- ggviolin(RGIG4079_data_merge_new2, x = "Group2", y = "pNpS_variants", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(1.5),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 (pNpS_variants < 1)")
+
+p_RGIG4079_merge_new <- plot_grid(p_RGIG4079_all_pN, p_RGIG4079_group2_pN, 
+                                  p_RGIG4079_all_pS, p_RGIG4079_group2_pS, 
+                                  labels = c("A", "B", "C", "D"))
+
+ggsave(p_RGIG4079_merge_new, filename = "RGIG4079_all_new.pdf", width = 10, height = 8)
+
+
+### violin gene number
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants>=1,]
+RGIG4079_data_gene_num <- as.data.frame(table(RGIG4079_data_merge_new1$Sample))
+colnames(RGIG4079_data_gene_num) <- c("Sample", "Gene_num")
+RGIG4079_data_gene_num_merge <- merge(sample_data, RGIG4079_data_gene_num,
+                                         by.x = "Sample_ID", by.y = "Sample")
+RGIG4079_data_gene_num_merge$Host <- factor(RGIG4079_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_gene_num_pN <- ggviolin(RGIG4079_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(11),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS >= 1)")
+
+RGIG4079_data_gene_num_merge$Group2 <- factor(RGIG4079_data_gene_num_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_gene_num_pN <- ggviolin(RGIG4079_data_gene_num_merge, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(11),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS >= 1)")
+
+RGIG4079_data_merge_new1 <- RGIG4079_data_merge[RGIG4079_data_merge$pNpS_variants<1,]
+RGIG4079_data_gene_num <- as.data.frame(table(RGIG4079_data_merge_new1$Sample))
+colnames(RGIG4079_data_gene_num) <- c("Sample", "Gene_num")
+RGIG4079_data_gene_num_merge <- merge(sample_data, RGIG4079_data_gene_num,
+                                      by.x = "Sample_ID", by.y = "Sample")
+RGIG4079_data_gene_num_merge$Host <- factor(RGIG4079_data_gene_num_merge$Host, levels = c("TA", "TH", "TAN", "TS","Yak", "TC"))
+my_comparisons <- list(c("TAN", "TS"), c("Yak", "TC"))
+p_RGIG4079_all_gene_num_pS <- ggviolin(RGIG4079_data_gene_num_merge, x = "Host", y = "Gene_num", fill = "Host") +
+  geom_signif(comparisons = my_comparisons, y_position = c(450),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS < 1)")
+
+RGIG4079_data_gene_num_merge$Group2 <- factor(RGIG4079_data_gene_num_merge$Group2, levels = c("Caprinae", "Bovinae"))
+p_RGIG4079_group2_gene_num_pS <- ggviolin(RGIG4079_data_gene_num_merge, x = "Group2", y = "Gene_num", fill = "Group2") +
+  geom_signif(comparisons = list(c("Caprinae", "Bovinae")), y_position = c(450),
+              map_signif_level=TRUE, test = "wilcox.test") +
+  scale_fill_brewer(palette = "Set2") +
+  theme_classic(base_family = "Helvetica") +
+  theme(legend.position="none") +
+  xlab("") +
+  ylab("RGIG4079 gene number (pN/pS < 1)")
+
+p_RGIG4079_gene_num_merge <- plot_grid(p_RGIG4079_all_gene_num_pN, p_RGIG4079_group2_gene_num_pN, 
+                                  p_RGIG4079_all_gene_num_pS, p_RGIG4079_group2_gene_num_pS, 
+                                  labels = c("A", "B", "C", "D"))
+
+ggsave(p_RGIG4079_gene_num_merge, filename = "RGIG4079_gene_num.pdf", width = 10, height = 8)
+```
