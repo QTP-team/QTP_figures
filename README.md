@@ -10,27 +10,26 @@ Figure 4. Evolutionary dynamics of gut core microbiomes.
 
 Figure 5. Vertical and horizontal inheritance of high-altitude mammalian gut symbionts.
 
-Figure6 Functional divergence of representative SGBs with high frequent co-speciation or host-swap events across host species.
+Figure 6. Functional divergence of representative SGBs with high frequent co-speciation or host-swap events across host species.
 
-Supplementary Table 1. Information on samples included in the study.
+Supplementary Fig. 1. The effective estimation of co-binned MAGs and SGBs using all 79 Tibetan horse samples.
 
-Supplementary Table 2. Data summary of the samples.
+Supplementary Fig. 2. Quality assessment of 19,251 SGBs.
 
-Supplementary Table 3. Information of the assembled MAGs in the study.
+Supplementary Fig. 3. Taxonomic statistics of 19,251 SGBs.
 
-Supplementary Table 4. Summary of SGBs in the study.
+Supplementary Fig. 4. Predicted biosynthetic genes from the SGBs catalogs of the six host species.
 
-Supplementary Table 5. Profiling of 19,251 SGBs from the 1,412 samples.
+Supplementary Fig. 5. The PCoA analysis in three paired hosts.
 
-Supplementary Table 6. Data summary of the genome and gene catalog of the gut microbiomes.
-(A)	Summary of the 19,251 assembled genome catalog. (B) Summary of the gene catalog.
+Supplementary Fig. 6. High quality and core microbial community tree based on Bray-Curtis dissimilarity.
 
-Supplementary Table 7. The expanding diversity of species at the phylum level.
+Supplementary Fig. 7. Comparison of the enrichment of gut microbial functions between plateau indigenous species and late-migratory species.
 
-Supplementary Table 8. The summary of BGCs in the six host species.
+Supplementary Fig. 8. The Scatter plot shows the rate of co-speciation (Co-spe) events in bacterial genera that exist in at least 2 host species. 
 
-Supplementary Table 9. Statistics of microbial evolution events in the genus level.
+Supplementary Fig. 9. The Scatter plot shows the rate of host-swap events in bacterial genera that exist in at least 2 host species.
 
-Supplementary Table 10. Genetic and functional variations of representative SGBs with frequent co-speciation events among different host species.
+Supplementary Fig. 10. (A)The SGB1200 including 59 MAGs from the genus HGM05376 and (B) SGB1161 including 4 MAGs from the genus RGIG4079 show typical cases of host swap and co-speciation respectively.
 
-Supplementary Table 11. Genetic and functional variations of representative SGBs with frequent host-swap events among different host species. 
+Supplementary Fig. 11. Gene duplication number variation of multiple-copy orthologous groups of bacterial genera HGM05376 across host species.
