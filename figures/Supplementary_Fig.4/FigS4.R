@@ -15,7 +15,7 @@ TC_BGC_data <- read.csv("0.data/TC_BGC.csv")
 TA_BGC_data <- read.csv("0.data/TA_BGC.csv")
 TH_BGC_data <- read.csv("0.data/TH_BGC.csv")
 All_SGBs_annotation <- read.csv("0.data/TableS3_SGBs_summary.csv")
-All_SGBs_annotation <- All_SGBs_annotation[,c(9,21)]
+All_SGBs_annotation <- All_SGBs_annotation[,c(9,20)]
 
 ## TAN
 # All 饼图
