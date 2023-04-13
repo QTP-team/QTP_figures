@@ -22,14 +22,16 @@ Supplementary Fig. 4. Predicted biosynthetic genes from the SGBs catalogs of the
 
 Supplementary Fig. 5. The PCoA analysis in three paired hosts.
 
-Supplementary Fig. 6. High quality and core microbial community tree based on Bray-Curtis dissimilarity.
+Supplementary Fig. 6
 
-Supplementary Fig. 7. Comparison of the enrichment of gut microbial functions between plateau indigenous species and late-migratory species.
+Supplementary Fig. 7. High quality and core microbial community tree based on Bray-Curtis dissimilarity.
 
-Supplementary Fig. 8. The Scatter plot shows the rate of co-speciation (Co-spe) events in bacterial genera that exist in at least 2 host species. 
+Supplementary Fig. 8. Comparison of the enrichment of gut microbial functions between plateau indigenous species and late-migratory species.
 
-Supplementary Fig. 9. The Scatter plot shows the rate of host-swap events in bacterial genera that exist in at least 2 host species.
+Supplementary Fig. 9. The Scatter plot shows the rate of co-speciation (Co-spe) events in bacterial genera that exist in at least 2 host species. 
 
-Supplementary Fig. 10. (A)The SGB1200 including 59 MAGs from the genus HGM05376 and (B) SGB1161 including 4 MAGs from the genus RGIG4079 show typical cases of host swap and co-speciation respectively.
+Supplementary Fig. 10. The Scatter plot shows the rate of host-swap events in bacterial genera that exist in at least 2 host species.
 
-Supplementary Fig. 11. Gene duplication number variation of multiple-copy orthologous groups of bacterial genera HGM05376 across host species.
+Supplementary Fig. 11. (A)The SGB1200 including 59 MAGs from the genus HGM05376 and (B) SGB1161 including 4 MAGs from the genus RGIG4079 show typical cases of host swap and co-speciation respectively.
+
+Supplementary Fig. 12. Gene duplication number variation of multiple-copy orthologous groups of bacterial genera HGM05376 across host species.
