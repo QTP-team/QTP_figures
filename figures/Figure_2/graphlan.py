@@ -1,5 +1,5 @@
 import math
-sgb_file = "all_18607.txt"
+sgb_file = "final.txt"
 annot_file = "annot.txt"
 
 
