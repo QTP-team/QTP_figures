@@ -1,5 +1,5 @@
 import math
-sgb_file = "final.txt"
+sgb_file = "SGBs_13572_data.txt"
 annot_file = "annot.txt"
 
 
@@ -75,21 +75,21 @@ f_o.write(global_set)
 
 #node_color
 node_color = \
-{"Actinobacteriota":"#125D98",\
- "Bacteroidota":"#B6C867",\
-"Cyanobacteria":"#F5A962",\
-"Elusimicrobiota":"#343A40",\
-"Fibrobacterota":"#7952B3",\
- "Firmicutes":"#FFC107",\
- "Firmicutes_A":"#8AB6D6",\
- "Firmicutes_B":"#CCFFBD",\
- "Firmicutes_C":"#01937C",\
-"Halobacteriota":"#D83A56",\
- "Methanobacteriota":"#68B0AB",\
- "Proteobacteria":"#C84B31",\
- "Spirochaetota":"#52006A",\
-"Thermoplasmatota":"#00ff7f",\
- "Verrucomicrobiota_A":"#890596",\
+{"Actinomycetota":"#125D98",\
+ "Bacillota":"#B6C867",\
+"Bacillota_A":"#F5A962",\
+"Bacillota_B":"#343A40",\
+"Bacillota_C":"#7952B3",\
+ "Bacteroidota":"#FFC107",\
+ "Cyanobacteriota":"#8AB6D6",\
+ "Elusimicrobiota":"#CCFFBD",\
+ "Fibrobacterota":"#01937C",\
+"Methanobacteriota":"#D83A56",\
+ "Patescibacteria":"#68B0AB",\
+ "Planctomycetota":"#C84B31",\
+ "Pseudomonadota":"#52006A",\
+"Spirochaetota":"#00ff7f",\
+ "Verrucomicrobiota":"#890596",\
  "Others":"#808080"}
 
 # legend
