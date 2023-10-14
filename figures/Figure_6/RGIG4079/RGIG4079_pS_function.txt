@@ -1,4 +1,0 @@
-Pathway	Bovinae	Caprinae	Function
-Ribosome	12	0	Genetic Information Processing
-Biosynthesis of secondary metabolites	3	0	Metabolism
-Two-component system	0	3	Environmental Information Processing
