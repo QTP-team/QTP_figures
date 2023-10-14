@@ -1,0 +1,2895 @@
+Rank	Taxon	Counts
+Kingdom	Bacteria	13957
+Phylum	p__Actinomycetota	60
+Phylum	p__Armatimonadota	1
+Phylum	p__Bacillota	355
+Phylum	p__Bacillota_A	9904
+Phylum	p__Bacillota_B	25
+Phylum	p__Bacillota_C	38
+Phylum	p__Bacteroidota	1990
+Phylum	p__Campylobacterota	4
+Phylum	p__Chlamydiota	2
+Phylum	p__Chloroflexota	1
+Phylum	p__Cyanobacteriota	118
+Phylum	p__Deferribacterota	2
+Phylum	p__Desulfobacterota	17
+Phylum	p__Elusimicrobiota	88
+Phylum	p__Eremiobacterota	2
+Phylum	p__Fibrobacterota	34
+Phylum	p__Myxococcota	17
+Phylum	p__Patescibacteria	206
+Phylum	p__Planctomycetota	37
+Phylum	p__Pseudomonadota	455
+Phylum	p__Riflebacteria	3
+Phylum	p__Spirochaetota	154
+Phylum	p__Synergistota	10
+Phylum	p__UBA3054	1
+Phylum	p__Verrucomicrobiota	433
+Class	c__Actinomycetia	19
+Class	c__Alphaproteobacteria	416
+Class	c__Anaerolineae	1
+Class	c__Bacilli	355
+Class	c__Bacteroidia	1990
+Class	c__Bradymonadia	13
+Class	c__Campylobacteria	4
+Class	c__Chlamydiia	2
+Class	c__Clostridia	9904
+Class	c__Coriobacteriia	41
+Class	c__Deferribacteres	2
+Class	c__Dehalobacteriia	6
+Class	c__Desulfarculia	1
+Class	c__Desulfobulbia	1
+Class	c__Desulfotomaculia	2
+Class	c__Desulfovibrionia	15
+Class	c__Elusimicrobia	85
+Class	c__Endomicrobia	3
+Class	c__Fibrobacteria	34
+Class	c__Gammaproteobacteria	39
+Class	c__GWE2-31-10	3
+Class	c__JAEDAM01	4
+Class	c__Kiritimatiellia	118
+Class	c__Lentisphaeria	150
+Class	c__Microgenomatia	2
+Class	c__Myxococcia	2
+Class	c__Negativicutes	38
+Class	c__Ozemobacteria	3
+Class	c__Peptococcia	14
+Class	c__Planctomycetia	37
+Class	c__Saccharimonadia	200
+Class	c__Spirochaetia	150
+Class	c__Synergistia	10
+Class	c__Syntrophomonadia	2
+Class	c__UBA3054	1
+Class	c__UBA4802	1
+Class	c__UBA5829	1
+Class	c__Vampirovibrionia	118
+Class	c__Verrucomicrobiae	165
+Class	c__Xenobia	2
+Class	c__XYA12-FULL-58-9	2
+Class	c__Z-2901	1
+Order	Unclassified	3
+Order	o__Absconditabacterales	4
+Order	o__Acetobacterales	2
+Order	o__Acholeplasmatales	17
+Order	o__Acidaminococcales	18
+Order	o__Actinomycetales	17
+Order	o__Adiutricales	1
+Order	o__Anaerolineales	1
+Order	o__Bacillales	32
+Order	o__Bacteroidales	1971
+Order	o__Burkholderiales	11
+Order	o__CADAEX01	5
+Order	o__Campylobacterales	4
+Order	o__Carboxydothermales	1
+Order	o__Chitinophagales	1
+Order	o__Chlamydiales	2
+Order	o__Christensenellales	1249
+Order	o__Clostridiales	6
+Order	o__Coriobacteriales	41
+Order	o__Deferribacterales	2
+Order	o__Desulfobulbales	1
+Order	o__Desulfotomaculales	2
+Order	o__Desulfovibrionales	15
+Order	o__Elusimicrobiales	85
+Order	o__Endomicrobiales	3
+Order	o__Enterobacterales	2
+Order	o__Enterobacterales_A	11
+Order	o__Erysipelotrichales	78
+Order	o__Eubacteriales	10
+Order	o__Fibrobacterales	34
+Order	o__Flavobacteriales	9
+Order	o__Gastranaerophilales	118
+Order	o__GWE2-31-10	3
+Order	o__HGM11327	6
+Order	o__HGM11514	15
+Order	o__Izemoplasmatales	1
+Order	o__JAEEML01	2
+Order	o__JAGOMX01	1
+Order	o__Lachnospirales	1068
+Order	o__Lactobacillales	8
+Order	o__LD1-PB3_B	1
+Order	o__ML615J-28	57
+Order	o__Monoglobales	221
+Order	o__Mycobacteriales	1
+Order	o__Mycoplasmatales	15
+Order	o__Myxococcales	2
+Order	o__Opitutales	27
+Order	o__Oscillospirales	6261
+Order	o__Ozemobacterales	3
+Order	o__Paenibacillales	3
+Order	o__Pedosphaerales	1
+Order	o__Peptococcales	14
+Order	o__Peptostreptococcales	128
+Order	o__Pirellulales	37
+Order	o__Propionibacteriales	1
+Order	o__Pseudomonadales	14
+Order	o__RF32	184
+Order	o__RF39	100
+Order	o__RFN20	44
+Order	o__RFP12	117
+Order	o__RGIG6154	33
+Order	o__RGIG7378	5
+Order	o__RGIG8785	3
+Order	o__RGIG982	5
+Order	o__Rhodobacterales	1
+Order	o__Rs-D84	219
+Order	o__RUG11792	3
+Order	o__RUG12999	30
+Order	o__Saccharimonadales	200
+Order	o__Saccharofermentanales	50
+Order	o__Selenomonadales	14
+Order	o__Sphaerochaetales	9
+Order	o__Sphingobacteriales	9
+Order	o__Sphingomonadales	2
+Order	o__Synergistales	10
+Order	o__Syntrophomonadales	2
+Order	o__TANB77	83
+Order	o__Treponematales	136
+Order	o__UBA1212	38
+Order	o__UBA1381	331
+Order	o__UBA1400	2
+Order	o__UBA1407	5
+Order	o__UBA3054	1
+Order	o__UBA3830	4
+Order	o__UBA4068	5
+Order	o__UBA4248	12
+Order	o__UBA4802	1
+Order	o__UBA5829	1
+Order	o__UBA7702	1
+Order	o__UBA7976	1
+Order	o__UBA9339	1
+Order	o__UMGS1810	145
+Order	o__UMGS1840	55
+Order	o__UMGS1883	164
+Order	o__Veillonellales	1
+Order	o__Verrucomicrobiales	137
+Order	o__Victivallales	145
+Order	o__Xenobiales	2
+Family	Unclassified	28
+Family	f__Absconditicoccaceae	4
+Family	f__Acetobacteraceae	2
+Family	f__Acidaminococcaceae	18
+Family	f__Acutalibacteraceae	2111
+Family	f__Adiutricaceae	1
+Family	f__Aeromonadaceae	1
+Family	f__Akkermansiaceae	137
+Family	f__Anaerofustaceae	10
+Family	f__Anaerolineaceae	1
+Family	f__Anaeroplasmataceae	17
+Family	f__Anaerotignaceae	9
+Family	f__Anaerovoracaceae	128
+Family	f__Atopobiaceae	11
+Family	f__Bacteroidaceae	540
+Family	f__Barnesiellaceae	17
+Family	f__Bianqueaceae	20
+Family	f__Bifidobacteriaceae	6
+Family	f__BM520	1
+Family	f__Borkfalkiaceae	692
+Family	f__Burkholderiaceae	4
+Family	f__Burkholderiaceae_A	5
+Family	f__Burkholderiaceae_B	1
+Family	f__Butyricicoccaceae	32
+Family	f__CACZYB01	4
+Family	f__CADAEX01	5
+Family	f__CADBOM01	2
+Family	f__CAG-1252	1
+Family	f__CAG-138	35
+Family	f__CAG-239	108
+Family	f__CAG-272	1985
+Family	f__CAG-312	11
+Family	f__CAG-313	41
+Family	f__CAG-314	22
+Family	f__CAG-382	291
+Family	f__CAG-449	3
+Family	f__CAG-465	21
+Family	f__CAG-508	57
+Family	f__CAG-631	2
+Family	f__CAG-698	16
+Family	f__CAG-74	153
+Family	f__CAG-826	33
+Family	f__CAG-917	16
+Family	f__CAG-977	4
+Family	f__CALXSZ01	2
+Family	f__Campylobacteraceae	3
+Family	f__Carnobacteriaceae	2
+Family	f__Cellulomonadaceae	2
+Family	f__Cellulosilyticaceae	2
+Family	f__Chitinophagaceae	1
+Family	f__Chlamydiaceae	2
+Family	f__Christensenellaceae	5
+Family	f__Clostridiaceae	6
+Family	f__Coprobacillaceae	4
+Family	f__Crocinitomicaceae	1
+Family	f__Desulfobulbaceae	1
+Family	f__Desulfocucumaceae	2
+Family	f__Desulfovibrionaceae	15
+Family	f__Dialisteraceae	1
+Family	f__DSM-1321	13
+Family	f__DSM-18226	1
+Family	f__DTU072	15
+Family	f__DUOF01	4
+Family	f__DUVY01	1
+Family	f__Eggerthellaceae	26
+Family	f__Elusimicrobiaceae	85
+Family	f__Endomicrobiaceae	3
+Family	f__Enterobacteriaceae	2
+Family	f__Enterococcaceae	2
+Family	f__Erysipelotrichaceae	74
+Family	f__F082	80
+Family	f__Feifaniaceae	6
+Family	f__Fibrobacteraceae	34
+Family	f__Firm-18	25
+Family	f__Flavobacteriaceae	3
+Family	f__G3-4614	13
+Family	f__Gastranaerophilaceae	100
+Family	f__GWE2-31-10	3
+Family	f__Helicobacteraceae	1
+Family	f__HGM11327	6
+Family	f__HGM11501	11
+Family	f__HGM11507	35
+Family	f__HGM11514	15
+Family	f__JAAYLN01	2
+Family	f__JAAYOS01	1
+Family	f__JAAYXM01	84
+Family	f__JAEEML01	2
+Family	f__JAGOMX01	1
+Family	f__JAILCC01	1
+Family	f__JAKSVV01	1
+Family	f__Lachnospiraceae	1036
+Family	f__Lactobacillaceae	3
+Family	f__Lenti-01	1
+Family	f__LL51	2
+Family	f__Marinifilaceae	8
+Family	f__MARSEILLE-P3954	2
+Family	f__MB2-83	1
+Family	f__Metamycoplasmataceae	1
+Family	f__MGBC116941	1
+Family	f__Microbacteriaceae	6
+Family	f__Micrococcaceae	3
+Family	f__ML635J-15	2
+Family	f__Monoglobaceae	196
+Family	f__Moraxellaceae	11
+Family	f__Mucispirillaceae	2
+Family	f__Muribaculaceae	82
+Family	f__Mycobacteriaceae	1
+Family	f__Mycoplasmoidaceae	14
+Family	f__Myxococcaceae	1
+Family	f__Nanosyncoccaceae	198
+Family	f__Nocardioidaceae	1
+Family	f__Oscillospiraceae	1068
+Family	f__Ozemobacteraceae	3
+Family	f__P3	78
+Family	f__Paenibacillaceae	3
+Family	f__Paludibacteraceae	228
+Family	f__Peptococcaceae	14
+Family	f__PJMF01	2
+Family	f__Planococcaceae	18
+Family	f__Pseudomonadaceae	3
+Family	f__Pumilibacteraceae	30
+Family	f__QAKW01	81
+Family	f__QALW01	48
+Family	f__QAMH01	2
+Family	f__QAMX01	15
+Family	f__RGIG5299	4
+Family	f__RGIG6154	32
+Family	f__RGIG7378	5
+Family	f__RGIG7773	1
+Family	f__RGIG8002	2
+Family	f__RGIG8785	3
+Family	f__RGIG9151	1
+Family	f__RGIG982	5
+Family	f__Rhodobacteraceae	1
+Family	f__Rhodocyclaceae	1
+Family	f__Rikenellaceae	408
+Family	f__Rs-D84	215
+Family	f__RUG11792	3
+Family	f__RUG12999	30
+Family	f__RUG14156	17
+Family	f__RUG350	24
+Family	f__Ruminococcaceae	383
+Family	f__Saccharimonadaceae	1
+Family	f__Saccharofermentanaceae	50
+Family	f__Selenomonadaceae	14
+Family	f__Shewanellaceae	1
+Family	f__SIG427	3
+Family	f__SIG519	1
+Family	f__SIG530	1
+Family	f__SIG627	104
+Family	f__Sphaerochaetaceae	9
+Family	f__Sphingobacteriaceae	9
+Family	f__Sphingomonadaceae	2
+Family	f__Streptococcaceae	1
+Family	f__Succinivibrionaceae	9
+Family	f__Synergistaceae	10
+Family	f__SZUA-534	4
+Family	f__Tannerellaceae	2
+Family	f__Thermoguttaceae	37
+Family	f__Treponemataceae	136
+Family	f__UBA1067	109
+Family	f__UBA11471	1
+Family	f__UBA1188	1
+Family	f__UBA1212	9
+Family	f__UBA1234	4
+Family	f__UBA1242	197
+Family	f__UBA1255	22
+Family	f__UBA1257	1
+Family	f__UBA1381	173
+Family	f__UBA1402	4
+Family	f__UBA1407	5
+Family	f__UBA1412	1
+Family	f__UBA1532	1
+Family	f__UBA1547_A	1
+Family	f__UBA1709	2
+Family	f__UBA1715	10
+Family	f__UBA1750	3
+Family	f__UBA1820	4
+Family	f__UBA1829	28
+Family	f__UBA3054	1
+Family	f__UBA3636	4
+Family	f__UBA3637	71
+Family	f__UBA3663	38
+Family	f__UBA3824	9
+Family	f__UBA3830	2
+Family	f__UBA4248	12
+Family	f__UBA5297	1
+Family	f__UBA5550	1
+Family	f__UBA5755	5
+Family	f__UBA5829	1
+Family	f__UBA644	53
+Family	f__UBA660	100
+Family	f__UBA7702	1
+Family	f__UBA932	394
+Family	f__UBA9339	1
+Family	f__UBA9506	133
+Family	f__UBA953	9
+Family	f__UBA9783	5
+Family	f__UMGS1253	25
+Family	f__UMGS1384	6
+Family	f__UMGS1540	53
+Family	f__UMGS1783	21
+Family	f__UMGS1810	145
+Family	f__UMGS1840	20
+Family	f__UMGS1883	97
+Family	f__UMGS416	2
+Family	f__Victivallaceae	117
+Family	f__W3P20-009	16
+Family	f__WCHB1-69	36
+Family	f__Weeksellaceae	1
+Family	f__Xenobiaceae	2
+Genus	Unclassified	525
+Genus	g__12844	2
+Genus	g__14-2	8
+Genus	g__2011-GWC2-44-17	1
+Genus	g__AC2028	8
+Genus	g__Acetatifactor	131
+Genus	g__Acetobacter	2
+Genus	g__Acinetobacter	11
+Genus	g__Adiutrix	1
+Genus	g__Aeromonas	1
+Genus	g__Agathobacter	44
+Genus	g__Akkermansia	137
+Genus	g__Alectryobacillus	1
+Genus	g__Alectryocaccobium	3
+Genus	g__Alistipes	337
+Genus	g__Allisonella	1
+Genus	g__Alloprevotella	39
+Genus	g__Alloscillospira	4
+Genus	g__Anaerobutyricum	3
+Genus	g__Anaeroplasma	11
+Genus	g__Anaerotignum	6
+Genus	g__Anaerovibrio	2
+Genus	g__Aphodoplasma	6
+Genus	g__Aphodosoma	31
+Genus	g__Aphodousia	3
+Genus	g__Arcticibacter	1
+Genus	g__Arthrobacter_B	3
+Genus	g__Avelusimicrobium	17
+Genus	g__Avidehalobacter	5
+Genus	g__Avigastranaerophilus	15
+Genus	g__Avilachnospira	5
+Genus	g__Avimonas	1
+Genus	g__Avimonoglobus	1
+Genus	g__Avispirillum	45
+Genus	g__Avoscillospira	25
+Genus	g__Bacillus_AD	6
+Genus	g__Bacillus_AZ	1
+Genus	g__Bact-11	19
+Genus	g__Bact-19	2
+Genus	g__Bacteroides	3
+Genus	g__Bariatricus	1
+Genus	g__Barnesiella_A	17
+Genus	g__Bifidobacterium	1
+Genus	g__Bilophila	1
+Genus	g__Blautia_A	2
+Genus	g__Breznakia	1
+Genus	g__Bulleidia	28
+Genus	g__Butyribacter	1
+Genus	g__Butyrivibrio	7
+Genus	g__Butyrivibrio_A	7
+Genus	g__CAAHEQ01	2
+Genus	g__Caccoplasma	13
+Genus	g__Caccosoma	2
+Genus	g__Caccovivens	27
+Genus	g__CACZQQ01	1
+Genus	g__CACZYB01	4
+Genus	g__CADAEX01	3
+Genus	g__CAG-1000	3
+Genus	g__CAG-1024	3
+Genus	g__CAG-103	2
+Genus	g__CAG-115	32
+Genus	g__CAG-170	4
+Genus	g__CAG-177	160
+Genus	g__CAG-1782	2
+Genus	g__CAG-194	25
+Genus	g__CAG-196	25
+Genus	g__CAG-238	3
+Genus	g__CAG-267	17
+Genus	g__CAG-269	10
+Genus	g__CAG-272	46
+Genus	g__CAG-273	2
+Genus	g__CAG-302	1
+Genus	g__CAG-303	8
+Genus	g__CAG-313	4
+Genus	g__CAG-353	1
+Genus	g__CAG-390	40
+Genus	g__CAG-41	2
+Genus	g__CAG-433	1
+Genus	g__CAG-448	178
+Genus	g__CAG-449	1
+Genus	g__CAG-452	8
+Genus	g__CAG-475	1
+Genus	g__CAG-485	7
+Genus	g__CAG-488	65
+Genus	g__CAG-492	6
+Genus	g__CAG-510	7
+Genus	g__CAG-533	1
+Genus	g__CAG-552	2
+Genus	g__CAG-557	6
+Genus	g__CAG-582	1
+Genus	g__CAG-590	17
+Genus	g__CAG-632	3
+Genus	g__CAG-698	2
+Genus	g__CAG-724	1
+Genus	g__CAG-791	6
+Genus	g__CAG-793	1
+Genus	g__CAG-877	2
+Genus	g__CAG-882	2
+Genus	g__CAG-95	10
+Genus	g__CAG-964	5
+Genus	g__CAJFPI01	1
+Genus	g__CAJGBR01	6
+Genus	g__CAJGCS01	6
+Genus	g__CAJGDV01	3
+Genus	g__CAJLYO01	5
+Genus	g__CAJOGH01	1
+Genus	g__CAJOIG01	6
+Genus	g__CAJOLV01	3
+Genus	g__CAJOQB01	1
+Genus	g__CAKOMG01	6
+Genus	g__CAKPCJ01	1
+Genus	g__CAKPSH01	1
+Genus	g__CAKPTA01	1
+Genus	g__CAKQKQ01	1
+Genus	g__CAKQTH01	1
+Genus	g__CAKQWA01	1
+Genus	g__CAKRJP01	1
+Genus	g__CAKRZE01	5
+Genus	g__CAKSDT01	1
+Genus	g__CAKSEI01	5
+Genus	g__CAKSHC01	18
+Genus	g__CAKSHP01	6
+Genus	g__CAKSIP01	16
+Genus	g__CAKSIW01	4
+Genus	g__CAKSKB01	2
+Genus	g__CAKSQF01	4
+Genus	g__CAKSQL01	4
+Genus	g__CAKSST01	2
+Genus	g__CAKSUT01	2
+Genus	g__CAKTXU01	1
+Genus	g__CAKUFA01	2
+Genus	g__CAKVLG01	1
+Genus	g__CAKVLS01	17
+Genus	g__CALUTH01	3
+Genus	g__CALVJJ01	1
+Genus	g__CALVNY01	3
+Genus	g__CALWJF01	1
+Genus	g__CALWPC01	1
+Genus	g__CALWPV01	12
+Genus	g__CALWZE01	1
+Genus	g__CALXFK01	1
+Genus	g__CALXJE01	4
+Genus	g__CALXSZ01	2
+Genus	g__CALXVS01	1
+Genus	g__CALXZG01	3
+Genus	g__CALZKI01	3
+Genus	g__Campylobacter	3
+Genus	g__Carnobacterium_A	2
+Genus	g__Catenibacillus	1
+Genus	g__CAZU01	39
+Genus	g__Cellulomonas	1
+Genus	g__Cellulomonas_A	1
+Genus	g__Cellulosilyticum	2
+Genus	g__Chlamydophila	2
+Genus	g__Choladocola	3
+Genus	g__Chryseobacterium	1
+Genus	g__Clavibacter	2
+Genus	g__Clostridium	3
+Genus	g__Clostridium_Q	2
+Genus	g__COE1	9
+Genus	g__Comamonas	1
+Genus	g__Congzhengia	78
+Genus	g__Coprenecus	13
+Genus	g__Copromonas	12
+Genus	g__Coprosoma	1
+Genus	g__Coprovivens	14
+Genus	g__Cryptobacteroides	300
+Genus	g__Denitrobacterium	1
+Genus	g__Desulfobulbus	1
+Genus	g__Desulfovibrio	3
+Genus	g__DTU064	4
+Genus	g__DTU089	181
+Genus	g__Duodenibacillus	1
+Genus	g__DXWE01	1
+Genus	g__DXYV01	4
+Genus	g__Dysosmobacter	9
+Genus	g__E4-135	5
+Genus	g__E4-60	8
+Genus	g__Edaphocola	1
+Genus	g__Egerieisoma	9
+Genus	g__Egerieousia	55
+Genus	g__Eisenbergiella	2
+Genus	g__Emergencia	7
+Genus	g__Enterenecus	8
+Genus	g__Enterocloster	1
+Genus	g__Enterococcus_B	2
+Genus	g__Enterocola	28
+Genus	g__Enteromonas	3
+Genus	g__Enterousia	215
+Genus	g__ER4	8
+Genus	g__Escherichia	1
+Genus	g__Eubacterium_F	2
+Genus	g__Eubacterium_G	4
+Genus	g__Eubacterium_I	7
+Genus	g__Eubacterium_Q	2
+Genus	g__Eubacterium_R	7
+Genus	g__Evtepia	2
+Genus	g__F23-B02	16
+Genus	g__F23-D06	16
+Genus	g__Faecalibacterium	1
+Genus	g__Faecalimonas	69
+Genus	g__Faeciplasma	7
+Genus	g__Faecisoma	1
+Genus	g__Faecivicinus	2
+Genus	g__Faecousia	729
+Genus	g__FD2005	2
+Genus	g__Fibrobacter	29
+Genus	g__Fimenecus	86
+Genus	g__Fimimonas	9
+Genus	g__Fimisoma	9
+Genus	g__Fimivivens	1
+Genus	g__Fimousia	3
+Genus	g__Firm-04	20
+Genus	g__Firm-07	72
+Genus	g__Firm-08	12
+Genus	g__Firm-16	4
+Genus	g__Flavobacterium	3
+Genus	g__Flemingibacterium	58
+Genus	g__Flexilinea	1
+Genus	g__Fumia	5
+Genus	g__Fusicatenibacter	1
+Genus	g__G11	1
+Genus	g__Ga6A1	2
+Genus	g__Gallibacter	2
+Genus	g__Galligastranaerophilus_A	1
+Genus	g__Gallimonas	2
+Genus	g__Gallipaludibacter	3
+Genus	g__Gastranaerophilus	7
+Genus	g__Helicobacter_B	1
+Genus	g__Heteroclostridium	3
+Genus	g__Heteroruminococcus	2
+Genus	g__HGM04593	149
+Genus	g__HGM05376	8
+Genus	g__HGM05398	1
+Genus	g__HGM10611	7
+Genus	g__HGM10836	1
+Genus	g__HGM11367	6
+Genus	g__HGM11372	3
+Genus	g__HGM11412	97
+Genus	g__HGM11416	11
+Genus	g__HGM11501	11
+Genus	g__HGM11507	5
+Genus	g__HGM11525	16
+Genus	g__HGM11604	2
+Genus	g__HGM11616	1
+Genus	g__HGM12587	10
+Genus	g__HGM12619	15
+Genus	g__HGM12713	158
+Genus	g__HGM12789	5
+Genus	g__HGM13006	2
+Genus	g__HGM13010	8
+Genus	g__HGM13222	6
+Genus	g__HGM13634	3
+Genus	g__Holdemanella	1
+Genus	g__Homoserinimonas	1
+Genus	g__Hornefia	2
+Genus	g__HUN007	13
+Genus	g__Instestinimonas_A	1
+Genus	g__ISDg	11
+Genus	g__JAAVZI01	1
+Genus	g__JAAYNH01	1
+Genus	g__JAAYQM01	5
+Genus	g__JAAZBA01	2
+Genus	g__JAAZKA01	1
+Genus	g__JAAZZIT01	2
+Genus	g__JAEDES01	11
+Genus	g__JAEDHM01	1
+Genus	g__JAEDJH01	1
+Genus	g__JAEEML01	2
+Genus	g__JAEXZL01	2
+Genus	g__JAEZOU01	2
+Genus	g__JAFSXO01	2
+Genus	g__JAFTCA01	1
+Genus	g__JAFTYO01	11
+Genus	g__JAFUYI01	8
+Genus	g__JAGBWK01	2
+Genus	g__JAGCJX01	3
+Genus	g__JAHHSE01	1
+Genus	g__JAHHTG01	2
+Genus	g__JAHHTP01	1
+Genus	g__JAHHUH01	5
+Genus	g__JAILCC01	1
+Genus	g__JAILFK01	1
+Genus	g__JAILGW01	1
+Genus	g__JAILLW01	13
+Genus	g__JAJQCF01	1
+Genus	g__JAKEEX01	1
+Genus	g__JAKSOL01	1
+Genus	g__JAKSPF01	4
+Genus	g__JAKSPP01	3
+Genus	g__JAKSPV01	2
+Genus	g__JAKSRN01	1
+Genus	g__JAKSSE01	5
+Genus	g__JAKSSK01	1
+Genus	g__JAKSSM01	1
+Genus	g__JAKSSR01	2
+Genus	g__JAKSUT01	3
+Genus	g__JAKSVV01	1
+Genus	g__JALELF01	1
+Genus	g__JALENY01	5
+Genus	g__JAMPGF01	1
+Genus	g__Kandleria	1
+Genus	g__Kineothrix	4
+Genus	g__KLE1615	1
+Genus	g__Lachnospira	6
+Genus	g__Lawsonibacter	45
+Genus	g__Lelliottia	1
+Genus	g__Lentihominibacter	15
+Genus	g__Ligilactobacillus	1
+Genus	g__Limenecus	4
+Genus	g__Limimorpha	80
+Genus	g__Limiplasma	13
+Genus	g__Limivicinus	50
+Genus	g__Limivivens	2
+Genus	g__Limosilactobacillus	2
+Genus	g__Longicatena	1
+Genus	g__Lysinibacillus_B	7
+Genus	g__M3	1
+Genus	g__Mailhella	9
+Genus	g__Marvinbryantia	1
+Genus	g__MB2-83	1
+Genus	g__Mediterranea	5
+Genus	g__Merdimorpha	4
+Genus	g__Merdivicinus	1
+Genus	g__Merdousia	10
+Genus	g__MGBC108787	1
+Genus	g__MGBC113645	2
+Genus	g__MGBC116941	1
+Genus	g__MGBC120314	4
+Genus	g__MGBC133411	3
+Genus	g__MGBC143606	2
+Genus	g__MGBC162581	1
+Genus	g__Microbacterium	2
+Genus	g__Mycetocola_A	1
+Genus	g__Mycoplasma_L	2
+Genus	g__Nanosyncoccus	182
+Genus	g__Negativibacillus	7
+Genus	g__NK4A136	24
+Genus	g__NK4A144	1
+Genus	g__Nocardioides	1
+Genus	g__Novosphingobium	1
+Genus	g__Odoribacter	3
+Genus	g__Oliverpabstia	1
+Genus	g__Onthomonas	2
+Genus	g__Onthomorpha	17
+Genus	g__Onthoplasma	46
+Genus	g__Ornithomonoglobus	30
+Genus	g__Ornithomonoglobus_A	1
+Genus	g__Ornithospirochaeta	3
+Genus	g__Oxalobacter	4
+Genus	g__Paenibacillus	3
+Genus	g__Parabacteroides	1
+Genus	g__Parachristensenella	2
+Genus	g__Paramuribaculum	4
+Genus	g__Paraprevotella	2
+Genus	g__Paratractidigestivibacter	1
+Genus	g__Pedobacter	5
+Genus	g__Pelethenecus	2
+Genus	g__Pelethomonas	12
+Genus	g__Pelobium	1
+Genus	g__Peribacillus	4
+Genus	g__Phascolarctobacterium_A	7
+Genus	g__Phil12	1
+Genus	g__Phocaeicola	34
+Genus	g__Phocaeicola_A	20
+Genus	g__Phoenicibacter	10
+Genus	g__Porcincola	1
+Genus	g__Pradoshia	3
+Genus	g__Prevotella	82
+Genus	g__Pseudobutyrivibrio	5
+Genus	g__Pseudomonas_E	2
+Genus	g__Pseudotabrizicola	1
+Genus	g__Psychrobacillus	2
+Genus	g__QAKD01	1
+Genus	g__QAKW01	45
+Genus	g__QALA01	1
+Genus	g__QALR01	32
+Genus	g__QAMH01	2
+Genus	g__QAMX01	4
+Genus	g__QHMH01	1
+Genus	g__Quinella	3
+Genus	g__RF16	117
+Genus	g__RGIG10190	2
+Genus	g__RGIG10340	2
+Genus	g__RGIG1476	3
+Genus	g__RGIG1666	6
+Genus	g__RGIG1681	15
+Genus	g__RGIG1711	15
+Genus	g__RGIG1743	2
+Genus	g__RGIG1752	2
+Genus	g__RGIG1828	40
+Genus	g__RGIG1864	2
+Genus	g__RGIG1888	1
+Genus	g__RGIG1893	1
+Genus	g__RGIG1896	13
+Genus	g__RGIG1902	5
+Genus	g__RGIG1911	4
+Genus	g__RGIG1913	1
+Genus	g__RGIG1916	2
+Genus	g__RGIG1918	6
+Genus	g__RGIG1927	11
+Genus	g__RGIG1931	1
+Genus	g__RGIG1932	1
+Genus	g__RGIG1934	3
+Genus	g__RGIG1943	3
+Genus	g__RGIG1959	29
+Genus	g__RGIG1965	1
+Genus	g__RGIG1988	27
+Genus	g__RGIG1993	7
+Genus	g__RGIG1995	23
+Genus	g__RGIG2000	98
+Genus	g__RGIG2041	13
+Genus	g__RGIG2066	9
+Genus	g__RGIG2094	7
+Genus	g__RGIG2134	8
+Genus	g__RGIG2161	2
+Genus	g__RGIG2163	3
+Genus	g__RGIG2206	15
+Genus	g__RGIG2220	1
+Genus	g__RGIG2224	20
+Genus	g__RGIG250	2
+Genus	g__RGIG2560	2
+Genus	g__RGIG2707	2
+Genus	g__RGIG2945	6
+Genus	g__RGIG2951	3
+Genus	g__RGIG3002	3
+Genus	g__RGIG3009	81
+Genus	g__RGIG3013	2
+Genus	g__RGIG3077	4
+Genus	g__RGIG3091	1
+Genus	g__RGIG3096	2
+Genus	g__RGIG3102	20
+Genus	g__RGIG3135	3
+Genus	g__RGIG3159	4
+Genus	g__RGIG3438	4
+Genus	g__RGIG3456	1
+Genus	g__RGIG3495	1
+Genus	g__RGIG3506	4
+Genus	g__RGIG3513	6
+Genus	g__RGIG3525	1
+Genus	g__RGIG3528	11
+Genus	g__RGIG3566	10
+Genus	g__RGIG3586	1
+Genus	g__RGIG3636	1
+Genus	g__RGIG3701	4
+Genus	g__RGIG3732	2
+Genus	g__RGIG3770	1
+Genus	g__RGIG3872	2
+Genus	g__RGIG3925	13
+Genus	g__RGIG3926	9
+Genus	g__RGIG3947	3
+Genus	g__RGIG3994	10
+Genus	g__RGIG4034	5
+Genus	g__RGIG4074	2
+Genus	g__RGIG4076	7
+Genus	g__RGIG4079	35
+Genus	g__RGIG4097	15
+Genus	g__RGIG4103	3
+Genus	g__RGIG4130	2
+Genus	g__RGIG4131	8
+Genus	g__RGIG4140	23
+Genus	g__RGIG423	9
+Genus	g__RGIG426	20
+Genus	g__RGIG4266	1
+Genus	g__RGIG4284	1
+Genus	g__RGIG446	4
+Genus	g__RGIG4576	12
+Genus	g__RGIG4607	2
+Genus	g__RGIG4608	31
+Genus	g__RGIG464	3
+Genus	g__RGIG4708	2
+Genus	g__RGIG4729	1
+Genus	g__RGIG4790	2
+Genus	g__RGIG4930	1
+Genus	g__RGIG5050	1
+Genus	g__RGIG5270	12
+Genus	g__RGIG5299	4
+Genus	g__RGIG5327	3
+Genus	g__RGIG5472	3
+Genus	g__RGIG5474	7
+Genus	g__RGIG5495	4
+Genus	g__RGIG5579	46
+Genus	g__RGIG5612	37
+Genus	g__RGIG5709	1
+Genus	g__RGIG5755	7
+Genus	g__RGIG6098	1
+Genus	g__RGIG6154	10
+Genus	g__RGIG6165	6
+Genus	g__RGIG6178	4
+Genus	g__RGIG6291	2
+Genus	g__RGIG6307	28
+Genus	g__RGIG6353	35
+Genus	g__RGIG6374	2
+Genus	g__RGIG6375	3
+Genus	g__RGIG6429	4
+Genus	g__RGIG6449	1
+Genus	g__RGIG6452	1
+Genus	g__RGIG6463	1
+Genus	g__RGIG6639	2
+Genus	g__RGIG6720	1
+Genus	g__RGIG6816	1
+Genus	g__RGIG6919	4
+Genus	g__RGIG7041	1
+Genus	g__RGIG7089	7
+Genus	g__RGIG7107	2
+Genus	g__RGIG7114	25
+Genus	g__RGIG7150	1
+Genus	g__RGIG7179	8
+Genus	g__RGIG7193	6
+Genus	g__RGIG7213	12
+Genus	g__RGIG7238	8
+Genus	g__RGIG7265	1
+Genus	g__RGIG7273	8
+Genus	g__RGIG7300	20
+Genus	g__RGIG7332	12
+Genus	g__RGIG7378	5
+Genus	g__RGIG7384	6
+Genus	g__RGIG7389	1
+Genus	g__RGIG7444	2
+Genus	g__RGIG7450	14
+Genus	g__RGIG7773	1
+Genus	g__RGIG7931	1
+Genus	g__RGIG7949	2
+Genus	g__RGIG8002	2
+Genus	g__RGIG8050	13
+Genus	g__RGIG8244	5
+Genus	g__RGIG8306	3
+Genus	g__RGIG8367	2
+Genus	g__RGIG8386	1
+Genus	g__RGIG8399	2
+Genus	g__RGIG8497	3
+Genus	g__RGIG8523	4
+Genus	g__RGIG8597	3
+Genus	g__RGIG8607	2
+Genus	g__RGIG8700	8
+Genus	g__RGIG8709	5
+Genus	g__RGIG8745	7
+Genus	g__RGIG8748	44
+Genus	g__RGIG8767	10
+Genus	g__RGIG8773	14
+Genus	g__RGIG8775	33
+Genus	g__RGIG8779	1
+Genus	g__RGIG8785	3
+Genus	g__RGIG9041	18
+Genus	g__RGIG9060	9
+Genus	g__RGIG9079	5
+Genus	g__RGIG9096	3
+Genus	g__RGIG9099	10
+Genus	g__RGIG9107	2
+Genus	g__RGIG9114	8
+Genus	g__RGIG9115	18
+Genus	g__RGIG9126	8
+Genus	g__RGIG9201	1
+Genus	g__RGIG9379	2
+Genus	g__RGIG9608	6
+Genus	g__RGIG982	5
+Genus	g__RGIG990	3
+Genus	g__RGIG9934	3
+Genus	g__RGIG995	23
+Genus	g__Rhodococcus	1
+Genus	g__Roseburia	9
+Genus	g__Ructibacterium	50
+Genus	g__RUG099	30
+Genus	g__RUG11130	25
+Genus	g__RUG11139	4
+Genus	g__RUG11142	1
+Genus	g__RUG11194	11
+Genus	g__RUG11198	1
+Genus	g__RUG11200	2
+Genus	g__RUG11224	2
+Genus	g__RUG11247	3
+Genus	g__RUG11257	2
+Genus	g__RUG11462	9
+Genus	g__RUG11551	6
+Genus	g__RUG11690	3
+Genus	g__RUG11788	1
+Genus	g__RUG11797	3
+Genus	g__RUG11867	2
+Genus	g__RUG11977	15
+Genus	g__RUG12395	10
+Genus	g__RUG12461	5
+Genus	g__RUG12519	6
+Genus	g__RUG12783	3
+Genus	g__RUG12826	13
+Genus	g__RUG12871	4
+Genus	g__RUG12999	5
+Genus	g__RUG13038	1
+Genus	g__RUG13160	1
+Genus	g__RUG13409	9
+Genus	g__RUG13583	3
+Genus	g__RUG14130	2
+Genus	g__RUG14156	10
+Genus	g__RUG14179	6
+Genus	g__RUG14186	1
+Genus	g__RUG14199	4
+Genus	g__RUG14219	2
+Genus	g__RUG14243	1
+Genus	g__RUG14515	1
+Genus	g__RUG14871	2
+Genus	g__RUG191	5
+Genus	g__RUG306	1
+Genus	g__RUG334	3
+Genus	g__RUG369	23
+Genus	g__RUG410	18
+Genus	g__RUG420	13
+Genus	g__RUG440	5
+Genus	g__RUG472	3
+Genus	g__RUG521	2
+Genus	g__RUG563	23
+Genus	g__RUG572	7
+Genus	g__RUG592	1
+Genus	g__RUG612	2
+Genus	g__RUG626	2
+Genus	g__RUG658	3
+Genus	g__RUG695	4
+Genus	g__RUG705	2
+Genus	g__RUG708	9
+Genus	g__RUG740	19
+Genus	g__RUG754	1
+Genus	g__RUG756	1
+Genus	g__RUG760	3
+Genus	g__RUG806	79
+Genus	g__RUG842	1
+Genus	g__Ruminiclostridium_E	31
+Genus	g__Ruminobacter	3
+Genus	g__Ruminococcus	50
+Genus	g__Ruminococcus_B	1
+Genus	g__Ruminococcus_C	3
+Genus	g__Ruminococcus_E	135
+Genus	g__Ruminococcus_F	1
+Genus	g__Saccharimonas	1
+Genus	g__Saccharofermentans	46
+Genus	g__Sarcina	1
+Genus	g__Scatacola_A	1
+Genus	g__Scatenecus	1
+Genus	g__Scatocola	3
+Genus	g__Scatosoma	286
+Genus	g__Scatovivens	17
+Genus	g__Scybalousia	2
+Genus	g__Selenomonas_A	1
+Genus	g__SFDP01	14
+Genus	g__SFEB01	3
+Genus	g__SFEL01	7
+Genus	g__SFHK01	9
+Genus	g__SFHR01	1
+Genus	g__SFLA01	19
+Genus	g__SFMI01	11
+Genus	g__SFTH01	4
+Genus	g__SFTJ01	1
+Genus	g__SFWF01	81
+Genus	g__Shewanella	1
+Genus	g__Shuttleworthia	2
+Genus	g__SIG200	2
+Genus	g__SIG204	2
+Genus	g__SIG205	1
+Genus	g__SIG220	3
+Genus	g__SIG274	3
+Genus	g__SIG291	2
+Genus	g__SIG292	2
+Genus	g__SIG293	2
+Genus	g__SIG299	18
+Genus	g__SIG300	6
+Genus	g__SIG301	1
+Genus	g__SIG307	27
+Genus	g__SIG32	8
+Genus	g__SIG332	8
+Genus	g__SIG351	6
+Genus	g__SIG371	2
+Genus	g__SIG402	4
+Genus	g__SIG42	1
+Genus	g__SIG423	1
+Genus	g__SIG424	2
+Genus	g__SIG427	3
+Genus	g__SIG430	4
+Genus	g__SIG435	8
+Genus	g__SIG437	6
+Genus	g__SIG438	13
+Genus	g__SIG440	74
+Genus	g__SIG447	31
+Genus	g__SIG448	1
+Genus	g__SIG450	11
+Genus	g__SIG452	16
+Genus	g__SIG454	10
+Genus	g__SIG455	20
+Genus	g__SIG469	1
+Genus	g__SIG471	1
+Genus	g__SIG480	53
+Genus	g__SIG483	4
+Genus	g__SIG495	3
+Genus	g__SIG499	2
+Genus	g__SIG510	7
+Genus	g__SIG519	1
+Genus	g__SIG526	1
+Genus	g__SIG530	1
+Genus	g__SIG554	1
+Genus	g__SIG565	52
+Genus	g__SIG575	37
+Genus	g__SIG578	23
+Genus	g__SIG587	16
+Genus	g__SIG588	11
+Genus	g__SIG589	22
+Genus	g__SIG598	10
+Genus	g__SIG603	5
+Genus	g__SIG607	38
+Genus	g__SIG622	25
+Genus	g__SIG627	5
+Genus	g__SIG636	17
+Genus	g__SIG640	4
+Genus	g__SIG644	21
+Genus	g__SIG653	22
+Genus	g__SIG655	8
+Genus	g__SIG662	2
+Genus	g__SIG672	20
+Genus	g__SIG673	29
+Genus	g__SIG685	5
+Genus	g__SIG693	12
+Genus	g__SIG694	2
+Genus	g__SIG701	36
+Genus	g__SIG704	1
+Genus	g__SIG710	26
+Genus	g__SIG714	7
+Genus	g__SIG77	8
+Genus	g__SIG78	21
+Genus	g__SIG79	8
+Genus	g__Slackia_A	1
+Genus	g__Sodaliphilus	16
+Genus	g__Solibacillus	9
+Genus	g__Sphingobacterium	2
+Genus	g__Sphingopyxis	1
+Genus	g__Spyradenecus	9
+Genus	g__Spyradocola	2
+Genus	g__Spyradosoma	9
+Genus	g__Stercoripulliclostridium_A	12
+Genus	g__Stercorousia	1
+Genus	g__Streptococcus	1
+Genus	g__Stutzerimonas	1
+Genus	g__Succinivibrio	3
+Genus	g__Sutterella	1
+Genus	g__SVCP01	9
+Genus	g__SZUA-448	14
+Genus	g__Taishania	1
+Genus	g__Tannerella	1
+Genus	g__Tidjanibacter	54
+Genus	g__Timburyella	1
+Genus	g__Traorella	4
+Genus	g__Treponema_D	92
+Genus	g__Treponema_F	15
+Genus	g__TWA4	1
+Genus	g__UB1719	4
+Genus	g__UBA10281	16
+Genus	g__UBA1066	4
+Genus	g__UBA1067	78
+Genus	g__UBA10677	13
+Genus	g__UBA1081	31
+Genus	g__UBA11452	4
+Genus	g__UBA11471	1
+Genus	g__UBA11475	6
+Genus	g__UBA11490	13
+Genus	g__UBA11512	6
+Genus	g__UBA11524	22
+Genus	g__UBA11540	17
+Genus	g__UBA11549	1
+Genus	g__UBA1174	15
+Genus	g__UBA1179	37
+Genus	g__UBA1181	12
+Genus	g__UBA1188	1
+Genus	g__UBA1189	54
+Genus	g__UBA1195	3
+Genus	g__UBA1203	1
+Genus	g__UBA1205	2
+Genus	g__UBA1206	5
+Genus	g__UBA1213	2
+Genus	g__UBA1217	3
+Genus	g__UBA1219	2
+Genus	g__UBA1224	3
+Genus	g__UBA1227	15
+Genus	g__UBA1231	7
+Genus	g__UBA1234	2
+Genus	g__UBA1238	1
+Genus	g__UBA1240	4
+Genus	g__UBA1246	1
+Genus	g__UBA1254	6
+Genus	g__UBA1257	1
+Genus	g__UBA1258	32
+Genus	g__UBA1259	229
+Genus	g__UBA1267	8
+Genus	g__UBA1367	4
+Genus	g__UBA1394	6
+Genus	g__UBA1412	1
+Genus	g__UBA1417	7
+Genus	g__UBA1425	3
+Genus	g__UBA1436	53
+Genus	g__UBA1685	2
+Genus	g__UBA1711	38
+Genus	g__UBA1712	19
+Genus	g__UBA1715	9
+Genus	g__UBA1723	11
+Genus	g__UBA1724	2
+Genus	g__UBA1731	9
+Genus	g__UBA1737	12
+Genus	g__UBA1738	34
+Genus	g__UBA1740	551
+Genus	g__UBA1752	135
+Genus	g__UBA1753	1
+Genus	g__UBA1754	1
+Genus	g__UBA1755	5
+Genus	g__UBA1756	9
+Genus	g__UBA1757	4
+Genus	g__UBA1762	4
+Genus	g__UBA1764	2
+Genus	g__UBA1765	5
+Genus	g__UBA1774	2
+Genus	g__UBA1775	18
+Genus	g__UBA1776	5
+Genus	g__UBA1783	2
+Genus	g__UBA1784	70
+Genus	g__UBA1786	17
+Genus	g__UBA2450	1
+Genus	g__UBA2730	2
+Genus	g__UBA2804	2
+Genus	g__UBA2813	5
+Genus	g__UBA2834	16
+Genus	g__UBA2862	8
+Genus	g__UBA2868	17
+Genus	g__UBA2882	6
+Genus	g__UBA2883	2
+Genus	g__UBA2903	2
+Genus	g__UBA2918	2
+Genus	g__UBA2922	3
+Genus	g__UBA2942	3
+Genus	g__UBA3054	1
+Genus	g__UBA3206	1
+Genus	g__UBA3207	10
+Genus	g__UBA3210	1
+Genus	g__UBA3263	3
+Genus	g__UBA3291	2
+Genus	g__UBA3402	3
+Genus	g__UBA3637	15
+Genus	g__UBA3663	37
+Genus	g__UBA3753	1
+Genus	g__UBA3766	46
+Genus	g__UBA3774	5
+Genus	g__UBA3789	3
+Genus	g__UBA3792	11
+Genus	g__UBA3824	8
+Genus	g__UBA3830	1
+Genus	g__UBA3839	3
+Genus	g__UBA3855	30
+Genus	g__UBA3871	1
+Genus	g__UBA4248	9
+Genus	g__UBA4292	2
+Genus	g__UBA4293	7
+Genus	g__UBA4334	27
+Genus	g__UBA4345	6
+Genus	g__UBA4363	4
+Genus	g__UBA4372	47
+Genus	g__UBA4636	16
+Genus	g__UBA4644	11
+Genus	g__UBA4675	11
+Genus	g__UBA4716	5
+Genus	g__UBA4717	14
+Genus	g__UBA4951	6
+Genus	g__UBA5448	4
+Genus	g__UBA5489	6
+Genus	g__UBA5884	2
+Genus	g__UBA5905	110
+Genus	g__UBA629	1
+Genus	g__UBA6345	8
+Genus	g__UBA636	14
+Genus	g__UBA6382	3
+Genus	g__UBA6857	159
+Genus	g__UBA6984	1
+Genus	g__UBA6987	4
+Genus	g__UBA7050	5
+Genus	g__UBA710	1
+Genus	g__UBA7185	13
+Genus	g__UBA737	321
+Genus	g__UBA738	1
+Genus	g__UBA7477	7
+Genus	g__UBA7488	15
+Genus	g__UBA7573	4
+Genus	g__UBA7597	3
+Genus	g__UBA7702	1
+Genus	g__UBA7862	7
+Genus	g__UBA7867	3
+Genus	g__UBA7868	2
+Genus	g__UBA8612	42
+Genus	g__UBA866	1
+Genus	g__UBA940	11
+Genus	g__UBA9715	9
+Genus	g__UBA9786	1
+Genus	g__UMGS1002	6
+Genus	g__UMGS1045	1
+Genus	g__UMGS1052	14
+Genus	g__UMGS1071	2
+Genus	g__UMGS1109	1
+Genus	g__UMGS1124	8
+Genus	g__UMGS1224	1
+Genus	g__UMGS1225	1
+Genus	g__UMGS1264	1
+Genus	g__UMGS1279	54
+Genus	g__UMGS1307	3
+Genus	g__UMGS1312	9
+Genus	g__UMGS1322	38
+Genus	g__UMGS1338	1
+Genus	g__UMGS1387	31
+Genus	g__UMGS1484	27
+Genus	g__UMGS1491	6
+Genus	g__UMGS1502	1
+Genus	g__UMGS1518	1
+Genus	g__UMGS1532	6
+Genus	g__UMGS1585	1
+Genus	g__UMGS1613	9
+Genus	g__UMGS1649	17
+Genus	g__UMGS1668	29
+Genus	g__UMGS1696	56
+Genus	g__UMGS172	42
+Genus	g__UMGS1781	2
+Genus	g__UMGS1810	3
+Genus	g__UMGS1820	35
+Genus	g__UMGS1840	4
+Genus	g__UMGS1865	122
+Genus	g__UMGS1883	84
+Genus	g__UMGS1908	2
+Genus	g__UMGS1933	4
+Genus	g__UMGS1976	5
+Genus	g__UMGS2069	3
+Genus	g__UMGS363	1
+Genus	g__UMGS687	1
+Genus	g__UMGS731	11
+Genus	g__UMGS75	2
+Genus	g__UMGS755	34
+Genus	g__UMGS882	11
+Genus	g__UMGS902	20
+Genus	g__UMGS973	3
+Genus	g__UMGS995	1
+Genus	g__Ureaplasma	1
+Genus	g__Velocimicrobium	4
+Genus	g__Ventricola	8
+Genus	g__Ventrimonas	2
+Genus	g__Vescimonas	26
+Genus	g__Victivallis	3
+Genus	g__VSOB01	1
+Genus	g__W3P20-009	16
+Genus	g__WQSD01	1
+Genus	g__Wujia	32
+Genus	g__XBB1006	1
+Genus	g__Zag111	11
+Genus	g__ZC3RG03	4
+Species	Unclassified	12377
+Species	s__AC2028 sp002317155	1
+Species	s__AC2028 sp024403435	1
+Species	s__AC2028 sp024403475	1
+Species	s__Acetatifactor sp015056885	1
+Species	s__Acetatifactor sp015057005	1
+Species	s__Acetatifactor sp017397645	1
+Species	s__Acetatifactor sp017513625	1
+Species	s__Acetatifactor sp017522685	1
+Species	s__Acetatifactor sp017620975	1
+Species	s__Acetatifactor sp024403365	1
+Species	s__Acetatifactor sp904501885	1
+Species	s__Acetobacter sp017413025	1
+Species	s__Acinetobacter bohemicus	1
+Species	s__Acinetobacter equi	1
+Species	s__Acinetobacter pecorum	1
+Species	s__Acinetobacter pseudolwoffii	1
+Species	s__Acinetobacter sp019038395	1
+Species	s__Aeromonas salmonicida	1
+Species	s__Agathobacter sp017936725	1
+Species	s__Akkermansia muciniphila	1
+Species	s__Akkermansia sp002358905	1
+Species	s__Akkermansia sp015061985	1
+Species	s__Akkermansia sp015062005	1
+Species	s__Akkermansia sp015062015	1
+Species	s__Akkermansia sp015062055	1
+Species	s__Akkermansia sp017379255	1
+Species	s__Akkermansia sp017390945	1
+Species	s__Akkermansia sp017398355	1
+Species	s__Akkermansia sp017398765	1
+Species	s__Akkermansia sp017399165	1
+Species	s__Akkermansia sp017409465	1
+Species	s__Akkermansia sp017415555	1
+Species	s__Akkermansia sp017415995	1
+Species	s__Akkermansia sp017435365	1
+Species	s__Akkermansia sp017435505	1
+Species	s__Akkermansia sp017471985	1
+Species	s__Akkermansia sp017477935	1
+Species	s__Akkermansia sp017504805	1
+Species	s__Akkermansia sp017517385	1
+Species	s__Akkermansia sp017517805	1
+Species	s__Akkermansia sp017521145	1
+Species	s__Akkermansia sp017521405	1
+Species	s__Akkermansia sp017546445	1
+Species	s__Akkermansia sp017546845	1
+Species	s__Akkermansia sp017549485	1
+Species	s__Akkermansia sp017555025	1
+Species	s__Akkermansia sp017555205	1
+Species	s__Akkermansia sp017937215	1
+Species	s__Akkermansia sp024405435	1
+Species	s__Akkermansia sp900766865	1
+Species	s__Akkermansia sp904501915	1
+Species	s__Akkermansia sp904501955	1
+Species	s__Akkermansia sp904501975	1
+Species	s__Akkermansia sp904502165	1
+Species	s__Alistipes finegoldii	1
+Species	s__Alistipes sp015059685	1
+Species	s__Alistipes sp015059715	1
+Species	s__Alistipes sp015059735	1
+Species	s__Alistipes sp015059785	1
+Species	s__Alistipes sp015059805	1
+Species	s__Alistipes sp015059845	1
+Species	s__Alistipes sp015059865	1
+Species	s__Alistipes sp015059875	1
+Species	s__Alistipes sp015059905	1
+Species	s__Alistipes sp015059925	1
+Species	s__Alistipes sp015059955	1
+Species	s__Alistipes sp015059965	1
+Species	s__Alistipes sp015060005	1
+Species	s__Alistipes sp015060015	1
+Species	s__Alistipes sp015060045	1
+Species	s__Alistipes sp015060065	1
+Species	s__Alistipes sp015060075	1
+Species	s__Alistipes sp015060115	1
+Species	s__Alistipes sp015060165	1
+Species	s__Alistipes sp017379015	1
+Species	s__Alistipes sp017379895	1
+Species	s__Alistipes sp017380275	1
+Species	s__Alistipes sp017380515	1
+Species	s__Alistipes sp017381935	1
+Species	s__Alistipes sp017383345	1
+Species	s__Alistipes sp017383445	1
+Species	s__Alistipes sp017384185	1
+Species	s__Alistipes sp017391185	1
+Species	s__Alistipes sp017391435	1
+Species	s__Alistipes sp017391665	1
+Species	s__Alistipes sp017398045	1
+Species	s__Alistipes sp017398555	1
+Species	s__Alistipes sp017398695	1
+Species	s__Alistipes sp017399485	1
+Species	s__Alistipes sp017403125	1
+Species	s__Alistipes sp017408825	1
+Species	s__Alistipes sp017410165	1
+Species	s__Alistipes sp017416915	1
+Species	s__Alistipes sp017421945	1
+Species	s__Alistipes sp017424405	1
+Species	s__Alistipes sp017425655	1
+Species	s__Alistipes sp017436185	1
+Species	s__Alistipes sp017437045	1
+Species	s__Alistipes sp017442365	1
+Species	s__Alistipes sp017463585	1
+Species	s__Alistipes sp017465055	1
+Species	s__Alistipes sp017465605	1
+Species	s__Alistipes sp017474235	1
+Species	s__Alistipes sp017481925	1
+Species	s__Alistipes sp017501025	1
+Species	s__Alistipes sp017501625	1
+Species	s__Alistipes sp017502025	2
+Species	s__Alistipes sp017503575	1
+Species	s__Alistipes sp017504265	1
+Species	s__Alistipes sp017504485	1
+Species	s__Alistipes sp017505725	1
+Species	s__Alistipes sp017507075	1
+Species	s__Alistipes sp017517705	1
+Species	s__Alistipes sp017520545	1
+Species	s__Alistipes sp017521945	1
+Species	s__Alistipes sp017531305	1
+Species	s__Alistipes sp017532885	1
+Species	s__Alistipes sp017536555	1
+Species	s__Alistipes sp017536605	1
+Species	s__Alistipes sp017546725	1
+Species	s__Alistipes sp017547175	1
+Species	s__Alistipes sp017555805	1
+Species	s__Alistipes sp017558115	1
+Species	s__Alistipes sp017559615	1
+Species	s__Alistipes sp017561105	1
+Species	s__Alistipes sp017621455	1
+Species	s__Alistipes sp017623115	1
+Species	s__Alistipes sp017623505	1
+Species	s__Alistipes sp017624955	1
+Species	s__Alistipes sp017628595	1
+Species	s__Alistipes sp017628735	1
+Species	s__Alistipes sp017629035	1
+Species	s__Alistipes sp017629145	1
+Species	s__Alistipes sp017629615	1
+Species	s__Alistipes sp017629985	1
+Species	s__Alistipes sp017630245	1
+Species	s__Alistipes sp017630735	1
+Species	s__Alistipes sp017631035	1
+Species	s__Alistipes sp017631135	1
+Species	s__Alistipes sp017631255	1
+Species	s__Alistipes sp017631275	1
+Species	s__Alistipes sp017631285	1
+Species	s__Alistipes sp017632115	1
+Species	s__Alistipes sp017646625	1
+Species	s__Alistipes sp017647025	1
+Species	s__Alistipes sp017647625	1
+Species	s__Alistipes sp017654125	1
+Species	s__Alistipes sp017934845	1
+Species	s__Alistipes sp017937765	1
+Species	s__Alistipes sp017937805	1
+Species	s__Alistipes sp017938765	1
+Species	s__Alistipes sp023413645	1
+Species	s__Alistipes sp900768015	1
+Species	s__Alistipes sp900768045	1
+Species	s__Alistipes sp900769405	1
+Species	s__Alistipes sp900769445	1
+Species	s__Alistipes sp900769525	1
+Species	s__Alistipes sp900769745	1
+Species	s__Alistipes sp900770585	2
+Species	s__Alistipes sp900770635	1
+Species	s__Alistipes sp904502005	1
+Species	s__Alistipes sp904502075	1
+Species	s__Alistipes sp904502285	1
+Species	s__Allisonella histaminiformans	1
+Species	s__Alloprevotella sp017383485	1
+Species	s__Alloprevotella sp017461605	1
+Species	s__Alloprevotella sp017547385	1
+Species	s__Alloprevotella sp017628555	2
+Species	s__Alloprevotella sp017628775	1
+Species	s__Alloprevotella sp018066245	1
+Species	s__Alloprevotella sp021153165	1
+Species	s__Anaerobutyricum sp904502145	1
+Species	s__Aphodosoma sp017467185	1
+Species	s__Aphodosoma sp024399545	1
+Species	s__Aphodosoma sp024399575	1
+Species	s__Aphodousia sp017383055	1
+Species	s__Aphodousia sp017646335	1
+Species	s__Arthrobacter_B sp023921125	1
+Species	s__Arthrobacter_B sunyaminii	1
+Species	s__Avelusimicrobium sp017468055	1
+Species	s__Avelusimicrobium sp017501565	1
+Species	s__Avelusimicrobium sp017520185	1
+Species	s__Avelusimicrobium sp017546175	1
+Species	s__Avidehalobacter sp017398165	1
+Species	s__Avigastranaerophilus sp017396025	1
+Species	s__Avigastranaerophilus sp905234915	1
+Species	s__Avilachnospira sp024405155	1
+Species	s__Avispirillum sp015065395	1
+Species	s__Avispirillum sp017513325	1
+Species	s__Avispirillum sp017520365	1
+Species	s__Avispirillum sp017623255	1
+Species	s__Bact-11 sp018064445	1
+Species	s__Bact-11 sp024398365	1
+Species	s__Bact-19 sp902776565	1
+Species	s__Bacteroides congonensis	1
+Species	s__Bacteroides fragilis	1
+Species	s__Bacteroides thetaiotaomicron	1
+Species	s__Barnesiella_A sp017410245	1
+Species	s__Barnesiella_A sp017481745	1
+Species	s__Barnesiella_A sp017522135	1
+Species	s__Barnesiella_A sp017531985	1
+Species	s__Barnesiella_A sp017532725	1
+Species	s__Barnesiella_A sp017561285	1
+Species	s__Barnesiella_A sp017935645	1
+Species	s__Barnesiella_A sp904502265	1
+Species	s__Bifidobacterium longum	1
+Species	s__Bulleidia sp000701725	1
+Species	s__Bulleidia sp003446295	1
+Species	s__Bulleidia sp015058875	1
+Species	s__Bulleidia sp017514525	1
+Species	s__Bulleidia sp024696355	1
+Species	s__Bulleidia sp900320455	1
+Species	s__Bulleidia sp902795905	1
+Species	s__Butyrivibrio fibrisolvens_C	1
+Species	s__Butyrivibrio proteoclasticus_B	1
+Species	s__Butyrivibrio sp015056495	1
+Species	s__Caccoplasma sp015061035	1
+Species	s__Caccoplasma sp017416695	1
+Species	s__Caccoplasma sp017521245	1
+Species	s__Caccoplasma sp017559955	1
+Species	s__Caccovivens sp017621525	1
+Species	s__CACZYB01 sp017938435	1
+Species	s__CADAEX01 sp902787125	1
+Species	s__CAG-1000 sp017473105	1
+Species	s__CAG-115 sp015067375	1
+Species	s__CAG-115 sp017465665	1
+Species	s__CAG-177 sp015065965	1
+Species	s__CAG-177 sp017397105	1
+Species	s__CAG-177 sp017403185	1
+Species	s__CAG-177 sp017435385	1
+Species	s__CAG-177 sp017473165	1
+Species	s__CAG-177 sp017502085	1
+Species	s__CAG-177 sp017517665	1
+Species	s__CAG-177 sp017623615	1
+Species	s__CAG-177 sp017630695	1
+Species	s__CAG-177 sp017938985	1
+Species	s__CAG-177 sp024404015	1
+Species	s__CAG-177 sp024404025	1
+Species	s__CAG-194 sp017461865	1
+Species	s__CAG-194 sp017465095	1
+Species	s__CAG-194 sp017623815	1
+Species	s__CAG-196 sp017629215	1
+Species	s__CAG-238 sp017436705	1
+Species	s__CAG-267 sp015062535	1
+Species	s__CAG-267 sp017465945	1
+Species	s__CAG-303 sp015057425	1
+Species	s__CAG-303 sp017412055	1
+Species	s__CAG-303 sp017935565	1
+Species	s__CAG-390 sp017415485	1
+Species	s__CAG-390 sp017522125	1
+Species	s__CAG-390 sp017632155	1
+Species	s__CAG-448 sp015064015	1
+Species	s__CAG-448 sp015064685	1
+Species	s__CAG-448 sp015065285	1
+Species	s__CAG-448 sp017408625	1
+Species	s__CAG-448 sp017411745	1
+Species	s__CAG-448 sp017414605	1
+Species	s__CAG-448 sp017483125	1
+Species	s__CAG-448 sp017483305	1
+Species	s__CAG-448 sp017503325	1
+Species	s__CAG-448 sp024404505	1
+Species	s__CAG-448 sp904501865	1
+Species	s__CAG-452 sp015056485	1
+Species	s__CAG-485 sp015061085	1
+Species	s__CAG-485 sp017547845	1
+Species	s__CAG-488 sp017415025	1
+Species	s__CAG-488 sp017625835	1
+Species	s__CAG-488 sp017935265	1
+Species	s__CAG-552 sp017501145	1
+Species	s__CAG-590 sp017622535	1
+Species	s__CAG-632 sp017461045	1
+Species	s__CAG-791 sp002362155	1
+Species	s__CAG-791 sp902785055	1
+Species	s__CAG-95 sp017938315	1
+Species	s__CAJGBR01 sp904501625	1
+Species	s__CAJGCS01 sp904501965	1
+Species	s__CAJGDV01 sp904502155	1
+Species	s__CAKRZE01 sp024404495	1
+Species	s__CAKTXU01 sp934615635	1
+Species	s__Campylobacter sp002139875	1
+Species	s__Campylobacter sp017646085	1
+Species	s__Carnobacterium_A jeotgali	1
+Species	s__CAZU01 sp015062235	1
+Species	s__CAZU01 sp015062285	1
+Species	s__CAZU01 sp015062305	1
+Species	s__CAZU01 sp015062585	1
+Species	s__CAZU01 sp017452885	1
+Species	s__CAZU01 sp017457005	1
+Species	s__CAZU01 sp017501665	1
+Species	s__CAZU01 sp902763535	1
+Species	s__Cellulomonas_A sp024508335	1
+Species	s__Chlamydophila pecorum	1
+Species	s__Clostridium butyricum_B	1
+Species	s__Clostridium_Q fessum	1
+Species	s__Coprenecus sp017501525	1
+Species	s__Coprenecus sp017504965	1
+Species	s__Coprenecus sp017546125	1
+Species	s__Coprenecus sp017630155	1
+Species	s__Coprenecus sp900769885	1
+Species	s__Copromonas sp017380975	1
+Species	s__Coprovivens sp015059245	1
+Species	s__Cryptobacteroides sp015060205	1
+Species	s__Cryptobacteroides sp015060255	1
+Species	s__Cryptobacteroides sp015060325	1
+Species	s__Cryptobacteroides sp015060335	1
+Species	s__Cryptobacteroides sp015060395	1
+Species	s__Cryptobacteroides sp015060405	1
+Species	s__Cryptobacteroides sp015060455	1
+Species	s__Cryptobacteroides sp017383945	1
+Species	s__Cryptobacteroides sp017398335	1
+Species	s__Cryptobacteroides sp017399865	1
+Species	s__Cryptobacteroides sp017399905	1
+Species	s__Cryptobacteroides sp017415715	1
+Species	s__Cryptobacteroides sp017437125	1
+Species	s__Cryptobacteroides sp017442315	1
+Species	s__Cryptobacteroides sp017461285	1
+Species	s__Cryptobacteroides sp017465225	1
+Species	s__Cryptobacteroides sp017471965	1
+Species	s__Cryptobacteroides sp017472115	1
+Species	s__Cryptobacteroides sp017474265	1
+Species	s__Cryptobacteroides sp017502125	1
+Species	s__Cryptobacteroides sp017506825	1
+Species	s__Cryptobacteroides sp017549145	1
+Species	s__Cryptobacteroides sp017550025	1
+Species	s__Cryptobacteroides sp017556765	2
+Species	s__Cryptobacteroides sp017560825	1
+Species	s__Cryptobacteroides sp017561265	1
+Species	s__Cryptobacteroides sp017626355	1
+Species	s__Cryptobacteroides sp017626555	1
+Species	s__Cryptobacteroides sp017937885	1
+Species	s__Cryptobacteroides sp017938925	1
+Species	s__Cryptobacteroides sp018065985	1
+Species	s__Cryptobacteroides sp018066125	1
+Species	s__Cryptobacteroides sp021153285	1
+Species	s__Cryptobacteroides sp024398075	1
+Species	s__Cryptobacteroides sp024398125	1
+Species	s__Cryptobacteroides sp024401635	1
+Species	s__Cryptobacteroides sp024401695	1
+Species	s__Cryptobacteroides sp024401745	1
+Species	s__Cryptobacteroides sp024401795	1
+Species	s__Cryptobacteroides sp024401805	1
+Species	s__Cryptobacteroides sp024401825	1
+Species	s__Cryptobacteroides sp024401855	1
+Species	s__Cryptobacteroides sp024401895	1
+Species	s__Cryptobacteroides sp024401975	1
+Species	s__Cryptobacteroides sp024402095	1
+Species	s__Cryptobacteroides sp024402135	1
+Species	s__Cryptobacteroides sp900320965	1
+Species	s__Cryptobacteroides sp900771005	1
+Species	s__Cryptobacteroides sp904501835	1
+Species	s__Desulfovibrio sp017415765	1
+Species	s__DTU089 sp015066225	1
+Species	s__DTU089 sp015066345	1
+Species	s__DTU089 sp015066465	1
+Species	s__DTU089 sp017380615	1
+Species	s__DTU089 sp017436285	1
+Species	s__DTU089 sp017501865	1
+Species	s__DTU089 sp017521425	1
+Species	s__DTU089 sp017550105	1
+Species	s__DTU089 sp017626295	1
+Species	s__DTU089 sp017631355	1
+Species	s__DTU089 sp017937865	1
+Species	s__Duodenibacillus sp017628205	1
+Species	s__Dysosmobacter sp015068335	1
+Species	s__E4-135 sp024405585	1
+Species	s__E4-60 sp018065065	1
+Species	s__Egerieisoma sp015069165	1
+Species	s__Egerieisoma sp017522515	1
+Species	s__Egerieisoma sp017560765	1
+Species	s__Egerieisoma sp017622825	1
+Species	s__Egerieousia sp015060225	1
+Species	s__Egerieousia sp015060245	1
+Species	s__Egerieousia sp015060445	1
+Species	s__Egerieousia sp017380095	1
+Species	s__Egerieousia sp017398125	1
+Species	s__Egerieousia sp017555925	1
+Species	s__Egerieousia sp017556665	1
+Species	s__Egerieousia sp017625535	1
+Species	s__Egerieousia sp017631435	1
+Species	s__Egerieousia sp017935505	1
+Species	s__Egerieousia sp018065035	1
+Species	s__Egerieousia sp900769385	1
+Species	s__Egerieousia sp900769735	1
+Species	s__Enterocloster sp001517625	1
+Species	s__Enterococcus_B hirae	1
+Species	s__Enterococcus_B mundtii	1
+Species	s__Enterocola sp017387515	1
+Species	s__Enterocola sp017391905	1
+Species	s__Enterocola sp017508305	1
+Species	s__Enterocola sp017517845	1
+Species	s__Enterocola sp017646225	1
+Species	s__Enterocola sp904502115	1
+Species	s__Enterousia sp002373935	1
+Species	s__Enterousia sp015062445	1
+Species	s__Enterousia sp015062495	1
+Species	s__Enterousia sp015062525	1
+Species	s__Enterousia sp015062545	1
+Species	s__Enterousia sp017383325	1
+Species	s__Enterousia sp017403085	1
+Species	s__Enterousia sp017409215	1
+Species	s__Enterousia sp017425725	1
+Species	s__Enterousia sp017436325	2
+Species	s__Enterousia sp017443235	1
+Species	s__Enterousia sp017450905	1
+Species	s__Enterousia sp017451625	1
+Species	s__Enterousia sp017471805	1
+Species	s__Enterousia sp017472065	1
+Species	s__Enterousia sp017502865	1
+Species	s__Enterousia sp017503725	1
+Species	s__Enterousia sp017505705	1
+Species	s__Enterousia sp017513285	1
+Species	s__Enterousia sp017520675	1
+Species	s__Enterousia sp017546265	1
+Species	s__Enterousia sp017549445	1
+Species	s__Enterousia sp017629245	1
+Species	s__Enterousia sp017630405	1
+Species	s__Enterousia sp017935245	1
+Species	s__Enterousia sp017936185	1
+Species	s__Enterousia sp017937735	1
+Species	s__Enterousia sp018064365	1
+Species	s__Enterousia sp024402765	1
+Species	s__Enterousia sp900320405	1
+Species	s__Enterousia sp902762295	2
+Species	s__Enterousia sp902771695	1
+Species	s__Enterousia sp902790415	1
+Species	s__Enterousia sp902793005	1
+Species	s__Enterousia sp902801125	1
+Species	s__Enterousia sp902802115	1
+Species	s__Enterousia sp904502095	1
+Species	s__Enterousia sp905234465	1
+Species	s__Escherichia coli	1
+Species	s__Eubacterium_G sp017406925	1
+Species	s__Eubacterium_I sp015057865	1
+Species	s__F23-D06 sp017633495	1
+Species	s__F23-D06 sp024400835	1
+Species	s__F23-D06 sp024400875	1
+Species	s__Faecalibacterium prausnitzii_I	1
+Species	s__Faecalimonas sp017410145	1
+Species	s__Faecalimonas sp017416155	1
+Species	s__Faecousia sp015067545	1
+Species	s__Faecousia sp015067725	1
+Species	s__Faecousia sp015068165	1
+Species	s__Faecousia sp015068235	1
+Species	s__Faecousia sp015068495	1
+Species	s__Faecousia sp017391305	1
+Species	s__Faecousia sp017399325	1
+Species	s__Faecousia sp017436035	1
+Species	s__Faecousia sp017436955	1
+Species	s__Faecousia sp017437095	1
+Species	s__Faecousia sp017452605	1
+Species	s__Faecousia sp017456105	1
+Species	s__Faecousia sp017473455	1
+Species	s__Faecousia sp017502265	1
+Species	s__Faecousia sp017621795	1
+Species	s__Faecousia sp017624645	1
+Species	s__Faecousia sp017630495	1
+Species	s__Faecousia sp017936205	1
+Species	s__FD2005 sp000702525	1
+Species	s__Fibrobacter sp024398815	1
+Species	s__Fibrobacter sp024398845	1
+Species	s__Fibrobacter sp024398875	1
+Species	s__Fibrobacter sp024398935	1
+Species	s__Fibrobacter sp024398995	1
+Species	s__Fibrobacter sp900142495	1
+Species	s__Fibrobacter sp900143055	1
+Species	s__Fibrobacter sp900313675	1
+Species	s__Fimenecus sp017399405	1
+Species	s__Fimimonas sp017409765	1
+Species	s__Fimimonas sp017457305	1
+Species	s__Fimimonas sp017500855	1
+Species	s__Firm-04 sp015066805	1
+Species	s__Firm-04 sp016291435	1
+Species	s__Firm-04 sp016296505	1
+Species	s__Firm-04 sp017532085	1
+Species	s__Firm-04 sp017533485	1
+Species	s__Firm-04 sp024404815	1
+Species	s__Firm-04 sp024404875	1
+Species	s__Firm-07 sp015064185	1
+Species	s__Firm-07 sp017396225	1
+Species	s__Firm-07 sp017462615	1
+Species	s__Firm-07 sp017502975	1
+Species	s__Firm-07 sp017505785	1
+Species	s__Firm-07 sp017508425	1
+Species	s__Firm-16 sp016287245	1
+Species	s__Firm-16 sp018064475	1
+Species	s__Firm-16 sp902794115	1
+Species	s__Flavobacterium macacae	1
+Species	s__Flemingibacterium sp017407885	1
+Species	s__Flemingibacterium sp904501985	1
+Species	s__Fusicatenibacter saccharivorans	1
+Species	s__Ga6A1 sp900102385	1
+Species	s__Gallimonas sp017621735	1
+Species	s__Gallipaludibacter sp017647145	1
+Species	s__HGM04593 sp015060835	1
+Species	s__HGM04593 sp015060885	1
+Species	s__HGM04593 sp015060905	1
+Species	s__HGM04593 sp015060965	1
+Species	s__HGM04593 sp017383665	1
+Species	s__HGM04593 sp017398805	1
+Species	s__HGM04593 sp017407905	1
+Species	s__HGM04593 sp017408685	1
+Species	s__HGM04593 sp017416705	1
+Species	s__HGM04593 sp017442185	1
+Species	s__HGM04593 sp017451695	1
+Species	s__HGM04593 sp017467015	1
+Species	s__HGM04593 sp017481875	1
+Species	s__HGM04593 sp017503645	1
+Species	s__HGM04593 sp017507105	1
+Species	s__HGM04593 sp017516885	1
+Species	s__HGM04593 sp017522785	1
+Species	s__HGM04593 sp017522915	1
+Species	s__HGM04593 sp017536325	1
+Species	s__HGM04593 sp017536695	1
+Species	s__HGM04593 sp017536765	1
+Species	s__HGM04593 sp017546635	1
+Species	s__HGM04593 sp017547205	1
+Species	s__HGM04593 sp017547585	1
+Species	s__HGM04593 sp017554605	1
+Species	s__HGM04593 sp017555585	1
+Species	s__HGM04593 sp017557045	1
+Species	s__HGM04593 sp017631585	1
+Species	s__HGM04593 sp017646665	1
+Species	s__HGM04593 sp017647225	1
+Species	s__HGM04593 sp017647725	1
+Species	s__HGM04593 sp017647975	1
+Species	s__HGM04593 sp017936265	1
+Species	s__HGM04593 sp017938245	1
+Species	s__HGM04593 sp900769465	1
+Species	s__HGM04593 sp900769765	1
+Species	s__HGM04593 sp900770655	1
+Species	s__HGM04593 sp904501775	1
+Species	s__HGM04593 sp904502185	1
+Species	s__HGM04593 sp904502235	1
+Species	s__HGM05376 sp017507285	1
+Species	s__HGM05376 sp017522255	1
+Species	s__HGM05376 sp017555745	1
+Species	s__HGM05376 sp017560705	1
+Species	s__HGM05376 sp017561155	1
+Species	s__HGM05376 sp017646685	1
+Species	s__HGM05376 sp900769785	1
+Species	s__HGM11412 sp015055525	1
+Species	s__HGM11412 sp017504165	1
+Species	s__HGM11412 sp017504795	1
+Species	s__HGM11416 sp015055965	1
+Species	s__HGM11416 sp017522945	1
+Species	s__HGM11501 sp017536285	1
+Species	s__HGM12619 sp015067305	1
+Species	s__HGM12619 sp015067385	1
+Species	s__HGM12619 sp017441125	1
+Species	s__HGM12619 sp017621705	1
+Species	s__HGM12619 sp904502105	1
+Species	s__HGM12713 sp015063305	1
+Species	s__HGM12713 sp015063335	1
+Species	s__HGM12713 sp015063655	1
+Species	s__HGM12713 sp015065365	1
+Species	s__HGM12713 sp017503865	1
+Species	s__HGM12713 sp017504545	1
+Species	s__HGM12713 sp017504995	1
+Species	s__HGM12713 sp017623375	1
+Species	s__HGM12789 sp015066215	1
+Species	s__HGM13010 sp017415945	1
+Species	s__Holdemanella porci_A	1
+Species	s__Homoserinimonas hongtaonis	1
+Species	s__HUN007 sp015066745	1
+Species	s__ISDg sp024404675	1
+Species	s__JAEDES01 sp017416535	1
+Species	s__JAEDHM01 sp016296985	1
+Species	s__JAEDJH01 sp016296415	1
+Species	s__JAEZOU01 sp023413895	1
+Species	s__JAFUYI01 sp017465405	1
+Species	s__JAFUYI01 sp017546885	1
+Species	s__JAFUYI01 sp017937705	1
+Species	s__JAGBWK01 sp017536215	1
+Species	s__JAGBWK01 sp017629835	1
+Species	s__JAGCJX01 sp017647795	1
+Species	s__JAHHUH01 sp017623055	1
+Species	s__JAILFK01 sp017634455	1
+Species	s__JAILLW01 sp024399135	1
+Species	s__JAKSOL01 sp024405635	1
+Species	s__JAKSPF01 sp024405065	1
+Species	s__JAKSPP01 sp024404735	1
+Species	s__JAKSPV01 sp024404475	1
+Species	s__JAKSSE01 sp024403255	1
+Species	s__Kineothrix sp017532145	1
+Species	s__Lachnospira multipara	1
+Species	s__Lawsonibacter sp017624915	1
+Species	s__Lawsonibacter sp017631545	1
+Species	s__Lelliottia sp000016325	1
+Species	s__Lentihominibacter sp017416795	1
+Species	s__Lentihominibacter sp017433375	1
+Species	s__Ligilactobacillus ruminis	1
+Species	s__Limimorpha sp001543395	1
+Species	s__Limimorpha sp015061295	1
+Species	s__Limimorpha sp015061315	1
+Species	s__Limimorpha sp015061335	1
+Species	s__Limimorpha sp015061365	1
+Species	s__Limimorpha sp017381865	1
+Species	s__Limimorpha sp017395365	1
+Species	s__Limimorpha sp017630195	1
+Species	s__Limimorpha sp018064605	1
+Species	s__Limimorpha sp018065885	1
+Species	s__Limimorpha sp024400195	2
+Species	s__Limimorpha sp024400355	1
+Species	s__Limimorpha sp024400425	1
+Species	s__Limimorpha sp024400455	1
+Species	s__Limiplasma sp017516765	1
+Species	s__Limivicinus sp002450075	1
+Species	s__Limivicinus sp900317375	1
+Species	s__Limivicinus sp902778115	1
+Species	s__Limivicinus sp902778665	1
+Species	s__Limivicinus sp902802045	1
+Species	s__Limosilactobacillus equigenerosi	1
+Species	s__Limosilactobacillus mucosae	1
+Species	s__Mailhella sp017408905	1
+Species	s__Mailhella sp017411945	1
+Species	s__Mediterranea massiliensis_B	1
+Species	s__Mediterranea massiliensis_C	1
+Species	s__Mediterranea sp017630035	1
+Species	s__Merdimorpha sp017537565	1
+Species	s__Merdimorpha sp017620815	1
+Species	s__Merdousia sp015061945	1
+Species	s__Merdousia sp015061955	1
+Species	s__Merdousia sp017623955	1
+Species	s__Microbacterium sp024623565	1
+Species	s__Mycoplasma_L sp904501665	1
+Species	s__Nanosyncoccus sp002363125	1
+Species	s__Nanosyncoccus sp017404515	1
+Species	s__Nanosyncoccus sp017404935	1
+Species	s__Nanosyncoccus sp017431745	1
+Species	s__Nanosyncoccus sp017432225	1
+Species	s__Nanosyncoccus sp017455145	1
+Species	s__Nanosyncoccus sp017512045	1
+Species	s__Nanosyncoccus sp017515925	1
+Species	s__Nanosyncoccus sp017545485	1
+Species	s__Nanosyncoccus sp017652105	1
+Species	s__Nanosyncoccus sp017652765	1
+Species	s__Nanosyncoccus sp017941835	1
+Species	s__Nanosyncoccus sp024697865	1
+Species	s__Negativibacillus sp017439985	1
+Species	s__NK4A136 sp002314855	1
+Species	s__NK4A136 sp015057055	1
+Species	s__NK4A136 sp024403455	1
+Species	s__Onthomorpha sp002358835	1
+Species	s__Onthomorpha sp002358855	1
+Species	s__Onthomorpha sp017632095	1
+Species	s__Onthomorpha sp017647065	1
+Species	s__Onthomorpha sp017647785	1
+Species	s__Ornithomonoglobus sp017415105	1
+Species	s__Ornithospirochaeta sp017629575	1
+Species	s__Oxalobacter formigenes_B	1
+Species	s__Oxalobacter sp017524145	1
+Species	s__Paenibacillus sp001955855	1
+Species	s__Parabacteroides distasonis_B	1
+Species	s__Paraprevotella sp017630975	1
+Species	s__Paraprevotella sp017937925	1
+Species	s__Paratractidigestivibacter faecalis	1
+Species	s__Peribacillus psychrosaccharolyticus	1
+Species	s__Phascolarctobacterium_A sp024405645	1
+Species	s__Phocaeicola sp015060705	1
+Species	s__Phocaeicola sp015060735	1
+Species	s__Phocaeicola sp015060765	1
+Species	s__Phocaeicola sp017420875	1
+Species	s__Phocaeicola sp017466635	1
+Species	s__Phocaeicola sp017472925	1
+Species	s__Phocaeicola sp017503235	1
+Species	s__Phocaeicola_A sp017416805	1
+Species	s__Phocaeicola_A sp017472905	1
+Species	s__Phocaeicola_A sp017516265	1
+Species	s__Phocaeicola_A sp017517605	1
+Species	s__Phocaeicola_A sp017521285	1
+Species	s__Pradoshia sp001685035	1
+Species	s__Pradoshia sp904501845	1
+Species	s__Prevotella sp002342665	1
+Species	s__Prevotella sp002353585	1
+Species	s__Prevotella sp002353975	1
+Species	s__Prevotella sp015060535	1
+Species	s__Prevotella sp017410365	1
+Species	s__Prevotella sp017415455	1
+Species	s__Prevotella sp017423565	1
+Species	s__Prevotella sp017424205	1
+Species	s__Prevotella sp017941345	1
+Species	s__Prevotella sp018065415	1
+Species	s__Prevotella sp024398495	1
+Species	s__Prevotella sp024398515	1
+Species	s__Prevotella sp024401275	1
+Species	s__Prevotella sp024401305	1
+Species	s__Prevotella sp900314655	1
+Species	s__Prevotella sp900314755	1
+Species	s__Prevotella sp900315035	1
+Species	s__Prevotella sp900315775	1
+Species	s__Prevotella sp900316685	1
+Species	s__Prevotella sp900318625	1
+Species	s__Prevotella sp900320045	1
+Species	s__Prevotella sp905236755	1
+Species	s__Pseudobutyrivibrio sp017471675	1
+Species	s__Psychrobacillus sp012843435	1
+Species	s__QAKW01 sp017436525	1
+Species	s__QAKW01 sp017440465	1
+Species	s__QALR01 sp017937845	1
+Species	s__QAMX01 sp015067825	1
+Species	s__QHMH01 sp017476325	1
+Species	s__RF16 sp015061165	1
+Species	s__RF16 sp017384225	1
+Species	s__RF16 sp017391525	1
+Species	s__RF16 sp017394705	1
+Species	s__RF16 sp017451525	1
+Species	s__RF16 sp017457295	1
+Species	s__RF16 sp017480285	1
+Species	s__RF16 sp017503075	1
+Species	s__RF16 sp017507715	1
+Species	s__RF16 sp017556705	1
+Species	s__RF16 sp017559385	1
+Species	s__RF16 sp017628395	1
+Species	s__RF16 sp017938155	1
+Species	s__RF16 sp018065205	1
+Species	s__RF16 sp018066175	1
+Species	s__RF16 sp024399755	1
+Species	s__RF16 sp024399785	1
+Species	s__RF16 sp024399955	1
+Species	s__RF16 sp024692565	1
+Species	s__RF16 sp900317885	1
+Species	s__RGIG10190 sp024401455	1
+Species	s__RGIG1476 sp017413255	1
+Species	s__RGIG1476 sp017632945	1
+Species	s__RGIG1666 sp017399695	1
+Species	s__RGIG1666 sp017416985	1
+Species	s__RGIG1681 sp017399515	1
+Species	s__RGIG1681 sp017507215	1
+Species	s__RGIG1711 sp017416145	1
+Species	s__RGIG1711 sp024402435	1
+Species	s__RGIG1711 sp024413635	1
+Species	s__RGIG1743 sp017399105	1
+Species	s__RGIG1828 sp015068985	1
+Species	s__RGIG1828 sp017437345	1
+Species	s__RGIG1864 sp017408205	1
+Species	s__RGIG1888 sp017414845	1
+Species	s__RGIG1893 sp017397075	1
+Species	s__RGIG1896 sp017397025	1
+Species	s__RGIG1896 sp017473335	1
+Species	s__RGIG1896 sp017560205	1
+Species	s__RGIG1911 sp017414715	1
+Species	s__RGIG1911 sp017533425	1
+Species	s__RGIG1911 sp017556885	1
+Species	s__RGIG1918 sp017396695	1
+Species	s__RGIG1931 sp017414565	1
+Species	s__RGIG1932 sp017414505	1
+Species	s__RGIG1934 sp017396555	1
+Species	s__RGIG1995 sp015065045	1
+Species	s__RGIG1995 sp017395725	1
+Species	s__RGIG1995 sp017473865	1
+Species	s__RGIG2000 sp015064445	1
+Species	s__RGIG2000 sp015064855	1
+Species	s__RGIG2000 sp017408585	1
+Species	s__RGIG2000 sp017420755	1
+Species	s__RGIG2000 sp017456685	1
+Species	s__RGIG2000 sp017457545	1
+Species	s__RGIG2000 sp017466455	1
+Species	s__RGIG2000 sp017481595	1
+Species	s__RGIG2000 sp017501545	1
+Species	s__RGIG2000 sp017503285	1
+Species	s__RGIG2000 sp017623355	1
+Species	s__RGIG2000 sp017623975	1
+Species	s__RGIG2000 sp017625935	1
+Species	s__RGIG2000 sp017937135	1
+Species	s__RGIG2041 sp017411585	1
+Species	s__RGIG2134 sp017409065	1
+Species	s__RGIG2161 sp017408535	1
+Species	s__RGIG2220 sp017407305	1
+Species	s__RGIG2945 sp017442445	1
+Species	s__RGIG3009 sp017434985	1
+Species	s__RGIG3009 sp017436915	1
+Species	s__RGIG3009 sp017440005	1
+Species	s__RGIG3009 sp017440765	1
+Species	s__RGIG3009 sp017503785	1
+Species	s__RGIG3077 sp017435565	1
+Species	s__RGIG3096 sp017407205	1
+Species	s__RGIG3102 sp017400025	1
+Species	s__RGIG3102 sp017435045	1
+Species	s__RGIG3102 sp017436575	1
+Species	s__RGIG3102 sp017442085	1
+Species	s__RGIG3102 sp018109965	1
+Species	s__RGIG3135 sp017440565	1
+Species	s__RGIG3159 sp017440065	1
+Species	s__RGIG3513 sp017408485	1
+Species	s__RGIG3513 sp017408985	1
+Species	s__RGIG3528 sp024403375	1
+Species	s__RGIG3566 sp017501805	1
+Species	s__RGIG3701 sp015062085	1
+Species	s__RGIG3701 sp017408405	1
+Species	s__RGIG3701 sp017939795	1
+Species	s__RGIG3925 sp017414385	1
+Species	s__RGIG3925 sp017455975	1
+Species	s__RGIG3925 sp017628075	1
+Species	s__RGIG3994 sp017502915	1
+Species	s__RGIG4034 sp017463255	1
+Species	s__RGIG4079 sp015060975	1
+Species	s__RGIG4079 sp017390185	1
+Species	s__RGIG4079 sp017396945	1
+Species	s__RGIG4079 sp017399915	1
+Species	s__RGIG4079 sp017409345	1
+Species	s__RGIG4079 sp017424575	1
+Species	s__RGIG4079 sp017505535	1
+Species	s__RGIG4079 sp017520235	1
+Species	s__RGIG4079 sp904502025	1
+Species	s__RGIG4097 sp017461985	1
+Species	s__RGIG4097 sp017500745	1
+Species	s__RGIG4097 sp017507205	1
+Species	s__RGIG4130 sp017466885	1
+Species	s__RGIG4131 sp015066785	1
+Species	s__RGIG4131 sp017466865	1
+Species	s__RGIG4131 sp017536405	1
+Species	s__RGIG4131 sp017828955	1
+Species	s__RGIG4140 sp015062385	1
+Species	s__RGIG4140 sp017466695	1
+Species	s__RGIG4140 sp017467335	1
+Species	s__RGIG4140 sp017533325	1
+Species	s__RGIG4140 sp017555325	1
+Species	s__RGIG4140 sp017647405	1
+Species	s__RGIG423 sp017437205	1
+Species	s__RGIG426 sp017410585	1
+Species	s__RGIG426 sp017414965	1
+Species	s__RGIG426 sp017481085	1
+Species	s__RGIG426 sp024404755	1
+Species	s__RGIG4266 sp017461465	1
+Species	s__RGIG4284 sp017464645	1
+Species	s__RGIG4576 sp015061055	1
+Species	s__RGIG4576 sp017391675	1
+Species	s__RGIG4576 sp904501735	1
+Species	s__RGIG4607 sp017473265	1
+Species	s__RGIG4608 sp017531925	1
+Species	s__RGIG464 sp017421975	1
+Species	s__RGIG4729 sp017481035	1
+Species	s__RGIG5270 sp017456285	1
+Species	s__RGIG5270 sp017505415	1
+Species	s__RGIG5299 sp017504945	1
+Species	s__RGIG5327 sp017629515	1
+Species	s__RGIG5472 sp017501355	1
+Species	s__RGIG5612 sp024403615	1
+Species	s__RGIG6154 sp017410375	1
+Species	s__RGIG6178 sp017517765	1
+Species	s__RGIG6307 sp017516285	1
+Species	s__RGIG6307 sp017521985	1
+Species	s__RGIG6353 sp017439965	1
+Species	s__RGIG6374 sp017513445	1
+Species	s__RGIG6429 sp017533545	1
+Species	s__RGIG6449 sp017533005	1
+Species	s__RGIG6452 sp017532825	1
+Species	s__RGIG6639 sp017527495	1
+Species	s__RGIG6720 sp024405395	1
+Species	s__RGIG7107 sp017405305	1
+Species	s__RGIG7107 sp017538895	1
+Species	s__RGIG7114 sp015068425	1
+Species	s__RGIG7114 sp017558545	1
+Species	s__RGIG7213 sp017520505	1
+Species	s__RGIG7213 sp017556845	1
+Species	s__RGIG7300 sp015065105	1
+Species	s__RGIG7378 sp017501105	1
+Species	s__RGIG8050 sp017623705	1
+Species	s__RGIG8050 sp018384735	1
+Species	s__RGIG8367 sp904502045	1
+Species	s__RGIG8523 sp017625675	1
+Species	s__RGIG8597 sp017624275	1
+Species	s__RGIG8700 sp017622395	1
+Species	s__RGIG8709 sp017622215	1
+Species	s__RGIG8709 sp017626595	1
+Species	s__RGIG8745 sp017466965	1
+Species	s__RGIG8748 sp017621495	1
+Species	s__RGIG8785 sp017620795	1
+Species	s__RGIG9079 sp015061245	1
+Species	s__RGIG9079 sp017936285	1
+Species	s__RGIG9099 sp017935905	1
+Species	s__RGIG9114 sp018110785	1
+Species	s__RGIG9379 sp017632345	1
+Species	s__RGIG9608 sp017547145	1
+Species	s__RGIG9608 sp017648235	2
+Species	s__RGIG9608 sp017652785	1
+Species	s__RGIG982 sp017390595	1
+Species	s__RGIG982 sp017442105	1
+Species	s__RGIG990 sp017424105	1
+Species	s__RGIG990 sp017481725	1
+Species	s__RGIG9934 sp017646325	1
+Species	s__RGIG995 sp017623475	1
+Species	s__RGIG995 sp017623595	1
+Species	s__Rhodococcus sp012844225	1
+Species	s__RUG099 sp017404265	1
+Species	s__RUG099 sp017433945	1
+Species	s__RUG099 sp900315485	1
+Species	s__RUG11130 sp017440665	1
+Species	s__RUG11130 sp017481265	1
+Species	s__RUG11130 sp024404435	1
+Species	s__RUG11139 sp024400495	1
+Species	s__RUG11139 sp024400565	1
+Species	s__RUG11194 sp018064845	1
+Species	s__RUG11194 sp024427265	1
+Species	s__RUG11200 sp017396145	1
+Species	s__RUG11257 sp018064305	1
+Species	s__RUG11690 sp024400755	1
+Species	s__RUG11797 sp015068345	1
+Species	s__RUG11797 sp024404415	1
+Species	s__RUG12395 sp015064505	1
+Species	s__RUG12395 sp017382555	1
+Species	s__RUG12395 sp017436885	1
+Species	s__RUG12461 sp017431515	1
+Species	s__RUG12461 sp902779355	1
+Species	s__RUG12826 sp015055625	1
+Species	s__RUG12999 sp017396395	1
+Species	s__RUG14156 sp015152565	1
+Species	s__RUG14156 sp017402995	1
+Species	s__RUG14199 sp015063695	1
+Species	s__RUG14515 sp024407995	1
+Species	s__RUG191 sp015057165	1
+Species	s__RUG191 sp900316395	1
+Species	s__RUG191 sp905234525	1
+Species	s__RUG306 sp902772635	1
+Species	s__RUG369 sp017435375	1
+Species	s__RUG369 sp017466305	1
+Species	s__RUG369 sp017937485	2
+Species	s__RUG369 sp017937685	2
+Species	s__RUG410 sp017479785	1
+Species	s__RUG410 sp017480745	1
+Species	s__RUG410 sp900313155	1
+Species	s__RUG410 sp900313185	1
+Species	s__RUG410 sp902763155	1
+Species	s__RUG410 sp902796625	1
+Species	s__RUG420 sp017433225	1
+Species	s__RUG420 sp900317985	1
+Species	s__RUG420 sp900318715	1
+Species	s__RUG420 sp900771085	1
+Species	s__RUG420 sp904502175	1
+Species	s__RUG440 sp017652285	1
+Species	s__RUG440 sp902780305	1
+Species	s__RUG472 sp902765005	1
+Species	s__RUG472 sp902802805	1
+Species	s__RUG521 sp017431405	1
+Species	s__RUG563 sp015056015	1
+Species	s__RUG563 sp017395685	1
+Species	s__RUG563 sp017437265	1
+Species	s__RUG563 sp017517465	1
+Species	s__RUG572 sp017563185	1
+Species	s__RUG572 sp024405255	1
+Species	s__RUG695 sp017405595	1
+Species	s__RUG695 sp900321495	1
+Species	s__RUG695 sp902766935	1
+Species	s__RUG740 sp015056205	1
+Species	s__RUG740 sp017404985	1
+Species	s__RUG740 sp017433405	1
+Species	s__RUG740 sp017652125	1
+Species	s__RUG806 sp015065425	1
+Species	s__RUG806 sp015066205	1
+Species	s__RUG806 sp017396895	1
+Species	s__RUG806 sp017416485	1
+Species	s__RUG806 sp017435865	1
+Species	s__RUG806 sp017440965	1
+Species	s__RUG806 sp017517135	1
+Species	s__RUG806 sp017625435	1
+Species	s__Ruminiclostridium_E sp015067025	1
+Species	s__Ruminiclostridium_E sp017408635	1
+Species	s__Ruminiclostridium_E sp017465545	1
+Species	s__Ruminiclostridium_E sp017624025	1
+Species	s__Ruminiclostridium_E sp017625405	1
+Species	s__Ruminiclostridium_E sp017942025	1
+Species	s__Ruminobacter sp017940385	1
+Species	s__Ruminobacter sp900315145	1
+Species	s__Ruminococcus sp015066875	1
+Species	s__Ruminococcus sp015066925	1
+Species	s__Ruminococcus sp015066935	1
+Species	s__Ruminococcus sp015066955	1
+Species	s__Ruminococcus sp017397925	1
+Species	s__Ruminococcus sp017437285	1
+Species	s__Ruminococcus sp017461395	1
+Species	s__Ruminococcus sp017513795	1
+Species	s__Ruminococcus sp017516465	1
+Species	s__Ruminococcus sp017517145	1
+Species	s__Ruminococcus sp017523285	1
+Species	s__Ruminococcus sp017543335	1
+Species	s__Ruminococcus sp017624895	1
+Species	s__Ruminococcus sp017935095	1
+Species	s__Ruminococcus sp024403935	1
+Species	s__Ruminococcus sp024403965	1
+Species	s__Ruminococcus sp024403995	1
+Species	s__Ruminococcus_B gnavus	1
+Species	s__Ruminococcus_C sp017623515	1
+Species	s__Ruminococcus_E sp017395925	1
+Species	s__Ruminococcus_E sp017407755	1
+Species	s__Ruminococcus_E sp017410265	1
+Species	s__Ruminococcus_E sp017411835	1
+Species	s__Ruminococcus_E sp017416065	1
+Species	s__Ruminococcus_E sp017421045	1
+Species	s__Ruminococcus_E sp017456845	1
+Species	s__Ruminococcus_E sp017457155	1
+Species	s__Ruminococcus_E sp017464765	1
+Species	s__Ruminococcus_E sp017465505	1
+Species	s__Ruminococcus_E sp017473555	1
+Species	s__Ruminococcus_E sp017473955	1
+Species	s__Ruminococcus_E sp024403825	1
+Species	s__Ruminococcus_E sp900313865	1
+Species	s__Ruminococcus_E sp900315605	1
+Species	s__Ruminococcus_E sp900316435	1
+Species	s__Ruminococcus_E sp900316555	1
+Species	s__Ruminococcus_E sp900318495	1
+Species	s__Ruminococcus_E sp902790475	1
+Species	s__Ruminococcus_F sp015066905	1
+Species	s__Saccharofermentans sp015069205	1
+Species	s__Saccharofermentans sp016292215	1
+Species	s__Saccharofermentans sp017428155	1
+Species	s__Saccharofermentans sp017515465	1
+Species	s__Saccharofermentans sp024403655	1
+Species	s__Saccharofermentans sp024403735	1
+Species	s__Saccharofermentans sp024403755	1
+Species	s__Saccharofermentans sp024403775	1
+Species	s__Saccharofermentans sp024403795	1
+Species	s__Saccharofermentans sp024403855	1
+Species	s__Saccharofermentans sp024683485	1
+Species	s__Saccharofermentans sp900107185	1
+Species	s__Saccharofermentans sp902776845	1
+Species	s__Sarcina perfringens	1
+Species	s__Scatenecus sp017559905	1
+Species	s__Scatosoma sp015055615	1
+Species	s__Scatosoma sp015069565	1
+Species	s__Scatosoma sp015071005	1
+Species	s__Scatosoma sp017415505	1
+Species	s__Scatosoma sp017452305	1
+Species	s__Scatosoma sp017453145	1
+Species	s__Scatosoma sp017467265	1
+Species	s__Scatosoma sp017504065	1
+Species	s__Scatosoma sp017504465	1
+Species	s__Scatosoma sp017505465	1
+Species	s__Scatosoma sp017536305	1
+Species	s__Scatosoma sp017623605	1
+Species	s__Scatosoma sp017625565	1
+Species	s__Scatosoma sp017626305	1
+Species	s__Scatosoma sp904501815	1
+Species	s__Selenomonas_A ruminantium_F	1
+Species	s__SFDP01 sp017520155	1
+Species	s__SFHK01 sp016296675	1
+Species	s__SFLA01 sp017399965	1
+Species	s__SFLA01 sp017625615	1
+Species	s__SFLA01 sp017646185	1
+Species	s__SFMI01 sp017532155	1
+Species	s__SFWF01 sp015066085	1
+Species	s__SFWF01 sp017521125	1
+Species	s__SFWF01 sp017623235	1
+Species	s__SFWF01 sp017630985	1
+Species	s__SFWF01 sp017936045	1
+Species	s__SFWF01 sp900769775	1
+Species	s__SIG200 sp017441065	1
+Species	s__SIG220 sp015059105	1
+Species	s__SIG274 sp015057875	1
+Species	s__SIG291 sp015057605	1
+Species	s__SIG307 sp017463035	1
+Species	s__SIG307 sp017503735	1
+Species	s__SIG32 sp015152455	1
+Species	s__SIG424 sp017517275	1
+Species	s__SIG435 sp015068975	1
+Species	s__SIG440 sp015068655	1
+Species	s__SIG440 sp015068845	1
+Species	s__SIG440 sp017409575	1
+Species	s__SIG440 sp017503225	1
+Species	s__SIG440 sp017546165	1
+Species	s__SIG447 sp017436645	1
+Species	s__SIG447 sp017442155	1
+Species	s__SIG450 sp015068525	1
+Species	s__SIG450 sp017554615	1
+Species	s__SIG452 sp017468465	1
+Species	s__SIG455 sp015068565	1
+Species	s__SIG480 sp017409405	1
+Species	s__SIG480 sp017439555	1
+Species	s__SIG480 sp017532355	1
+Species	s__SIG483 sp015068035	1
+Species	s__SIG483 sp017522015	1
+Species	s__SIG495 sp015067795	1
+Species	s__SIG499 sp015067715	1
+Species	s__SIG530 sp015067075	1
+Species	s__SIG565 sp015066295	1
+Species	s__SIG565 sp015066405	1
+Species	s__SIG565 sp017436255	1
+Species	s__SIG575 sp015065765	1
+Species	s__SIG575 sp015066175	1
+Species	s__SIG575 sp017520635	1
+Species	s__SIG575 sp017935325	1
+Species	s__SIG587 sp015065935	1
+Species	s__SIG587 sp017463345	1
+Species	s__SIG588 sp015065885	1
+Species	s__SIG589 sp017424125	1
+Species	s__SIG598 sp015065795	1
+Species	s__SIG598 sp015065975	1
+Species	s__SIG603 sp015065615	1
+Species	s__SIG603 sp017935165	1
+Species	s__SIG607 sp015065605	1
+Species	s__SIG607 sp017474125	1
+Species	s__SIG622 sp015065225	1
+Species	s__SIG622 sp017560085	1
+Species	s__SIG636 sp017397805	1
+Species	s__SIG636 sp017521025	1
+Species	s__SIG636 sp017531625	1
+Species	s__SIG640 sp015064885	1
+Species	s__SIG644 sp015064805	1
+Species	s__SIG644 sp017507985	1
+Species	s__SIG653 sp015064625	1
+Species	s__SIG672 sp017466445	1
+Species	s__SIG685 sp015063985	1
+Species	s__SIG693 sp015063805	1
+Species	s__SIG693 sp017407835	1
+Species	s__SIG693 sp017466495	1
+Species	s__SIG694 sp015063795	1
+Species	s__SIG701 sp015063645	1
+Species	s__SIG701 sp017468385	1
+Species	s__SIG701 sp017502135	1
+Species	s__SIG710 sp017397175	1
+Species	s__SIG710 sp017461635	1
+Species	s__SIG710 sp017517035	1
+Species	s__SIG714 sp015063395	1
+Species	s__SIG77 sp015061915	1
+Species	s__SIG77 sp017623265	1
+Species	s__SIG78 sp015061545	1
+Species	s__SIG78 sp015061575	1
+Species	s__SIG78 sp015061695	1
+Species	s__SIG78 sp015061885	1
+Species	s__SIG78 sp017504585	1
+Species	s__SIG79 sp015061845	1
+Species	s__SIG79 sp017456495	1
+Species	s__SIG79 sp017456805	1
+Species	s__SIG79 sp017503375	1
+Species	s__Slackia_A isoflavoniconvertens	1
+Species	s__Sodaliphilus sp017449785	1
+Species	s__Sodaliphilus sp018065165	1
+Species	s__Sodaliphilus sp018065815	1
+Species	s__Sodaliphilus sp900319525	1
+Species	s__Sodaliphilus sp902762385	1
+Species	s__Solibacillus merdavium	1
+Species	s__Sphingobacterium rhinopitheci	1
+Species	s__Spyradenecus sp017531445	1
+Species	s__Spyradenecus sp017558005	1
+Species	s__Spyradenecus sp017646485	1
+Species	s__Spyradosoma sp015061905	1
+Species	s__Spyradosoma sp017531845	1
+Species	s__Stercoripulliclostridium_A sp017403145	1
+Species	s__Stercoripulliclostridium_A sp017504305	1
+Species	s__Stercoripulliclostridium_A sp017533505	1
+Species	s__Streptococcus equinus	1
+Species	s__Succinivibrio dextrinosolvens	1
+Species	s__Succinivibrio sp900316175	1
+Species	s__Sutterella wadsworthensis_A	1
+Species	s__SVCP01 sp015058295	1
+Species	s__Tidjanibacter sp015059945	1
+Species	s__Tidjanibacter sp017379955	1
+Species	s__Tidjanibacter sp017390585	1
+Species	s__Tidjanibacter sp017396085	1
+Species	s__Tidjanibacter sp017466345	1
+Species	s__Tidjanibacter sp017503805	1
+Species	s__Tidjanibacter sp017521965	1
+Species	s__Tidjanibacter sp017628305	1
+Species	s__Tidjanibacter sp017628675	1
+Species	s__Tidjanibacter sp017630115	1
+Species	s__Tidjanibacter sp017631375	1
+Species	s__Tidjanibacter sp017935385	1
+Species	s__Tidjanibacter sp017936005	2
+Species	s__Tidjanibacter sp017936605	1
+Species	s__Treponema_D bryantii_D	1
+Species	s__Treponema_D sp002309195	1
+Species	s__Treponema_D sp002373205	1
+Species	s__Treponema_D sp002373325	1
+Species	s__Treponema_D sp017622055	1
+Species	s__Treponema_D sp017934745	1
+Species	s__Treponema_D sp017938365	1
+Species	s__Treponema_D sp024400915	1
+Species	s__Treponema_D sp024402475	1
+Species	s__Treponema_D sp900767955	1
+Species	s__Treponema_F sp016294105	1
+Species	s__Treponema_F sp017622135	1
+Species	s__Treponema_F sp017629095	1
+Species	s__Treponema_F sp017646305	1
+Species	s__Treponema_F sp017936345	1
+Species	s__UB1719 sp024408565	1
+Species	s__UBA10281 sp017396365	1
+Species	s__UBA10281 sp017503885	1
+Species	s__UBA10281 sp017504655	1
+Species	s__UBA1066 sp900317515	1
+Species	s__UBA1066 sp902776305	1
+Species	s__UBA1067 sp002351765	1
+Species	s__UBA1067 sp002449695	1
+Species	s__UBA1067 sp017403825	1
+Species	s__UBA1067 sp017418445	1
+Species	s__UBA1067 sp017507065	1
+Species	s__UBA1067 sp017508315	1
+Species	s__UBA1067 sp017520845	1
+Species	s__UBA1067 sp017628025	1
+Species	s__UBA1067 sp017628165	1
+Species	s__UBA1067 sp017629455	1
+Species	s__UBA1067 sp017629735	1
+Species	s__UBA1067 sp017631385	1
+Species	s__UBA1067 sp017648225	1
+Species	s__UBA1067 sp902799955	1
+Species	s__UBA1067 sp902800055	1
+Species	s__UBA1067 sp904502135	1
+Species	s__UBA10677 sp017623435	1
+Species	s__UBA1081 sp017549285	1
+Species	s__UBA1081 sp017549665	1
+Species	s__UBA11452 sp017646015	1
+Species	s__UBA11475 sp017646555	1
+Species	s__UBA11512 sp017465885	1
+Species	s__UBA11512 sp017935195	1
+Species	s__UBA11524 sp015056085	1
+Species	s__UBA11524 sp017397765	1
+Species	s__UBA11524 sp017513475	1
+Species	s__UBA11524 sp017936765	1
+Species	s__UBA1174 sp016281355	1
+Species	s__UBA1174 sp900556855	1
+Species	s__UBA1179 sp017556585	1
+Species	s__UBA1179 sp017647575	1
+Species	s__UBA1179 sp018065615	1
+Species	s__UBA1179 sp024398555	1
+Species	s__UBA1179 sp024398615	1
+Species	s__UBA1179 sp024398665	1
+Species	s__UBA1179 sp024398695	1
+Species	s__UBA1179 sp024398715	1
+Species	s__UBA1179 sp024398755	1
+Species	s__UBA1179 sp024398785	1
+Species	s__UBA1179 sp900318995	1
+Species	s__UBA1181 sp015061185	1
+Species	s__UBA1181 sp017630395	1
+Species	s__UBA1181 sp024401435	1
+Species	s__UBA1181 sp024401515	1
+Species	s__UBA1181 sp024401555	1
+Species	s__UBA1181 sp900769555	1
+Species	s__UBA1189 sp015060865	1
+Species	s__UBA1189 sp017465905	1
+Species	s__UBA1189 sp017517925	1
+Species	s__UBA1189 sp017520935	1
+Species	s__UBA1189 sp017555875	1
+Species	s__UBA1189 sp017622495	1
+Species	s__UBA1203 sp017500825	1
+Species	s__UBA1213 sp020627425	1
+Species	s__UBA1213 sp902786345	1
+Species	s__UBA1217 sp002371315	1
+Species	s__UBA1217 sp017429685	1
+Species	s__UBA1217 sp017522065	1
+Species	s__UBA1227 sp018064455	1
+Species	s__UBA1227 sp018065925	1
+Species	s__UBA1231 sp904502205	1
+Species	s__UBA1240 sp001603145	1
+Species	s__UBA1240 sp024402455	1
+Species	s__UBA1240 sp024402495	1
+Species	s__UBA1254 sp017645485	1
+Species	s__UBA1254 sp017963715	1
+Species	s__UBA1254 sp902767055	1
+Species	s__UBA1259 sp015055725	1
+Species	s__UBA1259 sp015055805	1
+Species	s__UBA1259 sp015055945	1
+Species	s__UBA1259 sp015069265	1
+Species	s__UBA1259 sp015069425	1
+Species	s__UBA1259 sp015069465	1
+Species	s__UBA1259 sp017397305	1
+Species	s__UBA1259 sp017414525	1
+Species	s__UBA1259 sp017456945	1
+Species	s__UBA1259 sp017501885	1
+Species	s__UBA1259 sp017502525	1
+Species	s__UBA1259 sp017503265	1
+Species	s__UBA1259 sp017558105	1
+Species	s__UBA1259 sp017621955	1
+Species	s__UBA1259 sp017631725	1
+Species	s__UBA1259 sp017648525	1
+Species	s__UBA1259 sp900769565	1
+Species	s__UBA1259 sp900771345	1
+Species	s__UBA1259 sp904501795	1
+Species	s__UBA1417 sp017623855	1
+Species	s__UBA1425 sp017397655	1
+Species	s__UBA1436 sp015062115	1
+Species	s__UBA1436 sp900315795	1
+Species	s__UBA1436 sp900319325	1
+Species	s__UBA1436 sp900319885	1
+Species	s__UBA1436 sp902761975	1
+Species	s__UBA1711 sp002373995	1
+Species	s__UBA1711 sp016280915	1
+Species	s__UBA1711 sp017501495	1
+Species	s__UBA1711 sp017522105	1
+Species	s__UBA1711 sp018066145	1
+Species	s__UBA1711 sp024400505	1
+Species	s__UBA1711 sp024400545	1
+Species	s__UBA1711 sp024400665	1
+Species	s__UBA1711 sp900314925	1
+Species	s__UBA1711 sp900771365	1
+Species	s__UBA1712 sp018064425	1
+Species	s__UBA1715 sp002317135	1
+Species	s__UBA1715 sp017516865	1
+Species	s__UBA1723 sp002371265	1
+Species	s__UBA1723 sp002392915	1
+Species	s__UBA1723 sp016283095	1
+Species	s__UBA1723 sp024401565	1
+Species	s__UBA1723 sp902782665	1
+Species	s__UBA1731 sp015061765	1
+Species	s__UBA1731 sp017521065	1
+Species	s__UBA1731 sp017936245	1
+Species	s__UBA1737 sp015059015	1
+Species	s__UBA1737 sp017398545	1
+Species	s__UBA1737 sp017937305	1
+Species	s__UBA1740 sp015063385	1
+Species	s__UBA1740 sp015063765	1
+Species	s__UBA1740 sp015064745	1
+Species	s__UBA1740 sp017397205	1
+Species	s__UBA1740 sp017410065	1
+Species	s__UBA1740 sp017456985	1
+Species	s__UBA1740 sp017462485	1
+Species	s__UBA1740 sp017463765	1
+Species	s__UBA1740 sp017467165	1
+Species	s__UBA1740 sp017472305	1
+Species	s__UBA1740 sp017501175	2
+Species	s__UBA1740 sp017503105	1
+Species	s__UBA1740 sp017504405	1
+Species	s__UBA1740 sp017556685	1
+Species	s__UBA1740 sp017621415	1
+Species	s__UBA1740 sp017621755	1
+Species	s__UBA1740 sp017936565	1
+Species	s__UBA1740 sp017938205	1
+Species	s__UBA1740 sp017938425	1
+Species	s__UBA1740 sp024404975	1
+Species	s__UBA1752 sp015063885	1
+Species	s__UBA1752 sp015064955	1
+Species	s__UBA1752 sp015065165	1
+Species	s__UBA1752 sp017397605	1
+Species	s__UBA1752 sp017434845	1
+Species	s__UBA1752 sp017466805	1
+Species	s__UBA1752 sp017501055	1
+Species	s__UBA1752 sp017516825	1
+Species	s__UBA1752 sp017560145	1
+Species	s__UBA1752 sp017561145	1
+Species	s__UBA1752 sp017563195	1
+Species	s__UBA1752 sp017629175	1
+Species	s__UBA1752 sp017629895	1
+Species	s__UBA1752 sp018065365	1
+Species	s__UBA1754 sp015061145	1
+Species	s__UBA1755 sp018066045	1
+Species	s__UBA1756 sp016290715	1
+Species	s__UBA1756 sp017506175	1
+Species	s__UBA1756 sp024400775	1
+Species	s__UBA1757 sp017380635	1
+Species	s__UBA1757 sp017468435	1
+Species	s__UBA1762 sp017472965	1
+Species	s__UBA1765 sp002314675	1
+Species	s__UBA1765 sp017625775	1
+Species	s__UBA1765 sp017631885	1
+Species	s__UBA1776 sp017457105	1
+Species	s__UBA1784 sp015061605	1
+Species	s__UBA1784 sp015061615	1
+Species	s__UBA1784 sp015061685	1
+Species	s__UBA1784 sp015061725	1
+Species	s__UBA1784 sp015061745	1
+Species	s__UBA1784 sp015061775	1
+Species	s__UBA1784 sp015061805	1
+Species	s__UBA1784 sp015061815	1
+Species	s__UBA1784 sp015061865	1
+Species	s__UBA1784 sp017457065	1
+Species	s__UBA1784 sp017462015	1
+Species	s__UBA1784 sp017504435	1
+Species	s__UBA1784 sp017507125	1
+Species	s__UBA1784 sp017508015	1
+Species	s__UBA1784 sp017508135	1
+Species	s__UBA1784 sp017508385	1
+Species	s__UBA1786 sp018065565	1
+Species	s__UBA1786 sp024398405	1
+Species	s__UBA1786 sp024398435	1
+Species	s__UBA1786 sp024398475	1
+Species	s__UBA1786 sp900771425	1
+Species	s__UBA2804 sp016284235	1
+Species	s__UBA2804 sp900319705	1
+Species	s__UBA2813 sp902774905	1
+Species	s__UBA2834 sp017418275	1
+Species	s__UBA2834 sp024402845	1
+Species	s__UBA2862 sp017432405	1
+Species	s__UBA2903 sp024413465	1
+Species	s__UBA2922 sp902802565	1
+Species	s__UBA2922 sp904501855	1
+Species	s__UBA2922 sp905236515	1
+Species	s__UBA3054 sp017539325	1
+Species	s__UBA3207 sp024408085	1
+Species	s__UBA3263 sp015061005	1
+Species	s__UBA3637 sp015062245	1
+Species	s__UBA3766 sp015056945	1
+Species	s__UBA3766 sp015057025	1
+Species	s__UBA3766 sp017473905	1
+Species	s__UBA3766 sp017624855	1
+Species	s__UBA3766 sp024403275	1
+Species	s__UBA3766 sp024403285	1
+Species	s__UBA3766 sp900313265	1
+Species	s__UBA3792 sp902789675	1
+Species	s__UBA3792 sp902792295	1
+Species	s__UBA3824 sp017394445	1
+Species	s__UBA3824 sp024401025	1
+Species	s__UBA3824 sp024413595	1
+Species	s__UBA3839 sp002393575	1
+Species	s__UBA3839 sp017483765	1
+Species	s__UBA3855 sp015066665	1
+Species	s__UBA3855 sp015066845	1
+Species	s__UBA3855 sp015066865	1
+Species	s__UBA3855 sp017462785	1
+Species	s__UBA3855 sp017521325	1
+Species	s__UBA4248 sp017464085	1
+Species	s__UBA4248 sp017629415	1
+Species	s__UBA4293 sp002395835	1
+Species	s__UBA4293 sp018065125	1
+Species	s__UBA4334 sp002353215	1
+Species	s__UBA4334 sp017507385	1
+Species	s__UBA4334 sp018064505	1
+Species	s__UBA4334 sp024401215	1
+Species	s__UBA4334 sp024401225	1
+Species	s__UBA4334 sp904501945	1
+Species	s__UBA4345 sp018064855	1
+Species	s__UBA4345 sp024401615	1
+Species	s__UBA4345 sp024401645	1
+Species	s__UBA4363 sp002393965	1
+Species	s__UBA4363 sp017446585	1
+Species	s__UBA4363 sp017646805	1
+Species	s__UBA4363 sp017937025	1
+Species	s__UBA4372 sp002395775	1
+Species	s__UBA4372 sp017379075	1
+Species	s__UBA4372 sp017381015	1
+Species	s__UBA4372 sp017461345	1
+Species	s__UBA4372 sp017466325	1
+Species	s__UBA4372 sp017503065	1
+Species	s__UBA4372 sp017547165	1
+Species	s__UBA4372 sp017548165	1
+Species	s__UBA4372 sp017622815	1
+Species	s__UBA4372 sp017628845	1
+Species	s__UBA4372 sp017631315	1
+Species	s__UBA4372 sp017935785	1
+Species	s__UBA4372 sp024401165	1
+Species	s__UBA4372 sp024401185	1
+Species	s__UBA4372 sp900770805	1
+Species	s__UBA4372 sp902801325	1
+Species	s__UBA4636 sp017399185	1
+Species	s__UBA4636 sp017407325	1
+Species	s__UBA4636 sp017507595	1
+Species	s__UBA4644 sp017521295	1
+Species	s__UBA4644 sp017620505	1
+Species	s__UBA4717 sp015064205	1
+Species	s__UBA4717 sp017411885	1
+Species	s__UBA4951 sp024408335	1
+Species	s__UBA5489 sp017408305	1
+Species	s__UBA5905 sp017398485	1
+Species	s__UBA5905 sp017423825	1
+Species	s__UBA5905 sp017435305	1
+Species	s__UBA5905 sp017440755	1
+Species	s__UBA5905 sp017442265	1
+Species	s__UBA5905 sp904501705	1
+Species	s__UBA6345 sp017409005	1
+Species	s__UBA6345 sp017503005	1
+Species	s__UBA636 sp017404205	1
+Species	s__UBA636 sp017515475	1
+Species	s__UBA636 sp900321955	1
+Species	s__UBA6857 sp015066015	1
+Species	s__UBA6857 sp015066045	1
+Species	s__UBA6857 sp015066105	1
+Species	s__UBA6857 sp017396515	1
+Species	s__UBA6857 sp017397845	1
+Species	s__UBA6857 sp017425745	1
+Species	s__UBA6857 sp017435665	1
+Species	s__UBA6857 sp017436375	1
+Species	s__UBA6857 sp017517865	1
+Species	s__UBA6857 sp017522205	1
+Species	s__UBA6857 sp024404055	1
+Species	s__UBA710 sp017511585	1
+Species	s__UBA7185 sp017383785	1
+Species	s__UBA7185 sp017387265	1
+Species	s__UBA7185 sp017399005	1
+Species	s__UBA7185 sp017622155	1
+Species	s__UBA737 sp015065725	1
+Species	s__UBA737 sp015066005	1
+Species	s__UBA737 sp015066095	2
+Species	s__UBA737 sp015066445	1
+Species	s__UBA737 sp015066515	1
+Species	s__UBA737 sp017403065	1
+Species	s__UBA737 sp017416285	1
+Species	s__UBA737 sp017437005	1
+Species	s__UBA737 sp017439585	1
+Species	s__UBA737 sp017439845	1
+Species	s__UBA737 sp017441045	1
+Species	s__UBA737 sp017442225	1
+Species	s__UBA737 sp017502965	1
+Species	s__UBA737 sp017503305	1
+Species	s__UBA737 sp017513195	1
+Species	s__UBA737 sp017516965	1
+Species	s__UBA737 sp017549565	1
+Species	s__UBA737 sp017622555	1
+Species	s__UBA737 sp017623315	1
+Species	s__UBA737 sp017624675	1
+Species	s__UBA737 sp024404195	1
+Species	s__UBA737 sp900768035	1
+Species	s__UBA737 sp900769375	1
+Species	s__UBA737 sp904501875	1
+Species	s__UBA737 sp904502215	1
+Species	s__UBA738 sp018065965	1
+Species	s__UBA7477 sp017396665	1
+Species	s__UBA7477 sp017848055	1
+Species	s__UBA7488 sp002477185	1
+Species	s__UBA7862 sp017523305	1
+Species	s__UBA7867 sp017622115	1
+Species	s__UBA8612 sp017382015	1
+Species	s__UBA8612 sp017399065	1
+Species	s__UBA8612 sp017410325	1
+Species	s__UBA8612 sp017416765	1
+Species	s__UBA8612 sp017516485	1
+Species	s__UBA8612 sp017521365	1
+Species	s__UBA8612 sp017625095	1
+Species	s__UBA940 sp015060105	1
+Species	s__UBA940 sp017464745	1
+Species	s__UBA940 sp017936385	1
+Species	s__UBA9786 sp902785705	1
+Species	s__UMGS1279 sp015065925	1
+Species	s__UMGS1279 sp017382915	1
+Species	s__UMGS1279 sp017397065	1
+Species	s__UMGS1279 sp017410605	1
+Species	s__UMGS1279 sp017436225	1
+Species	s__UMGS1279 sp017622415	1
+Species	s__UMGS1279 sp017623575	1
+Species	s__UMGS1307 sp017436675	1
+Species	s__UMGS1322 sp015069575	1
+Species	s__UMGS1322 sp017502165	1
+Species	s__UMGS1387 sp017620655	1
+Species	s__UMGS1484 sp017439545	1
+Species	s__UMGS1484 sp017474205	1
+Species	s__UMGS1484 sp017556785	1
+Species	s__UMGS1491 sp017414725	1
+Species	s__UMGS1668 sp015067125	1
+Species	s__UMGS1668 sp017399625	1
+Species	s__UMGS1668 sp017399765	1
+Species	s__UMGS1668 sp017468365	1
+Species	s__UMGS1668 sp017521825	1
+Species	s__UMGS1668 sp018110905	1
+Species	s__UMGS1696 sp015063745	1
+Species	s__UMGS1696 sp015065295	1
+Species	s__UMGS1696 sp017398585	1
+Species	s__UMGS1696 sp017415325	1
+Species	s__UMGS1696 sp017935805	1
+Species	s__UMGS172 sp904501685	1
+Species	s__UMGS1820 sp017436135	1
+Species	s__UMGS1865 sp017379815	1
+Species	s__UMGS1865 sp017507905	1
+Species	s__UMGS1865 sp900769475	1
+Species	s__UMGS1883 sp015069065	1
+Species	s__UMGS1883 sp017411435	1
+Species	s__UMGS1883 sp017441965	1
+Species	s__UMGS1976 sp017381515	1
+Species	s__UMGS1976 sp017383985	1
+Species	s__UMGS1976 sp900769535	1
+Species	s__UMGS731 sp015064725	1
+Species	s__UMGS755 sp015068555	1
+Species	s__UMGS755 sp015068855	1
+Species	s__UMGS755 sp015068905	1
+Species	s__UMGS755 sp017507525	1
+Species	s__Vescimonas sp017415775	1
+Species	s__Victivallis sp017466125	1
+Species	s__W3P20-009 sp024401295	1
+Species	s__W3P20-009 sp024401335	1
+Species	s__W3P20-009 sp024401355	1
+Species	s__W3P20-009 sp024401365	1
+Species	s__W3P20-009 sp024401395	1
+Species	s__W3P20-009 sp024401415	1
+Species	s__Wujia sp015057445	1
+Species	s__Wujia sp015057525	1
+Species	s__Wujia sp015057555	1
+Species	s__Wujia sp017463225	1
+Species	s__Wujia sp017517305	1
+Species	s__Wujia sp017625335	1
+Species	s__Wujia sp017625815	1
+Species	s__Wujia sp017938485	1
+Species	s__Zag111 sp017472545	1
+Species	s__Zag111 sp017536545	1
