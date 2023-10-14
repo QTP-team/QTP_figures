@@ -1,67 +1,96 @@
-# Supplementary Fig. 3. Taxonomic statistics of 19,251 SGBs.
-library(tidyverse)
-library(readxl)
-library(RColorBrewer)
+library(ggplot2)
+library(cowplot)
 
-taxon_comp <- function(infile, outfile, top_num){
-  rank_order <-  c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")
-  #infile <- "0.data/Tibetan.ar.count.tsv"
-  dset <- read_tsv(infile) 
-  dset <- dset %>%
-    #filter(!is.na(Taxon) & Rank != "Species") %>%
-    mutate(Percentage = Counts/dset[1,3][[1]]*100,
-           Rank = factor(Rank, levels = rank_order)) %>%
-    arrange(Rank, desc(Percentage))
-  
-  # label other taxa
-  ranks_selected = c("Phylum", "Class", "Order", "Family", "Genus")
-  Top = top_num
-  index = 1
-  res_lst <-  list()
-  
-  for (r in ranks_selected){
-    #r = "Genus"
-    dset.rank <- dset %>% filter(Rank == r)
-    dset.rank.res <- dset.rank %>% filter(Taxon != "Unclassified") %>%
-      .[1:Top,] %>%
-      mutate(Color = brewer.pal(Top,"Set2")) %>%
-      arrange(Percentage)
-    
-    dset.rank.other <- dset.rank %>% filter(Taxon != "Unclassified") %>%
-      anti_join(dset.rank.res, by = "Taxon") 
-    
-    dset.rank.unclassified <- dset.rank %>% filter(Taxon == "Unclassified") %>%
-      mutate(Color = "white")
-    dset.rank.unclassified$Taxon <- paste0(r, "__unclassified")
-    
-    dset.rank.res <- dset.rank.unclassified %>% 
-      add_row(Rank = r, Taxon = paste0(r,"__others"), Counts = sum(dset.rank.other$Counts), Percentage = sum(dset.rank.other$Percentage), Color = "grey") %>%
-      rbind(dset.rank.res)
-    
-    res_lst[[index]] <- dset.rank.res
-    index = index + 1
-  }
-  
-  plot.dset <- dplyr::bind_rows(res_lst) %>%
-    mutate(Taxon = factor(Taxon, levels = unique(Taxon)),
-           Rank = factor(Rank, levels=c("Phylum", "Class", "Order", "Family", "Genus")))
-  
-  # plot stacked plot taxa counts
-  SGB_taxon <- print(ggplot(plot.dset, aes(x=Rank, y=Percentage, fill=Taxon)) 
-                     + geom_bar(stat="identity", colour="black", alpha=0.5, size=0.2)
-                     #+ geom_bar(stat="identity", alpha=0.7, size=0.2)
-                     + theme_classic()
-                     + ylab("Proportion (%)")
-                     + scale_fill_manual(values=as.vector(plot.dset$Color))
-                     + scale_y_continuous(expand = c(0, 0), limits = c(0,101))
-                     + theme(axis.title.y = element_text(size=6))
-                     + theme(axis.text.y = element_text(size=6))
-                     + theme(axis.title.x = element_blank())
-                     #+ theme(panel.grid =element_blank(), panel.border = element_blank())
-                     + theme(legend.position="none")
-                     + theme(axis.text.x = element_text(size=6, hjust=0.5, vjust=0.5)))
-  ggsave(outfile, SGB_taxon, width = 6, height = 8)
-}
+#Horse
+Horse_data <- read.table("0.data/Horse_result.txt")
+Horse_data[,3] <- rep(c(seq(from = 0, to = 75, by =5), 79), each = 10)
+colnames(Horse_data) <- c("taxo", "Number_of_SGBs", "Number_of_samples")
+Horse_p <- ggplot(Horse_data, aes(x = Number_of_samples, y = Number_of_SGBs, colour = taxo)) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  geom_smooth()+ 
+  theme_classic() +
+  theme(legend.position = "None") +
+  #scale_y_continuous(expand = c(0, 0), limits = c(300, 1500)) +
+  #scale_x_continuous(expand = c(0, 0), limits = c(0, 80)) +
+  labs(x = 'Numer of Horse samples', y = 'Number of SGBs')
 
-taxon_comp("0.data/Tibetan.bac.count.new.tsv", "1.result/FigS3A.Tibetan_bac_taxa.new.pdf", 5)
-taxon_comp("0.data/Tibetan.ar.count.new.tsv", "1.result/FigS3B.Tibetan_ar_taxa.new.pdf", 3)
+#Ass
+Ass_data <- read.table("0.data/Ass_result.txt")
+Ass_data[,3] <- rep(c(seq(from = 0, to = 45, by =5), 48), each = 10)
+colnames(Ass_data) <- c("taxo", "Number_of_SGBs", "Number_of_samples")
+Ass_p <- ggplot(Ass_data, aes(x = Number_of_samples, y = Number_of_SGBs, colour = taxo)) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  geom_smooth()+ 
+  theme_classic() +
+  theme(legend.position = "None") +
+  #scale_y_continuous(expand = c(0, 0), limits = c(400, 1500)) +
+  #scale_x_continuous(expand = c(0, 0), limits = c(0, 50)) +
+  labs(x = 'Numer of Ass samples', y = 'Number of SGBs')
+
+#Cattle
+Cattle_data <- read.table("0.data/Cattle_result.txt")
+Cattle_data[,3] <- rep(c(seq(from = 0, to = 180, by =20), 196), each = 10)
+colnames(Cattle_data) <- c("taxo", "Number_of_SGBs", "Number_of_samples")
+Cattle_p <- ggplot(Cattle_data, aes(x = Number_of_samples, y = Number_of_SGBs, colour = taxo)) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  geom_smooth()+ 
+  theme_classic() +
+  theme(legend.position = "None") +
+  #scale_y_continuous(expand = c(0, 0), limits = c(400, 2500)) +
+  #scale_x_continuous(expand = c(0, 0), limits = c(0, 200)) +
+  labs(x = 'Numer of Cattle samples', y = 'Number of SGBs')
+
+#Yak
+Yak_data <- read.table("0.data/Yak_result.txt")
+Yak_data[,3] <- rep(c(seq(from = 0, to = 350, by =50), 388), each = 10)
+colnames(Yak_data) <- c("taxo", "Number_of_SGBs", "Number_of_samples")
+Yak_p <- ggplot(Yak_data, aes(x = Number_of_samples, y = Number_of_SGBs, colour = taxo)) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  geom_smooth()+ 
+  theme_classic() +
+  theme(legend.position = "None") +
+  #scale_y_continuous(expand = c(0, 0), limits = c(1000, 5000)) +
+  #scale_x_continuous(expand = c(0, 0), limits = c(0, 400)) +
+  labs(x = 'Numer of Yak samples', y = 'Number of SGBs')
+
+#Sheep
+Sheep_data <- read.table("0.data/Sheep_result.txt")
+Sheep_data[,3] <- rep(c(seq(from = 0, to = 420, by =30), 446), each = 10)
+colnames(Sheep_data) <- c("taxo", "Number_of_SGBs", "Number_of_samples")
+Sheep_p <- ggplot(Sheep_data, aes(x = Number_of_samples, y = Number_of_SGBs, colour = taxo)) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  geom_smooth()+ 
+  theme_classic() +
+  theme(legend.position = "None") +
+  #scale_y_continuous(expand = c(0, 0), limits = c(1000, 7000)) +
+  #scale_x_continuous(expand = c(0, 0), limits = c(0, 450)) +
+  labs(x = 'Numer of Sheep samples', y = 'Number of SGBs')
+
+#Antelope
+Antelope_data <- read.table("0.data/Antelope_result.txt")
+Antelope_data[,3] <- rep(c(seq(from = 0, to = 240, by =20), 255), each = 10)
+colnames(Antelope_data) <- c("taxo", "Number_of_SGBs", "Number_of_samples")
+Antelope_p <- ggplot(Antelope_data, aes(x = Number_of_samples, y = Number_of_SGBs, colour = taxo)) +
+  geom_point(size = 1) +
+  scale_colour_brewer(palette = "Set1") +
+  geom_smooth()+ 
+  theme_classic() +
+  theme(legend.position = "None") +
+  #scale_y_continuous(expand = c(0, 0), limits = c(1000, 6000)) +
+  #scale_x_continuous(expand = c(0, 0), limits = c(0, 260)) +
+  labs(x = 'Numer of Antelope samples', y = 'Number of SGBs')
+
+
+merge_plot <- plot_grid(Ass_p, Horse_p, Antelope_p, Sheep_p, Yak_p, Cattle_p, 
+                        nrow = 3, ncol = 2, 
+                        label_x = 0,
+                        label_y = 1,
+                        hjust = -0.5,
+                        vjust = 1.5,
+                        labels = c("A", "B", "C", "D", "E", "F"))
+ggsave(merge_plot, filename = "Merge.pdf", width = 10, height = 10)
