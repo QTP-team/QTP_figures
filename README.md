@@ -32,4 +32,6 @@ Supplementary Fig. 9. Structural composition of the gut microbiota in the six ho
 
 Supplementary Fig. 10. Comparison of the enrichment of gut microbial functions between plateau indigenous species and late-migratory species.
 
-Supplementary Fig. 11. The phylogenetic tree of SGB 6458 and SGB 8084.
+Supplementary Fig. 11. Statistics of the frequency of single-copy genes (Ka/Ks>1 and Ka/Ks>1) and pN/pS ratio per SGB for high host-swap rate events and co-phylogeny rate events.
+
+Supplementary Fig. 12. Functional divergence of representative SGBs with high frequent co-phylogeny or host-swap events in Bacteroidota and different host species.
