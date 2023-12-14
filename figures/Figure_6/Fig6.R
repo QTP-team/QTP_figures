@@ -35,9 +35,9 @@ p_value <- paste0("p-value=", round(anova_result$`Pr(>F)`[1], 5))
 
 # 绘制散点图和回归线
 title_name <- paste0(Linear_Equation, ", ", R_squared, ", ", p_value)
-p_host_swap_pnps_all <- ggplot(data_HS_filter, aes(x = Rate, y = Median, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_host_swap_pnps_all <- ggplot(data_HS_filter, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(#title = title_name,
     x = "Host-swap rate",
     y = "pN/pS ratio") +
@@ -68,9 +68,9 @@ data_HS_filter_Bacteroidota <- data_HS_filter[which(data_HS_filter$Phylum=="p__B
 title_Bacteroidota <- cal(data_HS_filter_Bacteroidota)
 Phylum.labs <- c("p__Bacteroidota") # 这个是我们希望展示出来的标签名
 names(Phylum.labs) <- c("p__Bacteroidota") # 这个是我们希望隐藏的标签名
-p_host_swap_pnps_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rate, y = Median, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_host_swap_pnps_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(x = "Host-swap rate",
        y = "pN/pS ratio") +
   theme_bw() + 
@@ -79,23 +79,43 @@ p_host_swap_pnps_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rat
   facet_grid(. ~ Phylum,labeller = labeller(Phylum = Phylum.labs))+
   theme(axis.title.x=element_text(size = 10)) + theme(axis.title.y=element_text(size = 10)) +
   theme(axis.text.x=element_text(size = 8)) + theme(axis.text.y=element_text(size = 8)) 
+
+data_HS_filter_Bacillota <- data_HS_filter[which(data_HS_filter$Phylum=="p__Bacillota"),]
+title_Bacillota <- cal(data_HS_filter_Bacillota)
+Phylum.labs <- c("p__Bacillota") # 这个是我们希望展示出来的标签名
+names(Phylum.labs) <- c("p__Bacillota") # 这个是我们希望隐藏的标签名
+p_host_swap_pnps_Bacillota <- ggplot(data_HS_filter_Bacillota, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
+  labs(x = "Host-swap rate",
+       y = "pN/pS ratio") +
+  theme_bw() + 
+  theme(panel.grid=element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +
+  facet_grid(. ~ Phylum,labeller = labeller(Phylum = Phylum.labs))+
+  theme(axis.title.x=element_text(size = 10)) + theme(axis.title.y=element_text(size = 10)) +
+  theme(axis.text.x=element_text(size = 8)) + theme(axis.text.y=element_text(size = 8)) 
+
 ## host
 data_HS_filter_TA <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Ass"),]
 title_TA <- cal(data_HS_filter_TA)
-data_HS_filter_TC <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Cattle"),]
-title_TC <- cal(data_HS_filter_TC)
-data_HS_filter_TH <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Horse"),]
-title_TH <- cal(data_HS_filter_TH)
+#data_HS_filter_TC <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Cattle"),]
+#title_TC <- cal(data_HS_filter_TC)
+#data_HS_filter_TH <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Horse"),]
+#title_TH <- cal(data_HS_filter_TH)
 data_HS_filter_TS <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Sheep"),]
 title_TS <- cal(data_HS_filter_TS)
 data_HS_filter_Yak <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Yak"),]
 title_Yak <- cal(data_HS_filter_Yak)
 Host.labs <- c("TA", "TC", "TH", "TS", "Yak") # 这个是我们希望展示出来的标签名
 names(Host.labs) <- c("Tibetan_Ass", "Tibetan_Cattle", "Tibetan_Horse", "Tibetan_Sheep", "Tibetan_Yak") # 这个是我们希望隐藏的标签名
-p_host_swap_pnps_host <- ggplot(data_HS_filter, aes(x = Rate, y = Median)) +
-  geom_point(aes(color = Host)) +
-  geom_smooth(method = "lm", se = TRUE, aes(color = Host)) +
-  scale_color_brewer(palette = "Set2") +
+data_HS_filter_host <- data_HS_filter[which(data_HS_filter$Host!="Tibetan_Cattle"),]
+data_HS_filter_host <- data_HS_filter_host[which(data_HS_filter_host$Host!="Tibetan_Horse"),]
+p_host_swap_pnps_host <- ggplot(data_HS_filter_host, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
+  #scale_color_manual(values=c("p__Bacillota_A" = "#8da0cb", "p__Bacillota" = "#fc8d62", "p__Bacteroidota" = "#66c2a5", 
+  #                            "p__Verrucomicrobiota" = "#a6d854", "p__Spirochaetota" = "#e78ac3")) +
   labs(x = "Host-swap rate",
        y = "pN/pS ratio") +
   theme_bw() + 
@@ -104,6 +124,53 @@ p_host_swap_pnps_host <- ggplot(data_HS_filter, aes(x = Rate, y = Median)) +
   facet_grid(. ~ Host,labeller = labeller(Host = Host.labs))+
   theme(axis.title.x=element_text(size = 10)) + theme(axis.title.y=element_text(size = 10)) +
   theme(axis.text.x=element_text(size = 8)) + theme(axis.text.y=element_text(size = 8))
+
+### 
+data_HS_filter_TS <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Sheep"),]
+p_host_swap_pnps_TS <- ggplot(data_HS_filter_TS, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
+  #scale_color_manual(values=c("p__Bacillota_A" = "#8da0cb", "p__Bacillota" = "#fc8d62", "p__Bacteroidota" = "#66c2a5", 
+  #                            "p__Verrucomicrobiota" = "#a6d854", "p__Spirochaetota" = "#e78ac3")) +
+  labs(x = "Host-swap rate",
+       y = "pN/pS ratio") +
+  theme_bw() + 
+  theme(panel.grid=element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +
+  facet_grid(. ~ Host,labeller = labeller(Host = Host.labs))+
+  theme(axis.title.x=element_text(size = 10)) + theme(axis.title.y=element_text(size = 10)) +
+  theme(axis.text.x=element_text(size = 8)) + theme(axis.text.y=element_text(size = 8))
+
+data_HS_filter_Yak <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Yak"),]
+p_host_swap_pnps_Yak <- ggplot(data_HS_filter_Yak, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
+  #scale_color_manual(values=c("p__Bacillota_A" = "#8da0cb", "p__Bacillota" = "#fc8d62", "p__Bacteroidota" = "#66c2a5", 
+  #                            "p__Verrucomicrobiota" = "#a6d854", "p__Spirochaetota" = "#e78ac3")) +
+  labs(x = "Host-swap rate",
+       y = "pN/pS ratio") +
+  theme_bw() + 
+  theme(panel.grid=element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +
+  facet_grid(. ~ Host,labeller = labeller(Host = Host.labs))+
+  theme(axis.title.x=element_text(size = 10)) + theme(axis.title.y=element_text(size = 10)) +
+  theme(axis.text.x=element_text(size = 8)) + theme(axis.text.y=element_text(size = 8))
+
+data_HS_filter_TA <- data_HS_filter[which(data_HS_filter$Host=="Tibetan_Ass"),]
+p_host_swap_pnps_TA <- ggplot(data_HS_filter_TA, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
+  #scale_color_manual(values=c("p__Bacillota_A" = "#8da0cb", "p__Bacillota" = "#fc8d62", "p__Bacteroidota" = "#66c2a5", 
+  #                            "p__Verrucomicrobiota" = "#a6d854", "p__Spirochaetota" = "#e78ac3")) +
+  labs(x = "Host-swap rate",
+       y = "pN/pS ratio") +
+  theme_bw() + 
+  theme(panel.grid=element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +
+  facet_grid(. ~ Host,labeller = labeller(Host = Host.labs))+
+  theme(axis.title.x=element_text(size = 10)) + theme(axis.title.y=element_text(size = 10)) +
+  theme(axis.text.x=element_text(size = 8)) + theme(axis.text.y=element_text(size = 8))
+
 
 ## "Co-phylogeny" 
 data_CP <- data[which(data$Type=="Co-phylogeny"),]
@@ -132,9 +199,9 @@ p_value <- paste0("p-value=", round(anova_result$`Pr(>F)`[1], 5))
 
 # 绘制散点图和回归线
 title_name <- paste0(Linear_Equation, ", ", R_squared, ", ", p_value)
-p_co_phylogeny_pnps_all <- ggplot(data_CP_filter, aes(x = Rate, y = Median, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_co_phylogeny_pnps_all <- ggplot(data_CP_filter, aes(x = Rate, y = Median)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(#title = title_name,
     x = "Co-phylogeny rate",
     y = "pN/pS ratio") +
@@ -176,9 +243,9 @@ p_value <- paste0("p-value=", round(anova_result$`Pr(>F)`[1], 5))
 
 # 绘制散点图和回归线
 title_name <- paste0(Linear_Equation, ", ", R_squared, ", ", p_value)
-p_host_swap_kaks_all_CountGreaterThan1 <- ggplot(data_HS_filter, aes(x = Rate, y = CountGreaterThan1, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_host_swap_kaks_all_CountGreaterThan1 <- ggplot(data_HS_filter, aes(x = Rate, y = CountGreaterThan1)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(#title = title_name,
     x = "Host-swap rate",
     y = "Frequency of single copy gene (Ka/Ks>1)") +
@@ -209,9 +276,9 @@ data_HS_filter_Bacteroidota <- data_HS_filter[which(data_HS_filter$Phyla=="p__Ba
 title_Bacteroidota <- cal(data_HS_filter_Bacteroidota)
 Phyla.labs <- c("p__Bacteroidota") # 这个是我们希望展示出来的标签名
 names(Phyla.labs) <- c("p__Bacteroidota") # 这个是我们希望隐藏的标签名
-p_host_swap_kaks_CountGreaterThan1_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rate, y = CountGreaterThan1, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_host_swap_kaks_CountGreaterThan1_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rate, y = CountGreaterThan1)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(x = "Host-swap rate",
        y = "Frequency of single copy gene (Ka/Ks>1)") +
   theme_bw() + 
@@ -246,9 +313,9 @@ p_value <- paste0("p-value=", round(anova_result$`Pr(>F)`[1], 5))
 
 # 绘制散点图和回归线
 title_name <- paste0(Linear_Equation, ", ", R_squared, ", ", p_value)
-p_host_swap_kaks_all_CountLessThan1 <- ggplot(data_HS_filter, aes(x = Rate, y = CountLessThan1, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_host_swap_kaks_all_CountLessThan1 <- ggplot(data_HS_filter, aes(x = Rate, y = CountLessThan1)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(#title = title_name,
     x = "Host-swap rate",
     y = "Frequency of single copy gene (Ka/Ks<1)") +
@@ -279,9 +346,9 @@ data_HS_filter_Bacteroidota <- data_HS_filter[which(data_HS_filter$Phyla=="p__Ba
 title_Bacteroidota <- cal(data_HS_filter_Bacteroidota)
 Phyla.labs <- c("p__Bacteroidota") # 这个是我们希望展示出来的标签名
 names(Phyla.labs) <- c("p__Bacteroidota") # 这个是我们希望隐藏的标签名
-p_host_swap_kaks_CountLessThan1_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rate, y = CountLessThan1, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_host_swap_kaks_CountLessThan1_Bacteroidota <- ggplot(data_HS_filter_Bacteroidota, aes(x = Rate, y = CountLessThan1)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(x = "Host-swap rate",
        y = "Frequency of single copy gene (Ka/Ks<1)") +
   theme_bw() + 
@@ -316,9 +383,9 @@ p_value <- paste0("p-value=", round(anova_result$`Pr(>F)`[1], 5))
 
 # 绘制散点图和回归线
 title_name <- paste0(Linear_Equation, ", ", R_squared, ", ", p_value)
-p_co_phylogeny_kaks_all_CountGreaterThan1 <- ggplot(data_CP_filter, aes(x = Rate, y = CountGreaterThan1, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_co_phylogeny_kaks_all_CountGreaterThan1 <- ggplot(data_CP_filter, aes(x = Rate, y = CountGreaterThan1)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(#title = title_name,
     x = "Co-phylogeny rate",
     y = "Frequency of single copy gene (Ka/Ks>1)") +
@@ -354,9 +421,9 @@ p_value <- paste0("p-value=", round(anova_result$`Pr(>F)`[1], 5))
 
 # 绘制散点图和回归线
 title_name <- paste0(Linear_Equation, ", ", R_squared, ", ", p_value)
-p_co_phylogeny_kaks_all_CountLessThan1 <- ggplot(data_CP_filter, aes(x = Rate, y = CountLessThan1, color = "#FF8080")) +
-  geom_point() +
-  geom_smooth(method = "lm", se = TRUE, color = "#FF8080") +
+p_co_phylogeny_kaks_all_CountLessThan1 <- ggplot(data_CP_filter, aes(x = Rate, y = CountLessThan1)) +
+  geom_point(shape = 1, color = "#000000") +
+  geom_smooth(method = "lm", se = TRUE, color = "#808080") +
   labs(#title = title_name,
     x = "Co-phylogeny rate",
     y = "Frequency of single copy gene (Ka/Ks<1)") +
@@ -371,4 +438,4 @@ p_merge <- plot_grid(p_host_swap_kaks_all_CountGreaterThan1, p_host_swap_kaks_al
                      p_co_phylogeny_kaks_all_CountGreaterThan1, p_co_phylogeny_kaks_all_CountLessThan1, p_co_phylogeny_pnps_all,
                      align = "h", labels = c("A", "B", "C", "D", "E", "F"), nrow = 2)
 
-ggsave(p_merge, filename = "Figure6.pdf", height = 6, width = 10)
+ggsave(p_merge, filename = "Figure6.pdf", height = 8, width = 12)
