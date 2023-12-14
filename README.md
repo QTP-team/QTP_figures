@@ -10,7 +10,7 @@ Figure 4. Evolutionary dynamics of gut core microbiomes.
 
 Figure 5. Vertical and horizontal inheritance of high-altitude mammalian gut symbionts.
 
-Figure 6. Functional divergence of representative SGBs with high frequent co-phylogeny or host-swap events.
+Figure 6. Evolutionary forces shaping genetic variations of representative SGBs with high level of co-phylogeny or host-swap.
 
 Supplementary Fig. 1. The effective estimation of co-binned MAGs and SGBs using all 79 Tibetan horse samples.
 
@@ -30,8 +30,8 @@ Supplementary Fig. 8. Core microbial community tree based on Bray-Curtis dissimi
 
 Supplementary Fig. 9. Structural composition of the gut microbiota in the six host species. 
 
-Supplementary Fig. 10. Comparison of the enrichment of gut microbial functions between plateau indigenous species and late-migratory species.
+Supplementary Fig. 10. Comparison of the enrichment of gut microbial functions between long-term-adaptation and short-term-adaption.
 
-Supplementary Fig. 11. Statistics of the frequency of single-copy genes (Ka/Ks>1 and Ka/Ks>1) and pN/pS ratio per SGB for high host-swap rate events and co-phylogeny rate events.
+Supplementary Fig. 11. The Single copy orthologous gene frequency of Ka/Ks>1, Ka/Ks<1 and the the pN/pS ratio comparison in high level host-swap and co-phylogeny.
 
-Supplementary Fig. 12. Functional divergence of representative SGBs with high frequent co-phylogeny or host-swap events in Bacteroidota and different host species.
+Supplementary Fig. 12. The association analysis between Ka/Ks or pN/pS and the level of host-swap in different phyla and host species.
