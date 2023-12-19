@@ -32,6 +32,6 @@ Supplementary Fig. 9. Structural composition of the gut microbiota in the six ho
 
 Supplementary Fig. 10. Comparison of the enrichment of gut microbial functions between long-term-adaptation and short-term-adaption.
 
-Supplementary Fig. 11. The Single copy orthologous gene frequency of Ka/Ks>1, Ka/Ks<1 and the the pN/pS ratio comparison in high level host-swap and co-phylogeny.
+Supplementary Fig. 11. The single copy orthologous gene frequency of Ka/Ks>1, Ka/Ks<1 and the the pN/pS ratio comparison between the high level of host-swap and co-phylogeny.
 
-Supplementary Fig. 12. The association analysis between Ka/Ks or pN/pS and the level of host-swap in different phyla and host species.
+Supplementary Fig. 12. The association analysis between Ka/Ks or pN/pS and the level of host-swap in different host species and bacterial phyla.
