@@ -19,6 +19,12 @@ plot(H.swap)
 Co.phy <- phyloCorrelogram(p4d, trait = "Co.phylogeny.rate")
 plot(Co.phy)
 ### PGLS
+#方法二 PGLS（Phylogenetic Generalized Least Squares）
+########################################################
+library(ape)
+library(geiger)
+library(nlme)
+library(phytools)
 anoleData <- read.csv("data.csv", row.names = 1)
 anoleTree <- read.tree("tree.nwk")
 #Let’s see what this tree looks like.
@@ -33,11 +39,6 @@ pN_pS_ratio <- anoleData[,"pN_pS_ratio"]
 Host_swap_rate <- anoleData[,"Host_swap_rate"]
 # Give them names
 names(pN_pS_ratio) <- names(Host_swap_rate) <- rownames(anoleData)
-
-########################################################
-#方法 PGLS（Phylogenetic Generalized Least Squares）
-########################################################
-
 pglsModel <- gls(pN_pS_ratio ~ Host_swap_rate, correlation = corBrownian(phy = anoleTree, form = ~Species),
                  data = anoleData, method = "ML")
 

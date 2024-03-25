@@ -32,4 +32,4 @@ Supplementary Fig. 9. Structural composition of the gut microbiota in the six ho
 
 Supplementary Fig. 10. Comparison of the enrichment of gut microbial functions between long-term-adaptation and short-term-adaption.
 
-Supplementary Fig. 11. Evolutionary forces shaping genetic variations of 60 genera (376 SGBs) with co-phylogeny or host-swap without phylogenetic control.
+Supplementary Fig. 11. The correlations between genetic variations of 60 genera (376 SGBs) and co-phylogeny or host-swap rate traits without phylogenetic control.
