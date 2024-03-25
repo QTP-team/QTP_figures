@@ -1,4 +1,3 @@
-setwd("~/Desktop/BGI/高原项目/QTP_redo/PFLS")
 library(ape)
 library(geiger)
 library(nlme)

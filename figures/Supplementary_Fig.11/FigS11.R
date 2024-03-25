@@ -1,4 +1,3 @@
-setwd("~/Desktop/BGI/高原项目/QTP_redo/Figure 6.pN_pS/Genus_38/")
 library(ggplot2)
 library(ggpubr)
 library(cowplot)
