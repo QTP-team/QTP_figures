@@ -6,51 +6,6 @@ library(ggpubr)
 
 sample_data <- read.csv("0.data/TableS0_samples_info.csv")
 SGB_data <- read.csv("0.data/SGBs_data.csv")
-
-process <- function(SGBID) {
-  pwd <- "1.pN_pS_result/"
-  pN_pS_data <- read.csv(paste0(pwd,SGBID,"_pNpS_value.csv"), header = F)
-  colnames(pN_pS_data) <- c("Sample", "Contig", "Gene", "Coverage", "Breadth", "pNpS_variant")
-  pN_pS_data$SGB <- SGBID
-  pN_pS_data_merge <- merge(pN_pS_data, sample_data, by.x = "Sample", by.y = "Sample_ID")
-  pN_pS_data_merge1 <- merge(pN_pS_data_merge, SGB_data, by.x = "SGB", by.y = "SGB_ID")
-  pN_pS_result <- pN_pS_data_merge1[,c(1,2,3,4,5,6,7,9,17)]
-  return(pN_pS_result)
-}
-
-### data
-
-## method2
-setwd("~/Desktop/BGI/高原项目/QTP_redo/Figure 6.pN_pS/Genus_38/1.pN_pS_result/")
-all_file <- list.files()
-n <- length(all_file)
-method2.empty <- data.frame(matrix(ncol = 7, nrow = 0))
-colnames(method2.empty) <- c("SGB_ID", "Tibetan_Ass", "Tibetan_Horse", "Tibetan_Antelope", "Tibetan_Sheep", "Tibetan_Yak", "Tibetan_Cattle")
-host.process <- function(host) {
-  pN_pS_data <- pN_pS_result[which(pN_pS_result$Host==host),]
-  pN_pS_median <- aggregate(pN_pS_data$pNpS_variant, by=list(pN_pS_data$Gene), median)
-  colnames(pN_pS_median) <- c("Gene", "pNpS_variants_median")
-  return(pN_pS_median)
-}
-
-for (i in 1:376){
-  SGBID <- strsplit(all_file[i],split = "_pNpS")[[1]][1]
-  setwd("~/Desktop/BGI/高原项目/QTP_redo/Figure 6.pN_pS/Genus_38")
-  pN_pS_result <- process(SGBID)
-  sample_result <- as.data.frame(table(unique(pN_pS_result[,c(2,8)])$Host))
-  colnames(sample_result) <- c("Host", "Freq")
-  host <- as.character(sample_result[,1])
-  method2.empty[i,1] <- SGBID
-  for(j in 1:length(host)){
-    assign(paste0(host[j],"_data"), host.process(host[j]))
-    method2.empty[i,which(names(method2.empty)%in%host[j])] <- median(get(paste0(host[j],"_data"))$pNpS_variants_median)
-  }
-}
-colnames(method2.empty) <- c("SGB_ID", "TA", "TH", "TAN", "TS", "Yak", "TC")
-
-write.csv(method2.empty, file = "method2_pNpS.csv")
-
-
 ### r2
 data <- read.csv("0.data/SGBs_data_final.csv")
 
